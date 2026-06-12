@@ -1,0 +1,85 @@
+# AMD Architecture Mapping for ROCm context-hub
+# Used by parse_isa_xml.py and query tools
+
+architectures:
+  cdna1:
+    gfx_ids: [gfx908]
+    gpu_names: [MI100]
+    lds_per_cu: "64 KB"
+    wavefront_size: 64
+    matrix_cores: true
+    mfma_support: [f32, f16, bf16, i8]
+    peak_fp16_tflops: 184.6
+    hbm: "32 GB HBM2e"
+    hbm_bw: "1.2 TB/s"
+
+  cdna2:
+    gfx_ids: [gfx90a]
+    gpu_names: [MI250X, MI250, MI210]
+    lds_per_cu: "64 KB"
+    wavefront_size: 64
+    matrix_cores: true
+    mfma_support: [f32, f16, bf16, i8, fp8]
+    peak_fp16_tflops: 383.0
+    hbm: "128 GB HBM2e (per GCD)"
+    hbm_bw: "3.2 TB/s"
+
+  cdna3:
+    gfx_ids: [gfx940, gfx942]
+    gpu_names: [MI300X, MI300A]
+    lds_per_cu: "64 KB"
+    wavefront_size: 64
+    matrix_cores: true
+    dual_cma: true
+    mfma_support: [f32, f16, bf16, i8, fp8, bf8, f6, f4]
+    peak_fp16_tflops: 654.7
+    hbm: "192 GB HBM3"
+    hbm_bw: "5.3 TB/s"
+
+  cdna4:
+    gfx_ids: [gfx950]
+    gpu_names: [MI350X, MI355X]
+    lds_per_cu: "64 KB"
+    wavefront_size: 64
+    matrix_cores: true
+    dual_cma: true
+    scaled_mfma: true
+    lds_transpose: true
+    mfma_support: [f32, f16, bf16, i8, fp8, bf8, f6, f4, block-scaled]
+    peak_fp16_tflops: "~900+"
+    hbm: "288 GB HBM3e"
+    hbm_bw: "~8 TB/s"
+
+# CUDA → ROCm terminology mapping for cross-referencing
+cuda_rocm_map:
+  warp: wavefront
+  shared_memory: lds
+  warp_shuffle: dpp
+  tensor_core: matrix_core
+  mma: mfma
+  cp_async: flat_load_async
+  tma: "no_direct_equiv"
+  cooperative_groups: "hip coop groups"
+  occupancy: occupancy
+  sm: compute_unit
+  thread_block: workgroup
+  thread: lane
+  register: vgpr
+  constant_memory: constant_memory
+  texture_memory: "not_applicable"
+  surface_memory: "not_applicable"
+  cuda_stream: hip_stream
+  cuda_event: hip_event
+  nvcc: hipcc
+  ptx: gcn_isa
+  sass: "single_layer_isa"
+  nsight: rocprof
+  cutlass: composable_kernel
+  cublas: rocblas
+  cublaslt: hipblaslt
+  cudnn: miopen
+  cufft: rocfft
+  curand: rocrand
+  cusparse: rocsparse
+  cusolver: rocsolver
+  nccl: rccl
