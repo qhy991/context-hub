@@ -87,4 +87,4 @@ metadata:
 - [ROCm Documentation](https://rocm.docs.amd.com/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
 - [Composable Kernel Library](https://github.com/ROCm/composable_kernel)
-- [ROCm-KernelWiki-Q](https://github.com/user/ROCm-KernelWiki-Q) — Knowledge graph companion
+- [ROCm-KernelWiki-Q](https://github.com/qhy991/ROCm-KernelWiki-Q) — Knowledge graph companion
