@@ -8,10 +8,10 @@ metadata:
   revision: 2
   updated-on: '2026-06-12'
   source: official
-  tags: rocm,gpu,image,isa,unknown,unknown
-  isa_category: unknown
-  instruction_type: unknown
-  hw_unit: unknown
+  tags: rocm,gpu,image,isa
+  isa_category: memory
+  instruction_type: MIMG
+  hw_unit: texture-unit
   func_group: VMEM
   arch_name: AMD CDNA 2
 ---

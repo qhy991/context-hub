@@ -8,10 +8,10 @@ metadata:
   revision: 1
   updated-on: '2026-06-12'
   source: official
-  tags: rocm,gpu,exp,isa,unknown,unknown
-  isa_category: unknown
-  instruction_type: unknown
-  hw_unit: unknown
+  tags: rocm,gpu,exp,isa
+  isa_category: export
+  instruction_type: EXP
+  hw_unit: export-unit
   func_group: EXPORT
   arch_name: AMD CDNA 1
 ---

@@ -8,10 +8,10 @@ metadata:
   revision: 4
   updated-on: '2026-06-12'
   source: official
-  tags: rocm,gpu,scratch,isa,unknown,unknown
-  isa_category: unknown
-  instruction_type: unknown
-  hw_unit: unknown
+  tags: rocm,gpu,scratch,isa
+  isa_category: memory
+  instruction_type: DS
+  hw_unit: lds
   func_group: VMEM
   arch_name: AMD CDNA 4
 ---
