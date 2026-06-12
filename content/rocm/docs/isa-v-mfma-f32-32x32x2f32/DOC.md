@@ -1,65 +1,42 @@
 ---
 name: isa-v-mfma-f32-32x32x2f32
-description: "Matrix Fused Multiply-Add: 32x32x2 F32 input, F32 accumulation. Large tile variant for higher arithmetic intensity."
+description: "Multiply the 32x2 matrix in the first input by the 2x32 matrix in the second input and add the 32x32 matrix in the third input using fused multiply add. Store the resulting matrix into vector registers."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
-  versions: 'CDNA1+'
+  architectures: cdna1,cdna2
+  versions: 'CDNA2+'
   revision: 1
   updated-on: '2026-06-12'
   source: official
-  tags: rocm,gpu,mfma,isa,matrix-core,compute,gemm,cdna
+  tags: rocm,gpu,v,isa,matrix-core,compute,matrix-core,mfma
   isa_category: compute
   instruction_type: VOP3P
   hw_unit: matrix-core
+  func_group: VALU
+  arch_name: AMD CDNA 2
 ---
 
-# v_mfma_f32_32x32x2f32
+# V_MFMA_F32_32X32X2F32
 
-Matrix Fused Multiply-Accumulate: 32x32x2 tile for higher arithmetic intensity.
+Multiply the 32x2 matrix in the first input by the 2x32 matrix in the second input and add the 32x32 matrix in the third input using fused multiply add. Store the resulting matrix into vector registers.
 
-## Syntax
+## Encoding
 
-```asm
-v_mfma_f32_32x32x2f32 v[0:31], v[0:3], v[4:7], v[0:31]
-```
+Encoding: `VOP3P_MFMA`
+Opcode: `68`
+
 
 ## Operands
 
-| Operand | Type | Count | Description |
-|---------|------|-------|-------------|
-| v[dst:dst+31] | VGPR | 32 | 32x32 F32 accumulator |
-| srcA | VGPR | 4 | 32x2 F32 input matrix A |
-| srcB | VGPR | 4 | 2x32 F32 input matrix B |
-| v[src:src+31] | VGPR | 32 | Previous accumulator |
+| Field | Type | Size | Direction | Implicit |
+|-------|------|------|-----------|----------|
+| VDST | VGPR_OR_ACCVGPR | 512bit | out | no |
+| SRC0 | SRC_VGPR_OR_ACCVGPR | 32bit | in | no |
+| SRC1 | SRC_VGPR_OR_ACCVGPR | 32bit | in | no |
+| SRC2 | SRC_VGPR_OR_ACCVGPR_OR_CONST | 512bit | in | no |
 
-## Description
-
-Computes `D += A * B` where A is 32x2, B is 2x32, producing a 32x32 F32 result.
-
-Requires 32 VGPRs per accumulator — high register pressure but maximum arithmetic intensity for FP32 workloads.
-
-## Architecture Support
-
-| Architecture | GFX | Support |
-|-------------|-----|---------|
-| CDNA1 | gfx908 | ✓ |
-| CDNA2 | gfx90a | ✓ |
-| CDNA3 | gfx940/gfx942 | ✓ |
-| CDNA4 | gfx950 | ✓ |
-
-## Register Pressure Considerations
-
-- 32 VGPRs per accumulator tile
-- With double buffering: 64 VGPRs just for accumulators
-- Limits occupancy: max 8 waves/CU with double-buffered 32x32 tiles
-- Consider 16x16 tiles for higher occupancy kernels
-
-## See Also
-
-- `v_mfma_f32_16x16x4f32` — Lower register pressure (16 VGPRs)
-- `v_mfma_f32_4x4x1f32` — Minimal variant
 
 ## References
 
-- [CDNA4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/amd-instinct-cdna4-instruction-set-architecture.pdf)
+- [AMD CDNA 2 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
+- [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)

@@ -1,0 +1,42 @@
+---
+name: isa-image-get-lod
+description: "Return the calculated level of detail (LOD) for the provided input as two single-precision float values. No memory access is performed."
+metadata:
+  languages: hip
+  architectures: cdna1
+  versions: 'CDNA1+'
+  revision: 1
+  updated-on: '2026-06-12'
+  source: official
+  tags: rocm,gpu,image,isa,unknown,unknown
+  isa_category: unknown
+  instruction_type: unknown
+  hw_unit: unknown
+  func_group: VMEM
+  arch_name: AMD CDNA 1
+---
+
+# IMAGE_GET_LOD
+
+Return the calculated level of detail (LOD) for the provided input as two single-precision float values. No memory access is performed.
+
+## Encoding
+
+Encoding: `ENC_MIMG`
+Opcode: `96`
+
+
+## Operands
+
+| Field | Type | Size | Direction | Implicit |
+|-------|------|------|-----------|----------|
+| VDATA | VGPR | 128bit | out | no |
+| VADDR | VGPR | 96bit | in | no |
+| SRSRC | SREG | 256bit | in | no |
+| SSAMP | SREG | 128bit | in | no |
+
+
+## References
+
+- [AMD CDNA 1 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
+- [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)

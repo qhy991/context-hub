@@ -1,0 +1,43 @@
+---
+name: isa-flat-load-ubyte-d16
+description: "Load 8 bits of unsigned data from the flat aperture, zero extend to 16 bits and store the result into the low 16 bits of a 32-bit vector register."
+metadata:
+  languages: hip
+  architectures: cdna1,cdna2,cdna3,cdna4
+  versions: 'CDNA4+'
+  revision: 1
+  updated-on: '2026-06-12'
+  source: official
+  tags: rocm,gpu,flat,isa,memory-controller,memory
+  isa_category: memory
+  instruction_type: FLAT
+  hw_unit: memory-controller
+  func_group: VMEM
+  arch_name: AMD CDNA 4
+---
+
+# FLAT_LOAD_UBYTE_D16
+
+Load 8 bits of unsigned data from the flat aperture, zero extend to 16 bits and store the result into the low 16 bits of a 32-bit vector register.
+
+## Encoding
+
+Encoding: `ENC_FLAT`
+Opcode: `32`
+
+
+## Operands
+
+| Field | Type | Size | Direction | Implicit |
+|-------|------|------|-----------|----------|
+| VDST | VGPR_OR_ACCVGPR | 32bit | out | no |
+| ADDR | VGPR | 64bit | in | no |
+|  | FLAT_SCRATCH | 64bit | in | yes |
+|  | GPUMEM | 8bit | in | yes |
+|  | SDST_M0 | 32bit | in | yes |
+
+
+## References
+
+- [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
+- [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)

@@ -1,0 +1,46 @@
+---
+name: isa-v-cmpx-class-f64
+description: "Evaluate the IEEE numeric class function specified as a 10 bit mask in the second input on the first input, a double-precision float, and set the per-lane condition code to the result. Store the result into the EXEC mask and to VCC or a scalar register."
+metadata:
+  languages: hip
+  architectures: cdna1,cdna2,cdna3,cdna4
+  versions: 'CDNA4+'
+  revision: 1
+  updated-on: '2026-06-12'
+  source: official
+  tags: rocm,gpu,v,isa,flow,compute
+  isa_category: compute
+  instruction_type: VOP
+  hw_unit: flow
+  func_group: VALU
+  arch_name: AMD CDNA 4
+---
+
+# V_CMPX_CLASS_F64
+
+Evaluate the IEEE numeric class function specified as a 10 bit mask in the second input on the first input, a double-precision float, and set the per-lane condition code to the result. Store the result into the EXEC mask and to VCC or a scalar register.
+
+## Encoding
+
+Encoding: `ENC_VOP3`
+Opcode: `19`
+
+
+## Operands
+
+| Field | Type | Size | Direction | Implicit |
+|-------|------|------|-----------|----------|
+| VDST | SDST | 64bit | out | no |
+| SRC0 | SRC_NOLIT | 64bit | in | no |
+| SRC1 | SRC_SIMPLE | 32bit | in | no |
+|  | SDST_EXEC | 64bit | out | yes |
+|  | VCC | 64bit | out | no |
+| SRC0 | SRC | 64bit | in | no |
+| VSRC1 | VGPR | 32bit | in | no |
+| LITERAL | SRC | 64bit | in | no |
+
+
+## References
+
+- [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
+- [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)

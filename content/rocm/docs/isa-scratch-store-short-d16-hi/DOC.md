@@ -1,0 +1,44 @@
+---
+name: isa-scratch-store-short-d16-hi
+description: "Store 16 bits of data from the high 16 bits of a 32-bit vector register into the scratch aperture."
+metadata:
+  languages: hip
+  architectures: cdna1,cdna2,cdna3,cdna4
+  versions: 'CDNA4+'
+  revision: 1
+  updated-on: '2026-06-12'
+  source: official
+  tags: rocm,gpu,scratch,isa,unknown,unknown
+  isa_category: unknown
+  instruction_type: unknown
+  hw_unit: unknown
+  func_group: VMEM
+  arch_name: AMD CDNA 4
+---
+
+# SCRATCH_STORE_SHORT_D16_HI
+
+Store 16 bits of data from the high 16 bits of a 32-bit vector register into the scratch aperture.
+
+## Encoding
+
+Encoding: `ENC_FLAT_SCRATCH`
+Opcode: `27`
+
+
+## Operands
+
+| Field | Type | Size | Direction | Implicit |
+|-------|------|------|-----------|----------|
+| ADDR | VGPR | 32bit | in | no |
+| DATA | VGPR_OR_ACCVGPR | 32bit | in | no |
+| SADDR | SREG | 32bit | in | no |
+|  | GPUMEM | 16bit | out | yes |
+|  | FLAT_SCRATCH | 64bit | in | yes |
+|  | SDST_M0 | 32bit | in | yes |
+
+
+## References
+
+- [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
+- [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)

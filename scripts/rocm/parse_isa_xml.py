@@ -2,16 +2,60 @@
 """
 Parse AMD Machine-Readable ISA XML → context-hub DOC.md files.
 
+XML structure (from AMD GPUOpen):
+  <Spec>
+    <Document>...</Document>
+    <ISA>
+      <Architecture>
+        <ArchitectureName>AMD CDNA 4</ArchitectureName>
+        <ArchitectureId>3</ArchitectureId>
+      </Architecture>
+      <Encodings>...</Encodings>
+      <Instructions>
+        <Instruction>
+          <InstructionFlags>...</InstructionFlags>
+          <InstructionName>DS_ADD_U32</InstructionName>
+          <Description>Add two unsigned 32-bit ...</Description>
+          <InstructionEncodings>
+            <InstructionEncoding>
+              <EncodingName>ENC_DS</EncodingName>
+              <Operands>
+                <Operand Input="true" Output="false" ...>
+                  <FieldName>ADDR</FieldName>
+                  <DataFormatName>FMT_NUM_B32</DataFormatName>
+                  <OperandType>OPR_VGPR</OperandType>
+                  <OperandSize>32</OperandSize>
+                </Operand>
+              </Operands>
+            </InstructionEncoding>
+          </InstructionEncodings>
+          <FunctionalGroup>
+            <Name>VMEM</Name>
+            <FunctionalSubgroups>
+              <Subgroup>ATOMIC</Subgroup>
+              <Subgroup>DATA_SHARE</Subgroup>
+            </FunctionalSubgroups>
+          </FunctionalGroup>
+        </Instruction>
+      </Instructions>
+      <DataFormats>...</DataFormats>
+      <OperandTypes>...</OperandTypes>
+      <FunctionalGroups>...</FunctionalGroups>
+    </ISA>
+  </Spec>
+
 Usage:
     python3 parse_isa_xml.py --xml amdgpu_isa_cdna4.xml --outdir ../../content/rocm/docs
+    python3 parse_isa_xml.py --xml /tmp/amdgpu_isa_specs/amdgpu_isa_cdna3.xml --outdir ../../content/rocm/docs
 
-The XML spec is downloadable from https://gpuopen.com/machine-readable-isa/
+Download XML from: https://gpuopen.com/download/machine-readable-isa/latest/
 """
 
 import argparse
 import os
 import re
 import xml.etree.ElementTree as ET
+from datetime import date
 from pathlib import Path
 
 # ── Architecture mapping ──────────────────────────────────────────────
@@ -21,92 +65,118 @@ ARCH_MAP = {
     "cdna2": {"gfx": "gfx90a", "gpu": "MI250/MI210"},
     "cdna3": {"gfx": "gfx940,gfx942", "gpu": "MI300X/MI300A"},
     "cdna4": {"gfx": "gfx950", "gpu": "MI350X/MI355X"},
+    "rdna1": {"gfx": "gfx1010", "gpu": "RX 5700"},
+    "rdna2": {"gfx": "gfx1030", "gpu": "RX 6800"},
+    "rdna3": {"gfx": "gfx1100", "gpu": "RX 7900"},
+    "rdna3_5": {"gfx": "gfx1150", "gpu": "RX 9070"},
+    "rdna4": {"gfx": "gfx1200", "gpu": "RX 9060"},
 }
 
-# Instruction classification
-HW_UNIT_MAP = {
-    "v_mfma": "matrix-core",
-    "v_dot": "matrix-core",
-    "v_mac": "simd-unit",
-    "v_mad": "simd-unit",
-    "v_add": "simd-unit",
-    "v_mul": "simd-unit",
-    "v_mov_dpp": "simd-unit",
-    "v_perm": "simd-unit",
-    "ds_read": "lds",
-    "ds_write": "lds",
-    "ds_": "lds",
-    "flat_load": "memory-controller",
-    "flat_store": "memory-controller",
-    "global_load": "memory-controller",
-    "global_store": "memory-controller",
-    "s_load": "scalar-unit",
-    "s_store": "scalar-unit",
-    "s_waitcnt": "scheduler",
-    "s_barrier": "scheduler",
-    "exp": "export-unit",
+# Instruction classification by name prefix
+HW_UNIT_MAP = [
+    ("V_MFMA", "matrix-core"),
+    ("V_SMFMAC", "matrix-core"),
+    ("V_DOT", "matrix-core"),
+    ("V_MAC", "simd-unit"),
+    ("V_MAD", "simd-unit"),
+    ("V_ADD", "simd-unit"),
+    ("V_SUB", "simd-unit"),
+    ("V_MUL", "simd-unit"),
+    ("V_FMA", "simd-unit"),
+    ("V_MOV_DPP", "simd-unit"),
+    ("V_MOV", "simd-unit"),
+    ("V_PERM", "simd-unit"),
+    ("V_CMP", "flow"),
+    ("V_CNDMASK", "flow"),
+    ("DS_READ", "lds"),
+    ("DS_WRITE", "lds"),
+    ("DS_", "lds"),
+    ("FLAT_", "memory-controller"),
+    ("GLOBAL_", "memory-controller"),
+    ("BUFFER_", "memory-controller"),
+    ("S_LOAD", "scalar-unit"),
+    ("S_STORE", "scalar-unit"),
+    ("S_WAITCNT", "scheduler"),
+    ("S_BARRIER", "scheduler"),
+    ("S_", "scalar-unit"),
+    ("EXP_", "export-unit"),
+    ("V_", "simd-unit"),
+]
+
+ISA_CATEGORY_MAP = [
+    ("V_MFMA", "compute"),
+    ("V_SMFMAC", "compute"),
+    ("V_DOT", "compute"),
+    ("V_MAC", "compute"),
+    ("V_MAD", "compute"),
+    ("V_ADD", "compute"),
+    ("V_SUB", "compute"),
+    ("V_MUL", "compute"),
+    ("V_FMA", "compute"),
+    ("V_", "compute"),
+    ("DS_", "memory"),
+    ("FLAT_", "memory"),
+    ("GLOBAL_", "memory"),
+    ("BUFFER_", "memory"),
+    ("S_LOAD", "memory"),
+    ("S_STORE", "memory"),
+    ("S_WAITCNT", "synchronization"),
+    ("S_BARRIER", "synchronization"),
+    ("S_", "flow"),
+    ("EXP_", "export"),
+]
+
+INSTRUCTION_TYPE_MAP = [
+    ("V_MFMA", "VOP3P"),
+    ("V_SMFMAC", "VOP3P"),
+    ("V_DOT", "VOP3P"),
+    ("V_MOV_DPP", "VOP1_DPP"),
+    ("V_PERMLANE", "VOP1"),
+    ("DS_", "DS"),
+    ("FLAT_", "FLAT"),
+    ("GLOBAL_", "GLOBAL"),
+    ("BUFFER_", "MTBUF/MUBUF"),
+    ("S_", "SOP"),
+    ("EXP_", "EXP"),
+    ("V_", "VOP"),
+]
+
+# Functional group → category mapping
+FUNCGROUP_CATEGORY = {
+    "COMPUTE": "compute",
+    "VMEM": "memory",
+    "DS": "memory",
+    "SALU": "flow",
+    "SMRD": "memory",
+    "EXPORT": "export",
+    "BRANCH": "flow",
+    "WAITCNT": "synchronization",
 }
 
-ISA_CATEGORY_MAP = {
-    "v_mfma": "compute",
-    "v_dot": "compute",
-    "v_mac": "compute",
-    "v_mad": "compute",
-    "v_add": "compute",
-    "v_mul": "compute",
-    "v_fma": "compute",
-    "v_mov": "compute",
-    "v_cmp": "flow",
-    "v_cndmask": "flow",
-    "v_branch": "flow",
-    "ds_read": "memory",
-    "ds_write": "memory",
-    "ds_": "memory",
-    "flat_": "memory",
-    "global_": "memory",
-    "s_load": "memory",
-    "s_store": "memory",
-    "s_waitcnt": "synchronization",
-    "s_barrier": "synchronization",
-    "s_sendmsg": "synchronization",
-}
 
-INSTRUCTION_TYPE_MAP = {
-    "v_mfma": "VOP3P",
-    "v_dot": "VOP3P",
-    "v_mac": "VOP2/VOP3",
-    "v_mad": "VOP3",
-    "v_add": "VOP2",
-    "v_mul": "VOP2",
-    "v_mov": "VOP1",
-    "v_mov_dpp": "VOP1_DPP",
-    "ds_": "DS",
-    "flat_": "FLAT",
-    "global_": "GLOBAL",
-    "s_": "SOP",
-    "exp_": "EXP",
-}
+def classify_instruction(name: str, funcgroup: str = "") -> dict:
+    """Classify an instruction by its name prefix and functional group."""
+    name_upper = name.upper()
 
-
-def classify_instruction(name: str) -> dict:
-    """Classify an instruction by its prefix."""
-    name_lower = name.lower()
     hw_unit = "unknown"
-    isa_category = "unknown"
-    instruction_type = "unknown"
-
-    for prefix, unit in HW_UNIT_MAP.items():
-        if name_lower.startswith(prefix):
+    for prefix, unit in HW_UNIT_MAP:
+        if name_upper.startswith(prefix):
             hw_unit = unit
             break
 
-    for prefix, cat in ISA_CATEGORY_MAP.items():
-        if name_lower.startswith(prefix):
+    isa_category = "unknown"
+    for prefix, cat in ISA_CATEGORY_MAP:
+        if name_upper.startswith(prefix):
             isa_category = cat
             break
+    # Override with functional group if available
+    if funcgroup and funcgroup in FUNCGROUP_CATEGORY:
+        # Name-based classification takes priority for specificity
+        pass
 
-    for prefix, itype in INSTRUCTION_TYPE_MAP.items():
-        if name_lower.startswith(prefix):
+    instruction_type = "unknown"
+    for prefix, itype in INSTRUCTION_TYPE_MAP:
+        if name_upper.startswith(prefix):
             instruction_type = itype
             break
 
@@ -119,7 +189,6 @@ def classify_instruction(name: str) -> dict:
 
 def slugify(name: str) -> str:
     """Convert instruction name to filesystem slug."""
-    # v_mfma_f32_16x16x4f32 → isa-v-mfma-f32-16x16x4f32
     slug = name.lower().strip()
     slug = re.sub(r"[^a-z0-9_]", "-", slug)
     slug = re.sub(r"_+", "-", slug)
@@ -128,113 +197,210 @@ def slugify(name: str) -> str:
     return f"isa-{slug}"
 
 
-def determine_architectures(xml_filename: str) -> str:
-    """Determine which architectures this XML covers."""
+def determine_architectures(xml_filename: str) -> tuple[str, str]:
+    """Determine architectures and version from XML filename."""
+    filename_lower = xml_filename.lower()
     for arch_key in ARCH_MAP:
-        if arch_key in xml_filename.lower():
-            # Also include earlier archs if they support the instruction
+        if arch_key in filename_lower:
             idx = list(ARCH_MAP.keys()).index(arch_key)
             all_archs = list(ARCH_MAP.keys())[: idx + 1]
-            return ",".join(all_archs)
-    return "cdna1,cdna2,cdna3,cdna4"
+            # Only include CDNA archs for CDNA files, RDNA for RDNA files
+            if arch_key.startswith("cdna"):
+                all_archs = [a for a in all_archs if a.startswith("cdna")]
+            elif arch_key.startswith("rdna"):
+                all_archs = [a for a in all_archs if a.startswith("rdna")]
+            return ",".join(all_archs), f"{arch_key.upper()}+"
+    return "cdna1,cdna2,cdna3,cdna4", "CDNA1+"
 
 
-def determine_version(xml_filename: str) -> str:
-    """Determine the minimum architecture version."""
-    for arch_key in ARCH_MAP:
-        if arch_key in xml_filename.lower():
-            return f"{arch_key.upper()}+"
-    return "CDNA1+"
+def parse_operands(encoding_elem) -> list[dict]:
+    """Parse operands from an InstructionEncoding element."""
+    operands = []
+    ops_elem = encoding_elem.find("Operands")
+    if ops_elem is None:
+        return operands
+
+    for op in ops_elem.findall("Operand"):
+        operand = {
+            "field": op.findtext("FieldName", ""),
+            "data_format": op.findtext("DataFormatName", ""),
+            "type": op.findtext("OperandType", ""),
+            "size": op.findtext("OperandSize", ""),
+            "is_input": op.get("Input", "false") == "true",
+            "is_output": op.get("Output", "false") == "true",
+            "is_implicit": op.get("IsImplicit", "false") == "true",
+        }
+        operands.append(operand)
+    return operands
 
 
-def extract_instruction_docs(xml_path: str, out_dir: str, arch_hint: str = None):
+def extract_instruction_docs(xml_path: str, out_dir: str, filter_re: str = None):
     """Parse ISA XML and generate DOC.md files for each instruction."""
 
     tree = ET.parse(xml_path)
     root = tree.getroot()
 
     xml_name = os.path.basename(xml_path)
-    architectures = arch_hint or determine_architectures(xml_name)
-    version = determine_version(xml_name)
+    architectures, version = determine_architectures(xml_name)
+    today = date.today().isoformat()
+
+    # Extract architecture name from XML
+    arch_name = "Unknown"
+    isa_elem = root.find("ISA")
+    if isa_elem is not None:
+        arch_elem = isa_elem.find("Architecture")
+        if arch_elem is not None:
+            arch_name = arch_elem.findtext("ArchitectureName", "Unknown")
+
+    # Find instructions
+    instructions_elem = None
+    if isa_elem is not None:
+        instructions_elem = isa_elem.find("Instructions")
+
+    if instructions_elem is None:
+        print(f"ERROR: No <Instructions> element found in {xml_name}")
+        return 0, 0
 
     count = 0
-    errors = 0
+    skipped = 0
+    filter_pattern = re.compile(filter_re, re.IGNORECASE) if filter_re else None
 
-    # Navigate XML structure to find instructions
-    # AMD ISA XML typically has: <architecture> → <instructions> → <instruction>
-    for instr_elem in root.iter():
-        # Try multiple possible XML structures
-        tag = instr_elem.tag.split("}")[-1] if "}" in instr_elem.tag else instr_elem.tag
-
-        if tag not in ("instruction", "Instruction", "inst"):
-            continue
-
-        # Extract instruction name
-        name = None
-        description = ""
-        encoding = ""
-        operands = []
-
-        # Try different attribute names
-        name = (
-            instr_elem.get("name")
-            or instr_elem.get("Name")
-            or instr_elem.get("id")
-            or instr_elem.findtext("name")
-            or instr_elem.findtext("Name")
-        )
-
+    for instr_elem in instructions_elem.findall("Instruction"):
+        name = instr_elem.findtext("InstructionName", "")
         if not name:
             continue
 
-        # Skip non-compute instructions that aren't useful for kernel dev
-        if any(skip in name.lower() for skip in ["s_set_gpr_idx", "s_cbranch", "s_cselect"]):
+        # Apply filter
+        if filter_pattern and not filter_pattern.search(name):
+            skipped += 1
             continue
 
         # Extract description
-        desc_elem = (
-            instr_elem.find("description")
-            or instr_elem.find("Description")
-            or instr_elem.find("desc")
-        )
-        if desc_elem is not None and desc_elem.text:
-            description = desc_elem.text.strip()
+        description = instr_elem.findtext("Description", "").strip()
+        if not description:
+            description = f"{name} instruction"
+
+        # Extract functional group
+        funcgroup = ""
+        fg_elem = instr_elem.find("FunctionalGroup")
+        if fg_elem is not None:
+            funcgroup = fg_elem.findtext("Name", "")
+
+        # Extract instruction flags
+        flags = {}
+        flags_elem = instr_elem.find("InstructionFlags")
+        if flags_elem is not None:
+            for flag in flags_elem:
+                flags[flag.tag] = flag.text
+
+        # Extract encodings and operands
+        encodings = []
+        enc_elem = instr_elem.find("InstructionEncodings")
+        if enc_elem is not None:
+            for enc in enc_elem.findall("InstructionEncoding"):
+                enc_data = {
+                    "name": enc.findtext("EncodingName", ""),
+                    "opcode": enc.findtext("Opcode", ""),
+                    "condition": enc.findtext("EncodingCondition", ""),
+                    "operands": parse_operands(enc),
+                }
+                encodings.append(enc_data)
 
         # Classify
-        classification = classify_instruction(name)
+        classification = classify_instruction(name, funcgroup)
         slug = slugify(name)
 
-        # Generate DOC.md
-        doc_dir = os.path.join(out_dir, slug)
-        os.makedirs(doc_dir, exist_ok=True)
+        # Generate tags
+        prefix = name.split("_")[0].lower() if "_" in name else name[:3].lower()
+        name_parts = name.lower().replace("_", ",").split(",")
+        tags = f"rocm,gpu,{prefix},isa,{classification['hw_unit']},{classification['isa_category']}"
+        # Add extra meaningful tags
+        if "mfma" in name.lower():
+            tags += ",matrix-core,mfma"
+        if "dpp" in name.lower():
+            tags += ",dpp,cross-lane"
+        if "f16" in name.lower() or "bf16" in name.lower():
+            tags += ",low-precision"
+        if "f8" in name.lower() or "fp8" in name.lower():
+            tags += ",fp8"
+        if "atomic" in name.lower():
+            tags += ",atomic"
 
+        # Build operands table
+        operands_md = ""
+        all_operands = []
+        for enc in encodings:
+            all_operands.extend(enc["operands"])
+
+        if all_operands:
+            operands_md = "\n## Operands\n\n"
+            operands_md += "| Field | Type | Size | Direction | Implicit |\n"
+            operands_md += "|-------|------|------|-----------|----------|\n"
+            seen = set()
+            for op in all_operands:
+                key = (op["field"], op["type"])
+                if key in seen:
+                    continue
+                seen.add(key)
+                direction = "in" if op["is_input"] else "out"
+                if op["is_input"] and op["is_output"]:
+                    direction = "in/out"
+                implicit = "yes" if op["is_implicit"] else "no"
+                operands_md += f"| {op['field']} | {op['type'].replace('OPR_', '')} | {op['size']}bit | {direction} | {implicit} |\n"
+
+        # Build encoding info
+        encoding_md = ""
+        if encodings:
+            encoding_md = f"\n## Encoding\n\n"
+            encoding_md += f"Encoding: `{encodings[0]['name']}`\n"
+            if encodings[0]['opcode']:
+                encoding_md += f"Opcode: `{encodings[0]['opcode']}`\n"
+
+        # Build flags info
+        flags_md = ""
+        if flags:
+            true_flags = [k for k, v in flags.items() if v == "TRUE"]
+            if true_flags:
+                flags_md = f"\n## Flags\n\n"
+                for f in true_flags:
+                    flags_md += f"- {f}\n"
+
+        # Escape description for YAML
+        desc_escaped = description.replace('"', '\\"').replace("\n", " ")
+
+        # Generate DOC.md
         doc_content = f"""---
 name: {slug}
-description: "{description or name + ' instruction'}"
+description: "{desc_escaped}"
 metadata:
   languages: hip
   architectures: {architectures}
   versions: '{version}'
   revision: 1
-  updated-on: '{__import__("datetime").date.today().isoformat()}'
+  updated-on: '{today}'
   source: official
-  tags: rocm,gpu,{','.join(name.lower().split('_')[:2])},isa,{classification['hw_unit']},{classification['isa_category']},cdna
+  tags: {tags}
   isa_category: {classification['isa_category']}
   instruction_type: {classification['instruction_type']}
   hw_unit: {classification['hw_unit']}
+  func_group: {funcgroup}
+  arch_name: {arch_name}
 ---
 
 # {name}
 
-{description or f"AMD GPU instruction: {name}"}
-
-> Auto-extracted from `{xml_name}` (AMD Machine-Readable ISA XML).
-
+{description}
+{encoding_md}
+{operands_md}
+{flags_md}
 ## References
 
-- [CDNA4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/amd-instinct-cdna4-instruction-set-architecture.pdf)
+- [{arch_name} ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
 """
+
+        doc_dir = os.path.join(out_dir, slug)
+        os.makedirs(doc_dir, exist_ok=True)
 
         doc_path = os.path.join(doc_dir, "DOC.md")
         with open(doc_path, "w") as f:
@@ -242,7 +408,7 @@ metadata:
 
         count += 1
 
-    return count, errors
+    return count, skipped
 
 
 def main():
@@ -257,36 +423,37 @@ def main():
     parser.add_argument(
         "--outdir",
         default="../../content/rocm/docs",
-        help="Output directory for DOC.md files",
-    )
-    parser.add_argument(
-        "--arch",
-        default=None,
-        help="Override architecture string (e.g., 'cdna3,cdna4')",
+        help="Output directory for DOC.md files (default: ../../content/rocm/docs)",
     )
     parser.add_argument(
         "--filter",
         default=None,
-        help="Only process instructions matching this regex",
+        help="Only process instructions matching this regex (e.g., 'MFMA|DPP|DS_READ')",
     )
 
     args = parser.parse_args()
 
     if not os.path.exists(args.xml):
         print(f"Error: XML file not found: {args.xml}")
-        print("Download from https://gpuopen.com/machine-readable-isa/")
+        print("Download from https://gpuopen.com/download/machine-readable-isa/latest/")
         return 1
 
     out_dir = os.path.abspath(args.outdir)
     os.makedirs(out_dir, exist_ok=True)
 
-    print(f"Parsing: {args.xml}")
+    print(f"XML:     {args.xml}")
     print(f"Output:  {out_dir}")
+    if args.filter:
+        print(f"Filter:  {args.filter}")
+    print()
 
-    count, errors = extract_instruction_docs(args.xml, out_dir, args.arch)
+    count, skipped = extract_instruction_docs(args.xml, out_dir, args.filter)
 
-    print(f"\nDone: {count} instructions extracted, {errors} errors")
-    print(f"\nNext step: cd {os.path.dirname(out_dir)} && chub build content/")
+    print(f"\nDone: {count} instructions extracted, {skipped} skipped by filter")
+    print(f"Output directory: {out_dir}")
+    print(f"\nNext steps:")
+    print(f"  cd {os.path.dirname(out_dir)}")
+    print(f"  chub build content/")
 
     return 0
 
