@@ -3,7 +3,7 @@ name: isa-v-mfma-f32-32x32x16-bf16
 description: "Multiply the 32x16 matrix in the first input by the 16x32 matrix in the second input and add the 32x32 matrix in the third input using fused multiply add. Store the resulting matrix into vector registers."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

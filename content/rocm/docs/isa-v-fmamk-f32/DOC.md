@@ -3,9 +3,9 @@ name: isa-v-fmamk-f32
 description: "Multiply a single-precision float input with a literal constant and add a second single-precision float input using fused multiply add, and store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,v,isa,simd-unit,compute

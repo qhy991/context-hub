@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphexternalsemaphoressignalnodesetparams
-description: "hipGraphExternalSemaphoresSignalNodeSetParams HIP Runtime API function"
+description: "Updates node parameters in the external semaphore signal node."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphExternalSemaphoresSignalNodeSetParams
 
-hipGraphExternalSemaphoresSignalNodeSetParams HIP Runtime API function
+Updates node parameters in the external semaphore signal node.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphExternalSemaphoresSignalNodeSetParams(hipGraphNode_t hNode, const hipExternalSemaphoreSignalNodeParams *nodeParams);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `hNode` | - Node from the graph from which graphExec was instantiated. |
+| [in] | `nodeParams` | - Pointer to the params to be set. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga25d077916d21a34bf5bfb7f7cc13eaf8)

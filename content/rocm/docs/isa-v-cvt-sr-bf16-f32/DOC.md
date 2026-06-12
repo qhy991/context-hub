@@ -3,7 +3,7 @@ name: isa-v-cvt-sr-bf16-f32
 description: "Convert from a single-precision float input to a BF16 value with stochastic rounding using seed data from the second input. Store the result into 16 bits of a vector register using OPSEL to determine which word of the destination to overwrite."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

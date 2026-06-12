@@ -3,7 +3,7 @@ name: isa-buffer-atomic-pk-add-bf16
 description: "Add a packed 2-component BF16 float value in the data register to a location in a buffer surface. Store the original value from buffer surface into a vector register iff the SC0 bit is set."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

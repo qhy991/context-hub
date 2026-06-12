@@ -1,11 +1,11 @@
 ---
 name: hip-hipstreamcopyattributes
-description: "hipStreamCopyAttributes HIP Runtime API function"
+description: "Copies attributes from source stream to destination stream."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,stream-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipStreamCopyAttributes
 
-hipStreamCopyAttributes HIP Runtime API function
+Copies attributes from source stream to destination stream.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipStreamCopyAttributes(hipStream_t dst, hipStream_t src);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `dst` | - Destination stream |
+| [in] | `src` | - Source stream |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html#ga49a95255ce713ae1bbc341bf81678c1b)

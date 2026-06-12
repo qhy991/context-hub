@@ -3,7 +3,7 @@ name: isa-v-bitop3-b16
 description: "Calculate the generic bitwise operation of three 16-bit vector inputs using a truth table encoded in the instruction and store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

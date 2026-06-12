@@ -1,11 +1,11 @@
 ---
 name: hip-hipdevicesetsharedmemconfig
-description: "hipDeviceSetSharedMemConfig HIP Runtime API function"
+description: "The bank width of shared memory on current device is set."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,device-management
@@ -17,14 +17,30 @@ metadata:
 
 # hipDeviceSetSharedMemConfig
 
-hipDeviceSetSharedMemConfig HIP Runtime API function
+The bank width of shared memory on current device is set.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipDeviceSetSharedMemConfig(hipSharedMemConfig config);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `config` | Configuration for the bank width of shared memory |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorNotInitialized
+
+## Notes
+
+- Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures.
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___device.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___device.html#ga9b1f279084e76691cedfbfadf9c717ee)

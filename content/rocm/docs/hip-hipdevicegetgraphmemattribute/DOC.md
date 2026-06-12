@@ -1,11 +1,11 @@
 ---
 name: hip-hipdevicegetgraphmemattribute
-description: "hipDeviceGetGraphMemAttribute HIP Runtime API function"
+description: "Get the mem attribute for graphs."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipDeviceGetGraphMemAttribute
 
-hipDeviceGetGraphMemAttribute HIP Runtime API function
+Get the mem attribute for graphs.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipDeviceGetGraphMemAttribute(int device, hipGraphMemAttributeType attr, void *value);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `device` | - Device to get attributes from |
+| [in] | `attr` | - Attribute type to be queried |
+| [out] | `value` | - Value of the queried attribute |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDevice
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga5eb353becf0e5a38a376dd7aa13677c0)

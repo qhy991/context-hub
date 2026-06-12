@@ -1,11 +1,11 @@
 ---
 name: hip-hiphostunregister
-description: "hipHostUnregister HIP Runtime API function"
+description: "Un-register host pointer."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,26 @@ metadata:
 
 # hipHostUnregister
 
-hipHostUnregister HIP Runtime API function
+Un-register host pointer.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipHostUnregister(void *hostPtr);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `hostPtr` | Host pointer previously registered with hipHostRegister |
+
+## Returns
+
+Error code
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga4c9e1810b9f5858d36c4d28c91c86924)

@@ -3,7 +3,7 @@ name: isa-v-ashr-pk-i8-i32
 description: "Given two signed 32-bit integers and a shift count, calculate the arithmetic shift right (preserving sign bit) of the two integers, saturate the two results in the signed 8-bit interval [-128, 127], pack the bytes and store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

@@ -1,11 +1,11 @@
 ---
 name: hip-hipfuncsetsharedmemconfig
-description: "hipFuncSetSharedMemConfig HIP Runtime API function"
+description: "Set shared memory configuation for a specific function."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,execution-control
@@ -17,14 +17,31 @@ metadata:
 
 # hipFuncSetSharedMemConfig
 
-hipFuncSetSharedMemConfig HIP Runtime API function
+Set shared memory configuation for a specific function.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipFuncSetSharedMemConfig(const void *func, hipSharedMemConfig config);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `func` | Pointer of the function |
+| [in] | `config` | Configuration |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDeviceFunction , hipErrorInvalidValue
+
+## Notes
+
+- Note: AMD devices and some Nvidia GPUS do not support shared cache banking, and the hint is ignored on those architectures.
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___execution.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___execution.html#ga36b1d09bfb54678df0c7dc1066ec029c)

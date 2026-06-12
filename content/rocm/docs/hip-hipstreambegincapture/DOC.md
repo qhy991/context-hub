@@ -1,11 +1,11 @@
 ---
 name: hip-hipstreambegincapture
-description: "hipStreamBeginCapture HIP Runtime API function"
+description: "Begins graph capture on a stream."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipStreamBeginCapture
 
-hipStreamBeginCapture HIP Runtime API function
+Begins graph capture on a stream.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipStreamBeginCapture(hipStream_t stream, hipStreamCaptureMode mode);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `stream` | - Stream to initiate capture. |
+| [in] | `mode` | - Controls the interaction of this capture sequence with other API calls that are not safe. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga826596fabd1d7657721cc3abfb476b10)

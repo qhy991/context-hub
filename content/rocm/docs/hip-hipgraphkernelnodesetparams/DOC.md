@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphkernelnodesetparams
-description: "hipGraphKernelNodeSetParams HIP Runtime API function"
+description: "Sets a kernel node's parameters."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphKernelNodeSetParams
 
-hipGraphKernelNodeSetParams HIP Runtime API function
+Sets a kernel node's parameters.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphKernelNodeSetParams(hipGraphNode_t node, const hipKernelNodeParams *pNodeParams);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `node` | - Instance of the node to set parameters of. |
+| [in] | `pNodeParams` | - const pointer to the parameters. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga00c58e917faec3f6d71cbef95336105b)

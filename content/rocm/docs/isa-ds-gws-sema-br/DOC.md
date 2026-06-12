@@ -5,7 +5,7 @@ metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3
   versions: 'CDNA3+'
-  revision: 1
+  revision: 3
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,ds,isa,lds,memory

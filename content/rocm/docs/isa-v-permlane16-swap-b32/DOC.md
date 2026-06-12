@@ -3,7 +3,7 @@ name: isa-v-permlane16-swap-b32
 description: "Swap data between two vector registers. Odd rows of the first operand are swapped with even rows of the second operand (one row is 16 lanes)."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

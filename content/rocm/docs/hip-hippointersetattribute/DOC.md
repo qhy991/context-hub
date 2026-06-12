@@ -1,11 +1,11 @@
 ---
 name: hip-hippointersetattribute
-description: "hipPointerSetAttribute HIP Runtime API function"
+description: "Sets information on the specified pointer.[BETA]."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipPointerSetAttribute
 
-hipPointerSetAttribute HIP Runtime API function
+Sets information on the specified pointer.[BETA].
 
+## Signature
 
-## See Also
+```c
+hipError_t hipPointerSetAttribute(const void *value, hipPointer_attribute attribute, hipDeviceptr_t ptr);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `value` | Sets pointer attribute value |
+| [in] | `attribute` | Attribute to set |
+| [in] | `ptr` | Pointer to set attributes for |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDevice , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gad35dd7d821d5a4d32693e3eada647177)

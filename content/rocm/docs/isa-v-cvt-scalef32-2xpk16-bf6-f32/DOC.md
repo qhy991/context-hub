@@ -3,7 +3,7 @@ name: isa-v-cvt-scalef32-2xpk16-bf6-f32
 description: "Scale packed 16-component single-precision float vectors from two source inputs using the exponent provided by the third single-precision float input, then convert the values to a packed 32-component BF6 float value. Store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

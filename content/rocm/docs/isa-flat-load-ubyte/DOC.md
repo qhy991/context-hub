@@ -5,7 +5,7 @@ metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 4
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,flat,isa,memory-controller,memory

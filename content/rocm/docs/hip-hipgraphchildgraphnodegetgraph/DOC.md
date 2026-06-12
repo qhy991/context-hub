@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphchildgraphnodegetgraph
-description: "hipGraphChildGraphNodeGetGraph HIP Runtime API function"
+description: "Gets a handle to the embedded graph of a child graph node."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphChildGraphNodeGetGraph
 
-hipGraphChildGraphNodeGetGraph HIP Runtime API function
+Gets a handle to the embedded graph of a child graph node.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphChildGraphNodeGetGraph(hipGraphNode_t node, hipGraph_t *pGraph);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `node` | - Instance of the node to get child graph of. |
+| [out] | `pGraph` | - Pointer to get the graph. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#gaa3a045ef7065eb0dbaaf0c65cdec8565)

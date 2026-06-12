@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphexternalsemaphoreswaitnodegetparams
-description: "hipGraphExternalSemaphoresWaitNodeGetParams HIP Runtime API function"
+description: "Returns external semaphore wait node params."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphExternalSemaphoresWaitNodeGetParams
 
-hipGraphExternalSemaphoresWaitNodeGetParams HIP Runtime API function
+Returns external semaphore wait node params.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphExternalSemaphoresWaitNodeGetParams(hipGraphNode_t hNode, hipExternalSemaphoreWaitNodeParams *params_out);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `hNode` | - Node from the graph from which graphExec was instantiated. |
+| [out] | `params_out` | - Pointer to params. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#gaf6e73d6a19ca850f395febf4adb46ce7)

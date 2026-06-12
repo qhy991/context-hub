@@ -1,11 +1,11 @@
 ---
 name: hip-hiplibrarygetkernel
-description: "hipLibraryGetKernel HIP Runtime API function"
+description: "Get Kernel object from library."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,module-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipLibraryGetKernel
 
-hipLibraryGetKernel HIP Runtime API function
+Get Kernel object from library.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipLibraryGetKernel(hipKernel_t *pKernel, hipLibrary_t library, const char *name);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `pKernel` | Output kernel object |
+| [in] | `library` | Input hip library |
+| [in] | `name` | kernel name to be searched for |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html#ga8802b7f1757161e47238dc32cceb9283)

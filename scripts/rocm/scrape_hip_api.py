@@ -13,232 +13,267 @@ Usage:
 import argparse
 import os
 import re
-import json
 from datetime import date
-from pathlib import Path
-from urllib.request import urlopen, Request
-from html.parser import HTMLParser
+from urllib.request import Request, urlopen
 
 BASE_URL = "https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html"
 
-# Key API modules to scrape
 MODULES = [
-    ("group___hip.html", "Initialization and Version"),
+    ("group___driver.html", "Initialization and Version"),
     ("group___device.html", "Device Management"),
     ("group___execution.html", "Execution Control"),
     ("group___error.html", "Error Handling"),
     ("group___stream.html", "Stream Management"),
-    ("group___stream_mem.html", "Stream Memory Operations"),
+    ("group___stream_m.html", "Stream Memory Operations"),
     ("group___event.html", "Event Management"),
     ("group___memory.html", "Memory Management"),
-    ("group___memory_deprecated.html", "Memory Management (Deprecated)"),
-    ("group___external.html", "External Resource Interoperability"),
-    ("group___s_o_m_a.html", "Stream Ordered Memory Allocator"),
-    ("group___managed.html", "Managed Memory"),
-    ("group___virtual_mem.html", "Virtual Memory Management"),
-    ("group___texture.html", "Texture Management"),
-    ("group___surface.html", "Surface Object"),
-    ("group___peer.html", "Peer to Peer Device Memory Access"),
+    ("group___peer_to_peer.html", "Peer to Peer Device Memory Access"),
     ("group___module.html", "Module Management"),
     ("group___occupancy.html", "Occupancy"),
     ("group___profiler.html", "Profiler Control"),
-    ("group___launch.html", "Launch API"),
-    ("group___runtime_compiler.html", "Runtime Compilation"),
+    ("group___clang.html", "Launch API"),
+    ("group___texture.html", "Texture Management"),
+    ("group___surface.html", "Surface Object"),
+    ("group___runtime.html", "Runtime Compilation"),
     ("group___graph.html", "Graph Management"),
+    ("group___virtual.html", "Virtual Memory Management"),
     ("group___graphics_interop.html", "Graphics Interoperability"),
-    ("group___c_g.html", "Cooperative Groups"),
+    ("group___callback.html", "Callback Activity APIs"),
 ]
+
+RETURN_TYPES = (
+    r"hipError_t|void|int|char|size_t|unsigned\s+int|unsigned\s+long|"
+    r"long|float|double|bool|hipDevice_t|hipStream_t|hipEvent_t|"
+    r"hipModule_t|hipFunction_t|hipGraph_t|hipGraphExec_t|"
+    r"hipMemPool_t|hipArray_t|const\s+char\s*\*"
+)
 
 
 def fetch_url(url: str) -> str:
-    """Fetch URL content with proper headers."""
     req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
-    with urlopen(req, timeout=30) as resp:
+    with urlopen(req, timeout=60) as resp:
         return resp.read().decode("utf-8", errors="replace")
 
 
-class APIFuncParser(HTMLParser):
-    """Parse Doxygen HTML to extract function documentation."""
+def strip_html(html: str) -> str:
+    text = re.sub(r"<[^>]+>", " ", html)
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
-    def __init__(self):
-        super().__init__()
-        self.functions = []
-        self.current_func = None
-        self.state = None  # 'name', 'description', 'param_name', 'param_desc', 'return'
-        self.capture = ""
-        self.in_member = False
-        self.in_heading = False
-        self.current_heading = ""
 
-    def handle_starttag(self, tag, attrs):
-        attrs_dict = dict(attrs)
+def discover_functions(html: str) -> list[tuple[str, str]]:
+    """Return (anchor_id, function_name) pairs from a module page."""
+    pattern = re.compile(
+        r'href="[^"]+#(ga[a-f0-9]+)">(hip[A-Za-z0-9_]+)</a>'
+    )
+    seen: set[str] = set()
+    results: list[tuple[str, str]] = []
+    for anchor, name in pattern.findall(html):
+        if name in seen:
+            continue
+        seen.add(name)
+        results.append((anchor, name))
+    return results
 
-        # Detect function member definitions
-        if tag == "a" and "id" in attrs_dict:
-            anchor = attrs_dict["id"]
-            if anchor.startswith("ga") or anchor.startswith("gad"):
-                if self.current_func:
-                    self.functions.append(self.current_func)
-                self.current_func = {
-                    "id": anchor,
-                    "name": "",
-                    "description": "",
-                    "signature": "",
-                    "params": [],
-                    "return_desc": "",
-                }
-                self.in_member = True
 
-        # Detect headings
-        if tag in ("h2", "h3", "h4") and self.in_member:
-            cls = attrs_dict.get("class", "")
-            if "memtitle" in cls or "memberdecl" in cls:
-                self.in_heading = True
+def extract_memdoc(html: str, anchor: str) -> str:
+    match = re.search(
+        rf'id="{re.escape(anchor)}".*?<div class="memdoc">(.*?)</div>\s*</div>',
+        html,
+        re.DOTALL,
+    )
+    return match.group(1) if match else ""
 
-        # Parameter table cells
-        if tag == "td" and self.in_member:
-            cls = attrs_dict.get("class", "")
-            if "paramname" in cls:
-                self.state = "param_name"
-                self.capture = ""
-            elif "paramdesc" in cls:
-                self.state = "param_desc"
-                self.capture = ""
 
-        # Return value section
-        if tag == "p" and self.in_member:
-            self.state = "text"
-            self.capture = ""
+def extract_signature(html: str, anchor: str, name: str) -> str:
+    escaped = re.escape(name)
+    row_match = re.search(
+        rf'<tr class="memitem[^"]*"[^>]*id="r_{re.escape(anchor)}".*?</tr>',
+        html,
+        re.DOTALL,
+    )
+    if row_match:
+        row = row_match.group(0)
+        ret_match = re.search(
+            rf"(({RETURN_TYPES})\s*\**)\s*</td><td class=\"memItemRight\"",
+            row,
+            re.DOTALL,
+        )
+        args_match = re.search(rf">{escaped}</a>\s*\(([^)]*)\)", row)
+        if ret_match and args_match:
+            ret = strip_html(ret_match.group(1))
+            args = strip_html(args_match.group(1))
+            return f"{ret} {name}({args})"
 
-    def handle_endtag(self, tag):
-        if tag in ("h2", "h3", "h4"):
-            self.in_heading = False
-            if self.current_func and self.state == "name":
-                self.current_func["name"] = self.capture.strip()
-                self.state = None
+    patterns = [
+        rf'id="{re.escape(anchor)}".*?<div class="memtitle">.*?'
+        rf"(({RETURN_TYPES})\s+\**\s*{escaped}\s*\([^)]*\))",
+        rf"(({RETURN_TYPES})\s+\**\s*{escaped}\s*\([^)]*\))",
+        rf">{escaped}</a>\s*\(([^)]*)\)",
+    ]
+    for pattern in patterns:
+        match = re.search(pattern, html, re.DOTALL)
+        if not match:
+            continue
+        if pattern.endswith(r"\(([^)]*)\)"):
+            args = strip_html(match.group(1))
+            return f"hipError_t {name}({args})"
+        sig = strip_html(match.group(1))
+        return re.sub(r"\s+", " ", sig)
+    return ""
 
-        if tag == "td":
-            if self.state == "param_name" and self.current_func:
-                self.current_func["params"].append({"name": self.capture.strip(), "desc": ""})
-            elif self.state == "param_desc" and self.current_func:
-                if self.current_func["params"]:
-                    self.current_func["params"][-1]["desc"] = self.capture.strip()
-            self.state = None
 
-    def handle_data(self, data):
-        if self.in_heading and self.current_func:
-            self.capture += data
+def parse_memdoc(memdoc: str) -> dict:
+    description = ""
+    paragraphs = re.findall(r"<p>(.*?)</p>", memdoc, re.DOTALL)
+    if paragraphs:
+        description = strip_html(paragraphs[0])
+
+    params: list[dict] = []
+    for row in re.finditer(
+        r'<tr><td class="paramdir">(.*?)</td><td class="paramname">(.*?)</td><td>(.*?)</td></tr>',
+        memdoc,
+        re.DOTALL,
+    ):
+        params.append(
+            {
+                "direction": strip_html(row.group(1)),
+                "name": strip_html(row.group(2)),
+                "desc": strip_html(row.group(3)),
+            }
+        )
+
+    return_desc = ""
+    ret_match = re.search(
+        r'<dl class="section return">.*?<dd>(.*?)</dd>',
+        memdoc,
+        re.DOTALL,
+    )
+    if ret_match:
+        return_desc = strip_html(ret_match.group(1))
+
+    see_also: list[str] = []
+    see_match = re.search(
+        r'<dl class="section see">.*?<dd>(.*?)</dd>',
+        memdoc,
+        re.DOTALL,
+    )
+    if see_match:
+        see_also = re.findall(
+            r'<a class="el" href="[^"]+">(hip[A-Za-z0-9_]+)</a>',
+            see_match.group(1),
+        )
+
+    notes = [strip_html(p) for p in paragraphs[1:] if strip_html(p)]
+
+    return {
+        "description": description,
+        "params": params,
+        "return_desc": return_desc,
+        "see_also": see_also,
+        "notes": notes,
+    }
 
 
 def parse_api_page(html: str) -> list[dict]:
-    """Extract function entries from a Doxygen module page."""
-    functions = []
-
-    # Strategy: find all function anchors and extract surrounding content
-    # Doxygen pattern: <a id="ga..."> anchor near function docs
-    # More reliable: find function signatures in code blocks
-
-    # Find function names via pattern: hipFuncName(
-    func_pattern = re.compile(r'\b(hip[A-Z][a-zA-Z0-9]*)\s*\(', re.MULTILINE)
-    names = list(dict.fromkeys(func_pattern.findall(html)))
-
-    # For each function, extract the section around it
-    for name in names:
-        func = {
-            "name": name,
+    functions: list[dict] = []
+    for anchor, name in discover_functions(html):
+        memdoc = extract_memdoc(html, anchor)
+        parsed = parse_memdoc(memdoc) if memdoc else {
             "description": "",
             "params": [],
             "return_desc": "",
-            "signature": "",
+            "see_also": [],
+            "notes": [],
         }
+        signature = extract_signature(html, anchor, name)
+        if not parsed["description"] and signature:
+            parsed["description"] = f"{name} HIP Runtime API function."
 
-        # Try to find description after the function name
-        # Pattern: function name, then some text before the next function
-        escaped = re.escape(name)
-        desc_match = re.search(
-            rf'{escaped}\s*\([^)]*\)[^<]*</code>\s*</td>\s*</tr>\s*</table>\s*<p[^>]*>(.*?)(?:</p>|<a id=)',
-            html, re.DOTALL
+        functions.append(
+            {
+                "name": name,
+                "anchor": anchor,
+                "signature": signature,
+                **parsed,
+            }
         )
-        if desc_match:
-            desc = desc_match.group(1)
-            # Clean HTML tags
-            desc = re.sub(r'<[^>]+>', '', desc)
-            desc = re.sub(r'\s+', ' ', desc).strip()
-            if len(desc) > 500:
-                desc = desc[:500] + "..."
-            func["description"] = desc
-
-        # Try to find full signature
-        sig_pattern = re.compile(
-            rf'(?:hipError_t|void|int|char|size_t|hipDevice_t|hipStream_t|hipEvent_t)\s+\**\s*{escaped}\s*\([^)]*\)',
-            re.MULTILINE
-        )
-        sig_match = sig_pattern.search(html)
-        if sig_match:
-            func["signature"] = sig_match.group(0).strip()
-
-        functions.append(func)
-
     return functions
 
 
 def scrape_module(module_path: str, module_name: str) -> list[dict]:
-    """Scrape a single Doxygen module page."""
     url = f"{BASE_URL}/{module_path}"
     print(f"  Fetching: {module_name} ({url})")
-
     try:
         html = fetch_url(url)
-    except Exception as e:
-        print(f"  ERROR fetching {url}: {e}")
+    except Exception as exc:
+        print(f"  ERROR fetching {url}: {exc}")
         return []
 
     functions = parse_api_page(html)
-    for f in functions:
-        f["module"] = module_name
-        f["source_url"] = url
+    for func in functions:
+        func["module"] = module_name
+        func["source_url"] = f"{url}#{func['anchor']}"
 
-    print(f"    Found {len(functions)} functions")
+    with_params = sum(1 for f in functions if f["params"])
+    with_sig = sum(1 for f in functions if f["signature"])
+    print(
+        f"    Found {len(functions)} functions "
+        f"({with_sig} signatures, {with_params} with parameters)"
+    )
     return functions
 
 
-def generate_doc_md(func: dict, today: str) -> str:
-    """Generate DOC.md content for a HIP API function."""
+def yaml_escape(value: str) -> str:
+    return value.replace("\\", "\\\\").replace('"', '\\"').replace("\n", " ")
 
+
+def generate_doc_md(func: dict, today: str) -> str:
     name = func["name"]
     slug = f"hip-{name.lower()}"
-    desc = func.get("description", f"{name} HIP Runtime API function")
-    if not desc:
-        desc = f"{name} HIP Runtime API function"
-
-    # Escape for YAML
-    desc_escaped = desc.replace('"', '\\"').replace("\n", " ")
-
-    # Module-based tags
+    desc = func.get("description") or f"{name} HIP Runtime API function"
     module_slug = func.get("module", "").lower().replace(" ", "-")
     tags = f"rocm,gpu,hip,runtime-api,{module_slug}"
 
-    # Signature
     sig_md = ""
     if func.get("signature"):
         sig_md = f"\n## Signature\n\n```c\n{func['signature']};\n```\n"
 
-    # Parameters
     params_md = ""
     if func.get("params"):
         params_md = "\n## Parameters\n\n"
-        params_md += "| Parameter | Description |\n|-----------|-------------|\n"
-        for p in func["params"]:
-            params_md += f"| `{p['name']}` | {p.get('desc', '')} |\n"
+        params_md += "| Direction | Parameter | Description |\n"
+        params_md += "|-----------|-----------|-------------|\n"
+        for param in func["params"]:
+            params_md += (
+                f"| {param.get('direction', '')} | `{param['name']}` | "
+                f"{param.get('desc', '')} |\n"
+            )
+
+    return_md = ""
+    if func.get("return_desc"):
+        return_md = f"\n## Returns\n\n{func['return_desc']}\n"
+
+    notes_md = ""
+    if func.get("notes"):
+        notes_md = "\n## Notes\n\n"
+        for note in func["notes"]:
+            notes_md += f"- {note}\n"
+
+    see_md = ""
+    if func.get("see_also"):
+        see_md = "\n## See Also\n\n"
+        for item in func["see_also"]:
+            see_md += f"- {item}\n"
 
     return f"""---
 name: {slug}
-description: "{desc_escaped}"
+description: "{yaml_escape(desc)}"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '{today}'
   source: official
   tags: {tags}
@@ -251,61 +286,70 @@ metadata:
 # {name}
 
 {desc}
-{sig_md}
-{params_md}
-## See Also
+{sig_md}{params_md}{return_md}{notes_md}{see_md}
+## References
 
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
-
-## References
-
 - [HIP API Documentation]({func.get('source_url', '')})
 """
 
 
-def main():
+def main() -> int:
     parser = argparse.ArgumentParser(description="Scrape HIP API Doxygen → DOC.md")
-    parser.add_argument("--outdir", default="../../content/rocm/docs",
-                        help="Output directory")
-    parser.add_argument("--module", default=None,
-                        help="Only scrape this module (e.g., 'Device')")
+    parser.add_argument(
+        "--outdir",
+        default="../../content/rocm/docs",
+        help="Output directory",
+    )
+    parser.add_argument(
+        "--module",
+        default=None,
+        help="Only scrape modules whose name contains this substring",
+    )
     args = parser.parse_args()
 
     out_dir = os.path.abspath(args.outdir)
     os.makedirs(out_dir, exist_ok=True)
     today = date.today().isoformat()
 
-    all_functions = []
-    seen_names = set()
-
     modules = MODULES
     if args.module:
-        modules = [(p, n) for p, n in MODULES if args.module.lower() in n.lower()]
+        modules = [
+            (path, name)
+            for path, name in MODULES
+            if args.module.lower() in name.lower()
+        ]
+
+    all_functions: list[dict] = []
+    seen_names: set[str] = set()
 
     for module_path, module_name in modules:
         funcs = scrape_module(module_path, module_name)
-        for f in funcs:
-            if f["name"] not in seen_names:
-                seen_names.add(f["name"])
-                all_functions.append(f)
+        for func in funcs:
+            if func["name"] in seen_names:
+                continue
+            seen_names.add(func["name"])
+            all_functions.append(func)
 
     print(f"\nTotal unique functions: {len(all_functions)}")
 
-    # Generate DOC.md files
     for func in all_functions:
         slug = f"hip-{func['name'].lower()}"
         doc_dir = os.path.join(out_dir, slug)
         os.makedirs(doc_dir, exist_ok=True)
-
-        doc_content = generate_doc_md(func, today)
         doc_path = os.path.join(doc_dir, "DOC.md")
-        with open(doc_path, "w") as f:
-            f.write(doc_content)
+        with open(doc_path, "w", encoding="utf-8") as handle:
+            handle.write(generate_doc_md(func, today))
 
-    print(f"Generated {len(all_functions)} DOC.md files in {out_dir}")
+    with_params = sum(1 for f in all_functions if f["params"])
+    with_sig = sum(1 for f in all_functions if f["signature"])
+    print(
+        f"Generated {len(all_functions)} DOC.md files in {out_dir} "
+        f"({with_sig} signatures, {with_params} with parameters)"
+    )
     return 0
 
 
 if __name__ == "__main__":
-    exit(main())
+    raise SystemExit(main())

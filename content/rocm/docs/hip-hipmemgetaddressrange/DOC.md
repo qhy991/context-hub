@@ -1,11 +1,11 @@
 ---
 name: hip-hipmemgetaddressrange
-description: "hipMemGetAddressRange HIP Runtime API function"
+description: "Get information on memory allocations."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipMemGetAddressRange
 
-hipMemGetAddressRange HIP Runtime API function
+Get information on memory allocations.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipMemGetAddressRange(hipDeviceptr_t *pbase, size_t *psize, hipDeviceptr_t dptr);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `pbase` | - BAse pointer address |
+| [out] | `psize` | - Size of allocation |
+| [in] | `dptr-` | Device Pointer |
+
+## Returns
+
+hipSuccess , hipErrorNotFound
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gac7d9132f6e3d102e9b512020e5654f38)

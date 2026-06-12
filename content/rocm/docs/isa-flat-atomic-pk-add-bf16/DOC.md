@@ -3,9 +3,9 @@ name: isa-flat-atomic-pk-add-bf16
 description: "Add a packed 2-component BF16 float value in the data register to a location in the flat aperture. Store the original value from flat aperture into a vector register iff the SC0 bit is set."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,flat,isa,memory-controller,memory,low-precision,atomic

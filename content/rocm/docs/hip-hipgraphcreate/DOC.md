@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphcreate
-description: "hipGraphCreate HIP Runtime API function"
+description: "Creates a graph."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphCreate
 
-hipGraphCreate HIP Runtime API function
+Creates a graph.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphCreate(hipGraph_t *pGraph, unsigned int flags);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `pGraph` | - pointer to graph to create. |
+| [in] | `flags` | - flags for graph creation, must be 0. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorMemoryAllocation
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga0569a00583e14be02790df5531e905d6)

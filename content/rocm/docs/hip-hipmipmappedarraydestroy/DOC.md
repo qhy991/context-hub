@@ -1,11 +1,11 @@
 ---
 name: hip-hipmipmappedarraydestroy
-description: "hipMipmappedArrayDestroy HIP Runtime API function"
+description: "Destroy a mipmapped array."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,texture-management
@@ -17,14 +17,26 @@ metadata:
 
 # hipMipmappedArrayDestroy
 
-hipMipmappedArrayDestroy HIP Runtime API function
+Destroy a mipmapped array.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipMipmappedArrayDestroy(hipMipmappedArray_t hMipmappedArray);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `hMipmappedArray` | pointer to mipmapped array to destroy |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___texture.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___texture.html#ga4e5dd69cb90ff4d93aab4d6bff2cbcda)

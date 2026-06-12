@@ -3,7 +3,7 @@ name: isa-v-cvt-f32-bf16
 description: "Convert from a BF16 float input to a single-precision float value and store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

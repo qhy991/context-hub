@@ -3,9 +3,9 @@ name: isa-ds-add-f64
 description: "Add a double-precision float value in the data register to a location in a data share."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna2,cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 3
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,ds,isa,lds,memory

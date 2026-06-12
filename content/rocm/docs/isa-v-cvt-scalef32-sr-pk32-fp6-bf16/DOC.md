@@ -3,7 +3,7 @@ name: isa-v-cvt-scalef32-sr-pk32-fp6-bf16
 description: "Scale a packed 32-component BF16 float input using the exponent provided by the third single-precision float input, then convert the values to a packed 32-component FP6 float value with stochastic rounding using seed data from the second input. Store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

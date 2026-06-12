@@ -1,11 +1,11 @@
 ---
 name: hip-hipgetchanneldesc
-description: "hipGetChannelDesc HIP Runtime API function"
+description: "Gets the channel descriptor in an array."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,texture-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGetChannelDesc
 
-hipGetChannelDesc HIP Runtime API function
+Gets the channel descriptor in an array.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGetChannelDesc(hipChannelFormatDesc * desc , hipArray_const_t array);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `desc` | pointer to channel format descriptor |
+| [out] | `array` | memory array on the device |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___texture.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___texture.html#gab87485da6ded39aed13c062a4570f316)

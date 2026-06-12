@@ -3,7 +3,7 @@ name: isa-v-mfma-f64-4x4x4f64
 description: "Multiply the 4x4 matrix in the first input by the 4x4 matrix in the second input and add the 4x4 matrix in the third input using fused multiply add. Store the resulting matrix into vector registers."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2
+  architectures: cdna2
   versions: 'CDNA2+'
   revision: 1
   updated-on: '2026-06-12'

@@ -3,9 +3,9 @@ name: isa-ds-pk-add-bf16
 description: "Add a packed 2-component BF16 float value in the data register to a location in a data share."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,ds,isa,lds,memory,low-precision

@@ -3,7 +3,7 @@ name: isa-buffer-invl2
 description: "Invalidate L2 cache. Returns ACK to shader."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2
+  architectures: cdna2
   versions: 'CDNA2+'
   revision: 1
   updated-on: '2026-06-12'

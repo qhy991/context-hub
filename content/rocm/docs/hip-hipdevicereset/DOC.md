@@ -1,11 +1,11 @@
 ---
 name: hip-hipdevicereset
-description: "hipDeviceReset HIP Runtime API function"
+description: "The state of current device is discarded and updated to a fresh state."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,device-management
@@ -17,14 +17,24 @@ metadata:
 
 # hipDeviceReset
 
-hipDeviceReset HIP Runtime API function
+The state of current device is discarded and updated to a fresh state.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipDeviceReset(void);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Returns
+
+hipSuccess
+
+## Notes
+
+- Calling this function deletes all streams created, memory allocated, kernels running, events created. Make sure that no other thread is using the device or streams, memory, kernels, events associated with the current device.
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___device.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___device.html#ga8d57161ae56a8edc46eeda447417bf6c)

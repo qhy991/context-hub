@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphmemsetnodegetparams
-description: "hipGraphMemsetNodeGetParams HIP Runtime API function"
+description: "Gets a memset node's parameters."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphMemsetNodeGetParams
 
-hipGraphMemsetNodeGetParams HIP Runtime API function
+Gets a memset node's parameters.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphMemsetNodeGetParams(hipGraphNode_t node, hipMemsetParams *pNodeParams);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `node` | - Instance of the node to get parameters of. |
+| [out] | `pNodeParams` | - Pointer to the parameters. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga9d41c500748b2b774aecb54d7ede5bbd)

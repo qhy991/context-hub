@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphmemallocnodegetparams
-description: "hipGraphMemAllocNodeGetParams HIP Runtime API function"
+description: "Returns parameters for memory allocation node."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphMemAllocNodeGetParams
 
-hipGraphMemAllocNodeGetParams HIP Runtime API function
+Returns parameters for memory allocation node.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphMemAllocNodeGetParams(hipGraphNode_t node, hipMemAllocNodeParams *pNodeParams);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `node` | - Memory allocation node to query |
+| [out] | `pNodeParams` | - Parameters for the specified memory allocation node |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga8fbf788fab0247056ab27ce6eccfb20e)

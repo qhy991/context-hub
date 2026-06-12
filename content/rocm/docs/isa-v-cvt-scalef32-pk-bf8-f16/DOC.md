@@ -3,7 +3,7 @@ name: isa-v-cvt-scalef32-pk-bf8-f16
 description: "Scale a packed 2-component half-precision float input using the exponent provided by the second single-precision float input, then convert the values to a packed BF8 float value with round toward nearest even semantics. Store the result into 16 bits of a vector register using OPSEL."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphexecmemsetnodesetparams
-description: "hipGraphExecMemsetNodeSetParams HIP Runtime API function"
+description: "Sets the parameters for a memset node in the given graphExec."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipGraphExecMemsetNodeSetParams
 
-hipGraphExecMemsetNodeSetParams HIP Runtime API function
+Sets the parameters for a memset node in the given graphExec.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphExecMemsetNodeSetParams(hipGraphExec_t hGraphExec, hipGraphNode_t node, const hipMemsetParams *pNodeParams);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `hGraphExec` | - Instance of the executable graph with the node. |
+| [in] | `node` | - Instance of the node to set parameters of. |
+| [in] | `pNodeParams` | - Pointer to the parameters. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#gaaea31b879fa5eed6a2e12e156020f467)

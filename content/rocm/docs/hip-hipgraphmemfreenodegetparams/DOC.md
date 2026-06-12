@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphmemfreenodegetparams
-description: "hipGraphMemFreeNodeGetParams HIP Runtime API function"
+description: "Returns parameters for memory free node."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphMemFreeNodeGetParams
 
-hipGraphMemFreeNodeGetParams HIP Runtime API function
+Returns parameters for memory free node.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphMemFreeNodeGetParams(hipGraphNode_t node, void *dev_ptr);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `node` | - Memory free node to query |
+| [out] | `dev_ptr` | - Device pointer of the specified memory free node |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga0173b789bbf238185d90733fe36d9a07)

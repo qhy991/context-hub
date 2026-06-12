@@ -3,7 +3,7 @@ name: isa-v-cvt-pk-f16-f32
 description: "Convert from two single-precision float inputs to a packed half-precision value and store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

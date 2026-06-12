@@ -38,18 +38,20 @@ content/rocm/docs/
 ### From Machine-Readable ISA XML
 
 ```bash
-# Download XML from https://gpuopen.com/machine-readable-isa/
-# Then run:
+# Full CDNA ISA refresh (download + merge per-arch availability)
+bash scripts/rocm/refresh_isa.sh
+
+# Or parse a single architecture XML:
 python3 scripts/rocm/parse_isa_xml.py \
-    --xml ~/Downloads/amdgpu_isa_cdna4.xml \
+    --xml /tmp/amdgpu_isa_specs/amdgpu_isa_cdna4.xml \
     --outdir content/rocm/docs
 ```
 
 ### From HIP API Documentation
 
 ```bash
-# TODO: Add Doxygen scraper script
-# python3 scripts/rocm/scrape_hip_api.py --url https://rocm.docs.amd.com/...
+python3 scripts/rocm/scrape_hip_api.py --outdir content/rocm/docs
+python3 scripts/rocm/validate.py
 ```
 
 ### Build and Search

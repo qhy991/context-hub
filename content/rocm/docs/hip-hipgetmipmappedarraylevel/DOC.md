@@ -1,11 +1,11 @@
 ---
 name: hip-hipgetmipmappedarraylevel
-description: "hipGetMipmappedArrayLevel HIP Runtime API function"
+description: "Gets a mipmap level of a HIP mipmapped array."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,texture-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipGetMipmappedArrayLevel
 
-hipGetMipmappedArrayLevel HIP Runtime API function
+Gets a mipmap level of a HIP mipmapped array.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGetMipmappedArrayLevel(hipArray_t * levelArray , hipMipmappedArray_const_t mipmappedArray , unsigned int level);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `levelArray` | - Returned mipmap level HIP array |
+| [in] | `mipmappedArray` | - HIP mipmapped array |
+| [in] | `level` | - Mipmap level |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___texture.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___texture.html#ga1ecc39df7764a7dcd5dad7149ffb2bc5)

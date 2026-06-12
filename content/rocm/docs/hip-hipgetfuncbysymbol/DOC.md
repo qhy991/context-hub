@@ -1,11 +1,11 @@
 ---
 name: hip-hipgetfuncbysymbol
-description: "hipGetFuncBySymbol HIP Runtime API function"
+description: "Gets pointer to device entry function that matches entry function symbolPtr."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,module-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGetFuncBySymbol
 
-hipGetFuncBySymbol HIP Runtime API function
+Gets pointer to device entry function that matches entry function symbolPtr.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGetFuncBySymbol(hipFunction_t *functionPtr, const void *symbolPtr);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `functionPtr` | Device entry function |
+| [in] | `symbolPtr` | Pointer to device entry function to search for |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDeviceFunction
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html#ga4adaac7b90f84ec13b0274df72245547)

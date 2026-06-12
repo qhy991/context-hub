@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphexecdestroy
-description: "hipGraphExecDestroy HIP Runtime API function"
+description: "Destroys an executable graph."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,26 @@ metadata:
 
 # hipGraphExecDestroy
 
-hipGraphExecDestroy HIP Runtime API function
+Destroys an executable graph.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphExecDestroy(hipGraphExec_t graphExec);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `graphExec` | - Instance of executable graph to destroy. |
+
+## Returns
+
+hipSuccess .
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#ga4786c0e6cc8c1cd96a346e0d82177a35)

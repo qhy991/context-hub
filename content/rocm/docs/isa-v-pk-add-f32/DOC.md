@@ -3,9 +3,9 @@ name: isa-v-pk-add-f32
 description: "Add two packed single-precision float inputs component-wise and store the result into a vector register. No carry-in or carry-out support."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna2,cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 3
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,v,isa,simd-unit,compute

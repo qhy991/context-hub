@@ -3,9 +3,9 @@ name: isa-v-lshl-add-u64
 description: "Given a shift count in the second input, calculate the logical shift left of the first input, then add the third input to the intermediate result, then store the final result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,v,isa,simd-unit,compute

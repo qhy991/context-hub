@@ -1,11 +1,11 @@
 ---
 name: hip-hipkernelgetname
-description: "hipKernelGetName HIP Runtime API function"
+description: "Returns a Kernel Name."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,module-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipKernelGetName
 
-hipKernelGetName HIP Runtime API function
+Returns a Kernel Name.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipKernelGetName(const char **name, hipKernel_t kernel);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `name` | Returned Kernel Name |
+| [in] | `kernel` | Kernel handle to retrieve name |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html#ga8fba95e5de4ae981e7218d619ee245bf)

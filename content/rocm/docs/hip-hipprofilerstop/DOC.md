@@ -1,11 +1,11 @@
 ---
 name: hip-hipprofilerstop
-description: "hipProfilerStop HIP Runtime API function"
+description: "Stop recording of profiling information [Deprecated] When using this API, start the profiler with profiling disabled. (&ndash;startdisabled)"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,profiler-control
@@ -17,14 +17,20 @@ metadata:
 
 # hipProfilerStop
 
-hipProfilerStop HIP Runtime API function
+Stop recording of profiling information [Deprecated] When using this API, start the profiler with profiling disabled. (&ndash;startdisabled)
 
+## Signature
 
-## See Also
+```c
+hipError_t hipProfilerStop();
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Returns
+
+hipErrorNotSupported
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___profiler.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___profiler.html#ga777994cae0f7bdef24131fc1f3ed626e)

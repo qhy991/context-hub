@@ -1,11 +1,11 @@
 ---
 name: hip-hipmoduleunload
-description: "hipModuleUnload HIP Runtime API function"
+description: "Frees the module."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,module-management
@@ -17,14 +17,30 @@ metadata:
 
 # hipModuleUnload
 
-hipModuleUnload HIP Runtime API function
+Frees the module.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipModuleUnload(hipModule_t module);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `module` | Module to free |
+
+## Returns
+
+hipSuccess , hipErrorInvalidResourceHandle
+
+## Notes
+
+- The module is freed, and the code objects associated with it are destroyed.
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html#gae58e345f55bb3ec13dca80d2df88e0ed)

@@ -5,7 +5,7 @@ metadata:
   languages: hip
   architectures: cdna1,cdna2
   versions: 'CDNA2+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,image,isa,unknown,unknown

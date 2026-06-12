@@ -3,7 +3,7 @@ name: isa-v-dot2-f32-bf16
 description: "Calculate the dot product of BF16 float 2-vectors from the first and second inputs, convert the product to single-precision float format, add the third input and store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

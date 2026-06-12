@@ -3,9 +3,9 @@ name: isa-v-mfma-f32-4x4x4-16b-f16
 description: "Multiply the 4x4 matrix in the first input by the 4x4 matrix in the second input and add the 4x4 matrix in the third input using fused multiply add. Store the resulting matrix into vector registers."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,v,isa,matrix-core,compute,matrix-core,mfma,low-precision

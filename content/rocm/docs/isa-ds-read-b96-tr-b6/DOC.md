@@ -3,7 +3,7 @@ name: isa-ds-read-b96-tr-b6
 description: "Read 96 bits of data per lane from data share. Interpret the data as a matrix with 6 bit elements and transpose the matrix. Store the result into vector registers."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

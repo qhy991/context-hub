@@ -1,11 +1,11 @@
 ---
 name: hip-hipfreearray
-description: "hipFreeArray HIP Runtime API function"
+description: "Frees an array on the device."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,30 @@ metadata:
 
 # hipFreeArray
 
-hipFreeArray HIP Runtime API function
+Frees an array on the device.
 
+## Signature
+
+```c
+hipError_t hipFreeArray(hipArray_t array);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `array` | Pointer to array to free |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorNotInitialized
 
 ## See Also
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- hipMallocPitch
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gad6c25b3106fb47a2a75285ff2bd8cb29)

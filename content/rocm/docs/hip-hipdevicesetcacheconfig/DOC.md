@@ -1,11 +1,11 @@
 ---
 name: hip-hipdevicesetcacheconfig
-description: "hipDeviceSetCacheConfig HIP Runtime API function"
+description: "Set L1/Shared cache partition."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,device-management
@@ -17,14 +17,30 @@ metadata:
 
 # hipDeviceSetCacheConfig
 
-hipDeviceSetCacheConfig HIP Runtime API function
+Set L1/Shared cache partition.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipDeviceSetCacheConfig(hipFuncCache_t cacheConfig);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `cacheConfig` | Cache configuration |
+
+## Returns
+
+hipSuccess , hipErrorNotInitialized , hipErrorNotSupported
+
+## Notes
+
+- Note: AMD devices do not support reconfigurable cache. This API is not implemented on AMD platform. If the function is called, it will return hipErrorNotSupported.
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___device.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___device.html#gaada3d30a46ae06f68cf1574f496b86ee)

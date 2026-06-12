@@ -1,11 +1,11 @@
 ---
 name: hip-hipmemcpy3dasync
-description: "hipMemcpy3DAsync HIP Runtime API function"
+description: "Copies data between host and device asynchronously."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipMemcpy3DAsync
 
-hipMemcpy3DAsync HIP Runtime API function
+Copies data between host and device asynchronously.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipMemcpy3DAsync(const struct hipMemcpy3DParms *p, hipStream_t stream);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `p` | 3D memory copy parameters |
+| [in] | `stream` | Stream to use |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorInvalidPitchValue , hipErrorInvalidDevicePointer , hipErrorInvalidMemcpyDirection
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga9c638fd577a3a0b80daffeede136063a)

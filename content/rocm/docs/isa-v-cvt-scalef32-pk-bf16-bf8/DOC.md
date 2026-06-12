@@ -3,7 +3,7 @@ name: isa-v-cvt-scalef32-pk-bf16-bf8
 description: "Convert from a packed 2-component BF8 float input to a packed BF16 float value, then scale the packed values using the exponent provided by the second single-precision float input. Store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

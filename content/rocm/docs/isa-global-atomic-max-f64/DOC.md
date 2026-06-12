@@ -3,9 +3,9 @@ name: isa-global-atomic-max-f64
 description: "Select the maximum of two double-precision float inputs, given two values stored in the data register and a location in the global aperture. Update the global aperture with the selected value. Store the original value from global aperture into a vector register iff the SC0 bit is set."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna2,cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 3
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,global,isa,memory-controller,memory,atomic

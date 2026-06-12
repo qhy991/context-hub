@@ -197,20 +197,38 @@ def slugify(name: str) -> str:
     return f"isa-{slug}"
 
 
+CDNA_ARCH_ORDER = ["cdna1", "cdna2", "cdna3", "cdna4"]
+RDNA_ARCH_ORDER = ["rdna1", "rdna2", "rdna3", "rdna3_5", "rdna4"]
+
+
 def determine_architectures(xml_filename: str) -> tuple[str, str]:
-    """Determine architectures and version from XML filename."""
+    """Map an ISA XML filename to the architecture it describes."""
     filename_lower = xml_filename.lower()
     for arch_key in ARCH_MAP:
         if arch_key in filename_lower:
-            idx = list(ARCH_MAP.keys()).index(arch_key)
-            all_archs = list(ARCH_MAP.keys())[: idx + 1]
-            # Only include CDNA archs for CDNA files, RDNA for RDNA files
-            if arch_key.startswith("cdna"):
-                all_archs = [a for a in all_archs if a.startswith("cdna")]
-            elif arch_key.startswith("rdna"):
-                all_archs = [a for a in all_archs if a.startswith("rdna")]
-            return ",".join(all_archs), f"{arch_key.upper()}+"
-    return "cdna1,cdna2,cdna3,cdna4", "CDNA1+"
+            return arch_key, f"{arch_key.upper()}+"
+    return "cdna1", "CDNA1+"
+
+
+def read_existing_architectures(doc_path: str) -> set[str]:
+    if not os.path.exists(doc_path):
+        return set()
+    with open(doc_path, encoding="utf-8") as handle:
+        content = handle.read()
+    match = re.search(r"architectures: ([^\n]+)", content)
+    if not match:
+        return set()
+    return {item.strip() for item in match.group(1).split(",") if item.strip()}
+
+
+def merge_architectures(*arch_sets: set[str]) -> str:
+    merged: set[str] = set()
+    for arch_set in arch_sets:
+        merged |= arch_set
+    ordered = [arch for arch in CDNA_ARCH_ORDER if arch in merged]
+    ordered += [arch for arch in RDNA_ARCH_ORDER if arch in merged]
+    extra = sorted(merged - set(ordered))
+    return ",".join(ordered + extra)
 
 
 def parse_operands(encoding_elem) -> list[dict]:
@@ -241,7 +259,7 @@ def extract_instruction_docs(xml_path: str, out_dir: str, filter_re: str = None)
     root = tree.getroot()
 
     xml_name = os.path.basename(xml_path)
-    architectures, version = determine_architectures(xml_name)
+    architecture, version = determine_architectures(xml_name)
     today = date.today().isoformat()
 
     # Extract architecture name from XML
@@ -374,7 +392,7 @@ name: {slug}
 description: "{desc_escaped}"
 metadata:
   languages: hip
-  architectures: {architectures}
+  architectures: {architecture}
   versions: '{version}'
   revision: 1
   updated-on: '{today}'
@@ -403,8 +421,32 @@ metadata:
         os.makedirs(doc_dir, exist_ok=True)
 
         doc_path = os.path.join(doc_dir, "DOC.md")
-        with open(doc_path, "w") as f:
-            f.write(doc_content)
+        merged_architectures = merge_architectures(
+            {architecture},
+            read_existing_architectures(doc_path),
+        )
+        revision = 1
+        if os.path.exists(doc_path):
+            with open(doc_path, encoding="utf-8") as handle:
+                existing = handle.read()
+            revision_match = re.search(r"revision: (\d+)", existing)
+            if revision_match:
+                revision = int(revision_match.group(1)) + 1
+            doc_content = re.sub(
+                r"architectures: [^\n]+",
+                f"architectures: {merged_architectures}",
+                doc_content,
+                count=1,
+            )
+            doc_content = re.sub(
+                r"revision: \d+",
+                f"revision: {revision}",
+                doc_content,
+                count=1,
+            )
+
+        with open(doc_path, "w", encoding="utf-8") as handle:
+            handle.write(doc_content)
 
         count += 1
 

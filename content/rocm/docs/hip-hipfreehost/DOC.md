@@ -1,11 +1,11 @@
 ---
 name: hip-hipfreehost
-description: "hipFreeHost HIP Runtime API function"
+description: "Frees page-locked memory This API performs an implicit hipDeviceSynchronize() call. If pointer is NULL, the hip runtime is initialized and hipSuccess is returned."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,26 @@ metadata:
 
 # hipFreeHost
 
-hipFreeHost HIP Runtime API function
+Frees page-locked memory This API performs an implicit hipDeviceSynchronize() call. If pointer is NULL, the hip runtime is initialized and hipSuccess is returned.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipFreeHost(void *ptr);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `ptr` | Pointer to memory to be freed |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue (if pointer is invalid, including device pointers allocated with hipMalloc)
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga28d7d92836116dfadeb62e416ee887d3)

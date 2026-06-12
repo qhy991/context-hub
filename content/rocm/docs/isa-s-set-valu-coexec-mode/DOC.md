@@ -3,9 +3,9 @@ name: isa-s-set-valu-coexec-mode
 description: "Set the vector ALU co-execution mode to the value encoded in SIMM16[1:0] for the next VALU instruction. The co-execution mode is cleared to zero after the next VALU instruction is issued."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna3,cdna4
   versions: 'CDNA4+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,s,isa,scalar-unit,flow

@@ -1,11 +1,11 @@
 ---
 name: hip-hipmodulegetfunction
-description: "hipModuleGetFunction HIP Runtime API function"
+description: "Function with kname will be extracted if present in module."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,module-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipModuleGetFunction
 
-hipModuleGetFunction HIP Runtime API function
+Function with kname will be extracted if present in module.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipModuleGetFunction(hipFunction_t *function, hipModule_t module, const char *kname);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `module` | Module to get function from |
+| [in] | `kname` | Pointer to the name of function |
+| [out] | `function` | Pointer to function handle |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorInvalidContext , hipErrorNotInitialized , hipErrorNotFound ,
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html#ga9648b457bb837838cb936b417b56a65d)

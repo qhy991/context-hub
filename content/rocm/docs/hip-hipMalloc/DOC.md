@@ -1,11 +1,11 @@
 ---
 name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+description: "Allocate memory on the default accelerator."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,memory-management
@@ -17,14 +17,35 @@ metadata:
 
 # hipMalloc
 
-hipMalloc HIP Runtime API function
+Allocate memory on the default accelerator.
 
+## Signature
+
+```c
+hipError_t hipMalloc(void **ptr, size_t size);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `ptr` | Pointer to the allocated memory |
+| [in] | `size` | Requested memory size |
+
+## Returns
+
+hipSuccess , hipErrorOutOfMemory , hipErrorInvalidValue (bad context, null *ptr)
+
+## Notes
+
+- If size is 0, no memory is allocated, *ptr returns nullptr, and hipSuccess is returned.
 
 ## See Also
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- hipMallocPitch
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga4c6fcfe80010069d2792780d00dcead2)

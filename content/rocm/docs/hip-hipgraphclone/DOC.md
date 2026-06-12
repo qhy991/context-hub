@@ -1,11 +1,11 @@
 ---
 name: hip-hipgraphclone
-description: "hipGraphClone HIP Runtime API function"
+description: "Clones a graph."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,graph-management
@@ -17,14 +17,27 @@ metadata:
 
 # hipGraphClone
 
-hipGraphClone HIP Runtime API function
+Clones a graph.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipGraphClone(hipGraph_t *pGraphClone, hipGraph_t originalGraph);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `pGraphClone` | - Returns newly created cloned graph. |
+| [in] | `originalGraph` | - original graph to clone from. |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorMemoryAllocation
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___graph.html#gaf9eec67b896029a35ee31055c247cc77)

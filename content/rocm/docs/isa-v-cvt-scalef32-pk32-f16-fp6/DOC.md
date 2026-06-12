@@ -3,7 +3,7 @@ name: isa-v-cvt-scalef32-pk32-f16-fp6
 description: "Convert from a packed 32-component FP6 float input to a packed half-precision float value, then scale the packed values using the exponent provided by the second single-precision float input. Store the result into a vector register."
 metadata:
   languages: hip
-  architectures: cdna1,cdna2,cdna3,cdna4
+  architectures: cdna4
   versions: 'CDNA4+'
   revision: 1
   updated-on: '2026-06-12'

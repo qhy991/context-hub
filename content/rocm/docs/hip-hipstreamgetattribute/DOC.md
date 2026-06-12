@@ -1,11 +1,11 @@
 ---
 name: hip-hipstreamgetattribute
-description: "hipStreamGetAttribute HIP Runtime API function"
+description: "queries stream attribute."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
   versions: 'ROCm 5.0+'
-  revision: 1
+  revision: 2
   updated-on: '2026-06-12'
   source: official
   tags: rocm,gpu,hip,runtime-api,stream-management
@@ -17,14 +17,28 @@ metadata:
 
 # hipStreamGetAttribute
 
-hipStreamGetAttribute HIP Runtime API function
+queries stream attribute.
 
+## Signature
 
-## See Also
+```c
+hipError_t hipStreamGetAttribute(hipStream_t stream, hipStreamAttrID attr, hipStreamAttrValue *value_out);
+```
 
-- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
-- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `stream` | - Stream to geet attributes from |
+| [in] | `attr` | - Attribute ID for the attribute to query |
+| [out] | `value` | - Attribute value output |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorInvalidResourceHandle
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html)
+- [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
+- [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html#gaf111d0d141be35560d37e8a755f2ef4a)
