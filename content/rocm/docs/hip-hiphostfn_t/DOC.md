@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostfn_t
-description: "hipHostFn_t HIP Runtime API function"
+description: "Function pointer type for host callbacks executed on the host thread."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostFn_t
 
-hipHostFn_t HIP Runtime API function
+Function pointer type for host callbacks executed on the host thread.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipfunction_attribute
-description: "hipFunction_attribute HIP Runtime API function"
+description: "Enumeration of function (kernel) attributes for occupancy queries."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipFunction_attribute
 
-hipFunction_attribute HIP Runtime API function
+Enumeration of function (kernel) attributes for occupancy queries.
 
 ## References
 

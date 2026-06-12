@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamattrid
-description: "hipStreamAttrID HIP Runtime API function"
+description: "Enumeration of stream attribute IDs."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamAttrID
 
-hipStreamAttrID HIP Runtime API function
+Enumeration of stream attribute IDs.
 
 ## References
 

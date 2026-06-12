@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamupdatecapturedependenciesflags
-description: "hipStreamUpdateCaptureDependenciesFlags HIP Runtime API function"
+description: "Flags for updating stream capture dependencies."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamUpdateCaptureDependenciesFlags
 
-hipStreamUpdateCaptureDependenciesFlags HIP Runtime API function
+Flags for updating stream capture dependencies.
 
 ## References
 

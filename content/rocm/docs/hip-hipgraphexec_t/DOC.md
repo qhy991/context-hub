@@ -1,6 +1,6 @@
 ---
 name: hip-hipgraphexec_t
-description: "hipGraphExec_t HIP Runtime API function"
+description: "Opaque handle to a GraphExec t object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipGraphExec_t
 
-hipGraphExec_t HIP Runtime API function
+Opaque handle to a GraphExec t object.
+
+## Type
+
+Opaque handle. typedef struct hipGraphExec* hipGraphExec_t;
 
 ## References
 

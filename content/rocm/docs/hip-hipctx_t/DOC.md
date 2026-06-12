@@ -1,6 +1,6 @@
 ---
 name: hip-hipctx_t
-description: "hipCtx_t HIP Runtime API function"
+description: "API-visible structures"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipCtx_t
 
-hipCtx_t HIP Runtime API function
+API-visible structures
+
+## Type
+
+Opaque handle. typedef struct ihipCtx_t* hipCtx_t;
 
 ## References
 

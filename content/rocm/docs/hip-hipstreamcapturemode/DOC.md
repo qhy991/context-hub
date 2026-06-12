@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamcapturemode
-description: "hipStreamCaptureMode HIP Runtime API function"
+description: "Enumeration type for StreamCaptureMode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipStreamCaptureMode
 
-hipStreamCaptureMode HIP Runtime API function
+Enumeration type for StreamCaptureMode.
+
+## Type
+
+Enum. typedef enum hipStreamCaptureMode {
+
+## Values
+
+`hipStreamCaptureModeGlobal`
 
 ## References
 

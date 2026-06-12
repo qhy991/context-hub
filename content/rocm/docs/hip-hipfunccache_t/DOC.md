@@ -1,6 +1,6 @@
 ---
 name: hip-hipfunccache_t
-description: "hipFuncCache_t HIP Runtime API function"
+description: "Enumeration type for FuncCache t."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipFuncCache_t
 
-hipFuncCache_t HIP Runtime API function
+Enumeration type for FuncCache t.
+
+## Type
+
+Enum. typedef enum hipFuncCache_t {
 
 ## References
 

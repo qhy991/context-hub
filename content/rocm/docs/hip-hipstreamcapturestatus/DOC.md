@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamcapturestatus
-description: "hipStreamCaptureStatus HIP Runtime API function"
+description: "Enumeration type for StreamCaptureStatus."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipStreamCaptureStatus
 
-hipStreamCaptureStatus HIP Runtime API function
+Enumeration type for StreamCaptureStatus.
+
+## Type
+
+Enum. typedef enum hipStreamCaptureStatus {
+
+## Values
+
+`hipStreamCaptureStatusNone`
 
 ## References
 

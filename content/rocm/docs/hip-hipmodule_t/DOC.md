@@ -1,6 +1,6 @@
 ---
 name: hip-hipmodule_t
-description: "hipModule_t HIP Runtime API function"
+description: "Opaque handle to a Module t object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipModule_t
 
-hipModule_t HIP Runtime API function
+Opaque handle to a Module t object.
+
+## Type
+
+Opaque handle. typedef struct ihipModule_t* hipModule_t;
 
 ## References
 

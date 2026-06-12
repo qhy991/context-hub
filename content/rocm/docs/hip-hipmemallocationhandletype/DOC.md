@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemallocationhandletype
-description: "hipMemAllocationHandleType HIP Runtime API function"
+description: "HIP API: MemAllocationHandleType."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMemAllocationHandleType
 
-hipMemAllocationHandleType HIP Runtime API function
+HIP API: MemAllocationHandleType.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipeventdefault
-description: "hipEventDefault HIP Runtime API function"
+description: "Event creation flag: default mode (non-blocking, timing enabled)."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipEventDefault
 
-hipEventDefault HIP Runtime API function
+Event creation flag: default mode (non-blocking, timing enabled).
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicemaphost
-description: "hipDeviceMapHost HIP Runtime API function"
+description: "Flag to map host memory into device address space."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceMapHost
 
-hipDeviceMapHost HIP Runtime API function
+Flag to map host memory into device address space.
 
 ## References
 

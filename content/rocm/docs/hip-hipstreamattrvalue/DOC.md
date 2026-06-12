@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamattrvalue
-description: "hipStreamAttrValue HIP Runtime API function"
+description: "Union type for stream attribute values."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamAttrValue
 
-hipStreamAttrValue HIP Runtime API function
+Union type for stream attribute values.
 
 ## References
 

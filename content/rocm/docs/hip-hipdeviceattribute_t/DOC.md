@@ -1,6 +1,6 @@
 ---
 name: hip-hipdeviceattribute_t
-description: "hipDeviceAttribute_t HIP Runtime API function"
+description: "Enumeration type for DeviceAttribute t."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipDeviceAttribute_t
 
-hipDeviceAttribute_t HIP Runtime API function
+Enumeration type for DeviceAttribute t.
+
+## Type
+
+Enum. typedef enum hipDeviceAttribute_t {
+
+## Values
+
+`hipDeviceAttributeCudaCompatibleBegin`, `hipDeviceAttributeEccEnabled`, `hipDeviceAttributeCudaCompatibleEnd`, `hipDeviceAttributeAmdSpecificBegin`, `hipDeviceAttributeClockInstructionRate`, `hipDeviceAttributeAmdSpecificEnd`, `hipDeviceAttributeVendorSpecificBegin`
 
 ## References
 

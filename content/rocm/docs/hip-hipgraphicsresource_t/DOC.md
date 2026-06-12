@@ -1,6 +1,6 @@
 ---
 name: hip-hipgraphicsresource_t
-description: "hipGraphicsResource_t HIP Runtime API function"
+description: "Handle to a graphics resource for OpenGL/DirectX interoperability."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipGraphicsResource_t
 
-hipGraphicsResource_t HIP Runtime API function
+Handle to a graphics resource for OpenGL/DirectX interoperability.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipdeviceptr_t
-description: "hipDeviceptr_t HIP Runtime API function"
+description: "Pointer to device memory (GPU address space)."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceptr_t
 
-hipDeviceptr_t HIP Runtime API function
+Pointer to device memory (GPU address space).
 
 ## References
 

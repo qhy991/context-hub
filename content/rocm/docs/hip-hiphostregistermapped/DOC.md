@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostregistermapped
-description: "hipHostRegisterMapped HIP Runtime API function"
+description: "Host memory registration flag: mapped into device address space."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostRegisterMapped
 
-hipHostRegisterMapped HIP Runtime API function
+Host memory registration flag: mapped into device address space.
 
 ## References
 

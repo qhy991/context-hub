@@ -1,6 +1,6 @@
 ---
 name: hip-hipeventdisablesystemfence
-description: "hipEventDisableSystemFence HIP Runtime API function"
+description: "Event creation flag: disable system fence on event record."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipEventDisableSystemFence
 
-hipEventDisableSystemFence HIP Runtime API function
+Event creation flag: disable system fence on event record.
 
 ## References
 

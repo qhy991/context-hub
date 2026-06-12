@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostallocportable
-description: "hipHostAllocPortable HIP Runtime API function"
+description: "Host memory allocation flag: portable across devices."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostAllocPortable
 
-hipHostAllocPortable HIP Runtime API function
+Host memory allocation flag: portable across devices.
 
 ## References
 

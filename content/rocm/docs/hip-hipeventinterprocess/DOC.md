@@ -1,6 +1,6 @@
 ---
 name: hip-hipeventinterprocess
-description: "hipEventInterprocess HIP Runtime API function"
+description: "Event creation flag: event can be shared between processes."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipEventInterprocess
 
-hipEventInterprocess HIP Runtime API function
+Event creation flag: event can be shared between processes.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipmallocsignalmemory
-description: "hipMallocSignalMemory HIP Runtime API function"
+description: "HIP API: MallocSignalMemory."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMallocSignalMemory
 
-hipMallocSignalMemory HIP Runtime API function
+HIP API: MallocSignalMemory.
 
 ## References
 

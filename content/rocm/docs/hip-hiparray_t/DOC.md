@@ -1,6 +1,6 @@
 ---
 name: hip-hiparray_t
-description: "hipArray_t HIP Runtime API function"
+description: "Handle to a HIP array object for texture/surface memory."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipArray_t
 
-hipArray_t HIP Runtime API function
+Handle to a HIP array object for texture/surface memory.
 
 ## References
 

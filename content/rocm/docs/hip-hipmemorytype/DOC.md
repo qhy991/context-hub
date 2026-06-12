@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemorytype
-description: "hipMemoryType HIP Runtime API function"
+description: "< without calling hipHostRegister on it"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipMemoryType
 
-hipMemoryType HIP Runtime API function
+< without calling hipHostRegister on it
+
+## Type
+
+Enum. typedef enum hipMemoryType {
 
 ## References
 

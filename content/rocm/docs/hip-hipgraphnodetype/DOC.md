@@ -1,6 +1,6 @@
 ---
 name: hip-hipgraphnodetype
-description: "hipGraphNodeType HIP Runtime API function"
+description: "Enumeration type for GraphNodeType."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipGraphNodeType
 
-hipGraphNodeType HIP Runtime API function
+Enumeration type for GraphNodeType.
+
+## Type
+
+Enum. typedef enum hipGraphNodeType {
+
+## Values
+
+`hipGraphNodeTypeKernel`, `hipGraphNodeTypeMemcpy`, `hipGraphNodeTypeMemset`, `hipGraphNodeTypeHost`, `hipGraphNodeTypeGraph`, `hipGraphNodeTypeEmpty`, `hipGraphNodeTypeWaitEvent`, `hipGraphNodeTypeEventRecord`, `hipGraphNodeTypeMemcpy1D`, `hipGraphNodeTypeMemcpyFromSymbol`, `hipGraphNodeTypeMemcpyToSymbol`
 
 ## References
 

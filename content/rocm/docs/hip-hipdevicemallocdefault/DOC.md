@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicemallocdefault
-description: "hipDeviceMallocDefault HIP Runtime API function"
+description: "Device memory allocation flag: default mode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceMallocDefault
 
-hipDeviceMallocDefault HIP Runtime API function
+Device memory allocation flag: default mode.
 
 ## References
 

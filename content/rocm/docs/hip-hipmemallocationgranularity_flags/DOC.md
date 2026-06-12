@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemallocationgranularity_flags
-description: "hipMemAllocationGranularity_flags HIP Runtime API function"
+description: "Flags for memory allocation granularity queries."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMemAllocationGranularity_flags
 
-hipMemAllocationGranularity_flags HIP Runtime API function
+Flags for memory allocation granularity queries.
 
 ## References
 

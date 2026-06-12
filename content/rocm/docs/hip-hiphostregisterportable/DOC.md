@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostregisterportable
-description: "hipHostRegisterPortable HIP Runtime API function"
+description: "Host memory registration flag: portable across devices."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostRegisterPortable
 
-hipHostRegisterPortable HIP Runtime API function
+Host memory registration flag: portable across devices.
 
 ## References
 

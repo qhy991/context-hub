@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicescheduleyield
-description: "hipDeviceScheduleYield HIP Runtime API function"
+description: "Device scheduling policy: yield to other threads."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceScheduleYield
 
-hipDeviceScheduleYield HIP Runtime API function
+Device scheduling policy: yield to other threads.
 
 ## References
 

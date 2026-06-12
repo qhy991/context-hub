@@ -1,6 +1,6 @@
 ---
 name: hip-hiplibrary_t
-description: "hipLibrary_t HIP Runtime API function"
+description: "Type definition for Library t."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipLibrary_t
 
-hipLibrary_t HIP Runtime API function
+Type definition for Library t.
 
 ## References
 

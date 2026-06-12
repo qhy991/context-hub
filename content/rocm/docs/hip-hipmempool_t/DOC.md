@@ -1,6 +1,6 @@
 ---
 name: hip-hipmempool_t
-description: "hipMemPool_t HIP Runtime API function"
+description: "Type definition for MemPool t."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMemPool_t
 
-hipMemPool_t HIP Runtime API function
+Type definition for MemPool t.
 
 ## References
 

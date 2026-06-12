@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamwaitvalueand
-description: "hipStreamWaitValueAnd HIP Runtime API function"
+description: "Stream wait condition: wait if (value AND reference) != 0."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamWaitValueAnd
 
-hipStreamWaitValueAnd HIP Runtime API function
+Stream wait condition: wait if (value AND reference) != 0.
 
 ## References
 

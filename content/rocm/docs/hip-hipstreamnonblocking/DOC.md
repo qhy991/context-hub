@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamnonblocking
-description: "hipStreamNonBlocking HIP Runtime API function"
+description: "Stream creation flag: non-blocking stream (no implicit sync with default stream)."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamNonBlocking
 
-hipStreamNonBlocking HIP Runtime API function
+Stream creation flag: non-blocking stream (no implicit sync with default stream).
 
 ## References
 

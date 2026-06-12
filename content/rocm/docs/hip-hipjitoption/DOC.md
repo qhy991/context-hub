@@ -1,6 +1,6 @@
 ---
 name: hip-hipjitoption
-description: "hipJitOption HIP Runtime API function"
+description: "< @ref hipMemRangeCoherencyMode for the range"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipJitOption
 
-hipJitOption HIP Runtime API function
+< @ref hipMemRangeCoherencyMode for the range
+
+## Type
+
+Enum. typedef enum hipJitOption {
+
+## Values
+
+`hipJitOptionMaxRegisters`
 
 ## References
 

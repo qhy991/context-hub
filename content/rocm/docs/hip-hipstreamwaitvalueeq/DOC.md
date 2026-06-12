@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamwaitvalueeq
-description: "hipStreamWaitValueEq HIP Runtime API function"
+description: "Stream wait condition: wait if value equals reference."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamWaitValueEq
 
-hipStreamWaitValueEq HIP Runtime API function
+Stream wait condition: wait if value equals reference.
 
 ## References
 

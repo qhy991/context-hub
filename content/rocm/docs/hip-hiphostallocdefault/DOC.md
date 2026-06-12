@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostallocdefault
-description: "hipHostAllocDefault HIP Runtime API function"
+description: "Host memory allocation flag: default mode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostAllocDefault
 
-hipHostAllocDefault HIP Runtime API function
+Host memory allocation flag: default mode.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemrangehandletype
-description: "hipMemRangeHandleType HIP Runtime API function"
+description: "HIP API: MemRangeHandleType."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMemRangeHandleType
 
-hipMemRangeHandleType HIP Runtime API function
+HIP API: MemRangeHandleType.
 
 ## References
 

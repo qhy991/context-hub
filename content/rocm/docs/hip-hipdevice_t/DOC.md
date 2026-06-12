@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevice_t
-description: "hipDevice_t HIP Runtime API function"
+description: "Note many APIs also use integer deviceIds as an alternative to the device pointer:"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipDevice_t
 
-hipDevice_t HIP Runtime API function
+Note many APIs also use integer deviceIds as an alternative to the device pointer:
+
+## Type
+
+Type alias. typedef int hipDevice_t;
 
 ## References
 

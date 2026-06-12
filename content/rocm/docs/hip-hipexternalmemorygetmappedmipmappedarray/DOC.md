@@ -1,6 +1,6 @@
 ---
 name: hip-hipexternalmemorygetmappedmipmappedarray
-description: "hipExternalMemoryGetMappedMipmappedArray HIP Runtime API function"
+description: "Map an external memory object to a mipmapped array."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipExternalMemoryGetMappedMipmappedArray
 
-hipExternalMemoryGetMappedMipmappedArray HIP Runtime API function
+Map an external memory object to a mipmapped array.
 
 
 ## See Also

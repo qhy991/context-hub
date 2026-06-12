@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicescheduleblockingsync
-description: "hipDeviceScheduleBlockingSync HIP Runtime API function"
+description: "Device scheduling policy: blocking synchronization."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceScheduleBlockingSync
 
-hipDeviceScheduleBlockingSync HIP Runtime API function
+Device scheduling policy: blocking synchronization.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostallocmapped
-description: "hipHostAllocMapped HIP Runtime API function"
+description: "Host memory allocation flag: mapped into device address space."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostAllocMapped
 
-hipHostAllocMapped HIP Runtime API function
+Host memory allocation flag: mapped into device address space.
 
 ## References
 

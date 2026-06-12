@@ -1,6 +1,6 @@
 ---
 name: hip-hipsignalexternalsemaphoresasync
-description: "hipSignalExternalSemaphoresAsync HIP Runtime API function"
+description: "HIP API: SignalExternalSemaphoresAsync."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipSignalExternalSemaphoresAsync
 
-hipSignalExternalSemaphoresAsync HIP Runtime API function
+HIP API: SignalExternalSemaphoresAsync.
 
 
 ## See Also

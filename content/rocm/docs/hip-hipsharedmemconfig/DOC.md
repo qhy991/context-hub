@@ -1,6 +1,6 @@
 ---
 name: hip-hipsharedmemconfig
-description: "hipSharedMemConfig HIP Runtime API function"
+description: "Enumeration type for SharedMemConfig."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipSharedMemConfig
 
-hipSharedMemConfig HIP Runtime API function
+Enumeration type for SharedMemConfig.
+
+## Type
+
+Enum. typedef enum hipSharedMemConfig {
 
 ## References
 

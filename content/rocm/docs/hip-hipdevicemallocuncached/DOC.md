@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicemallocuncached
-description: "hipDeviceMallocUncached HIP Runtime API function"
+description: "Device memory allocation flag: uncached mode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceMallocUncached
 
-hipDeviceMallocUncached HIP Runtime API function
+Device memory allocation flag: uncached mode.
 
 ## References
 

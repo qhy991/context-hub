@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicescheduleauto
-description: "hipDeviceScheduleAuto HIP Runtime API function"
+description: "Device scheduling policy: automatic (Yield between retries)."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceScheduleAuto
 
-hipDeviceScheduleAuto HIP Runtime API function
+Device scheduling policy: automatic (Yield between retries).
 
 ## References
 

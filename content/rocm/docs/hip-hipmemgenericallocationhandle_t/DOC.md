@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemgenericallocationhandle_t
-description: "hipMemGenericAllocationHandle_t HIP Runtime API function"
+description: "Opaque handle for a generic memory allocation in virtual memory management."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMemGenericAllocationHandle_t
 
-hipMemGenericAllocationHandle_t HIP Runtime API function
+Opaque handle for a generic memory allocation in virtual memory management.
 
 ## References
 

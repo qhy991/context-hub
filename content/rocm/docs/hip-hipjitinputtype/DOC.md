@@ -1,6 +1,6 @@
 ---
 name: hip-hipjitinputtype
-description: "hipJitInputType HIP Runtime API function"
+description: "Enumeration of JIT input types for runtime compilation."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipJitInputType
 
-hipJitInputType HIP Runtime API function
+Enumeration of JIT input types for runtime compilation.
 
 ## References
 

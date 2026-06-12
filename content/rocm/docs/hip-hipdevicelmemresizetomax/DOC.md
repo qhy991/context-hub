@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicelmemresizetomax
-description: "hipDeviceLmemResizeToMax HIP Runtime API function"
+description: "Flag to resize local memory to maximum available size on device launch."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceLmemResizeToMax
 
-hipDeviceLmemResizeToMax HIP Runtime API function
+Flag to resize local memory to maximum available size on device launch.
 
 ## References
 

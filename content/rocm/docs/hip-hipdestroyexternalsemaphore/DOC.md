@@ -1,6 +1,6 @@
 ---
 name: hip-hipdestroyexternalsemaphore
-description: "hipDestroyExternalSemaphore HIP Runtime API function"
+description: "Destroy an external semaphore object and release resources."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDestroyExternalSemaphore
 
-hipDestroyExternalSemaphore HIP Runtime API function
+Destroy an external semaphore object and release resources.
 
 
 ## See Also

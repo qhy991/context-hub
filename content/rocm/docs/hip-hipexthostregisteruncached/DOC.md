@@ -1,6 +1,6 @@
 ---
 name: hip-hipexthostregisteruncached
-description: "hipExtHostRegisterUncached HIP Runtime API function"
+description: "External host registration flag: uncached memory."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipExtHostRegisterUncached
 
-hipExtHostRegisterUncached HIP Runtime API function
+External host registration flag: uncached memory.
 
 ## References
 

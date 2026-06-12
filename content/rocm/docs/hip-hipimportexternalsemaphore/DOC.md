@@ -1,6 +1,6 @@
 ---
 name: hip-hipimportexternalsemaphore
-description: "hipImportExternalSemaphore HIP Runtime API function"
+description: "HIP API: ImportExternalSemaphore."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipImportExternalSemaphore
 
-hipImportExternalSemaphore HIP Runtime API function
+HIP API: ImportExternalSemaphore.
 
 
 ## See Also

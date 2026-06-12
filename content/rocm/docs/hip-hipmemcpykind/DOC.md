@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemcpykind
-description: "hipMemcpyKind HIP Runtime API function"
+description: "HIP API: MemcpyKind."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipMemcpyKind
 
-hipMemcpyKind HIP Runtime API function
+HIP API: MemcpyKind.
 
 ## References
 

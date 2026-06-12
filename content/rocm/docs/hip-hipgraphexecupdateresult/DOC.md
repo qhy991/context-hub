@@ -1,6 +1,6 @@
 ---
 name: hip-hipgraphexecupdateresult
-description: "hipGraphExecUpdateResult HIP Runtime API function"
+description: "Enumeration type for GraphExecUpdateResult."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipGraphExecUpdateResult
 
-hipGraphExecUpdateResult HIP Runtime API function
+Enumeration type for GraphExecUpdateResult.
+
+## Type
+
+Enum. typedef enum hipGraphExecUpdateResult {
+
+## Values
+
+`hipGraphExecUpdateSuccess`, `hipGraphExecUpdateError`, `hipGraphExecUpdateErrorTopologyChanged`, `hipGraphExecUpdateErrorNodeTypeChanged`, `hipGraphExecUpdateErrorFunctionChanged`, `hipGraphExecUpdateErrorParametersChanged`, `hipGraphExecUpdateErrorNotSupported`, `hipGraphExecUpdateErrorUnsupportedFunctionChange`
 
 ## References
 

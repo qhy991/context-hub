@@ -1,6 +1,6 @@
 ---
 name: hip-hipeventblockingsync
-description: "hipEventBlockingSync HIP Runtime API function"
+description: "Event creation flag: blocking synchronization mode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipEventBlockingSync
 
-hipEventBlockingSync HIP Runtime API function
+Event creation flag: blocking synchronization mode.
 
 ## References
 

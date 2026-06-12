@@ -1,6 +1,6 @@
 ---
 name: hip-hipgraph_t
-description: "hipGraph_t HIP Runtime API function"
+description: "Opaque handle to a Graph t object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipGraph_t
 
-hipGraph_t HIP Runtime API function
+Opaque handle to a Graph t object.
+
+## Type
+
+Opaque handle. typedef struct ihipGraph* hipGraph_t;
 
 ## References
 

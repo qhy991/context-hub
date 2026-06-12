@@ -1,6 +1,6 @@
 ---
 name: hip-hiparray_const_t
-description: "hipArray_const_t HIP Runtime API function"
+description: "Immutable handle to a HIP array object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipArray_const_t
 
-hipArray_const_t HIP Runtime API function
+Immutable handle to a HIP array object.
 
 ## References
 

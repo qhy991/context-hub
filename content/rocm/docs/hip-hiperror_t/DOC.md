@@ -1,6 +1,6 @@
 ---
 name: hip-hiperror_t
-description: "hipError_t HIP Runtime API function"
+description: "Developer note - when updating these, update the hipErrorName and hipErrorString functions in"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipError_t
 
-hipError_t HIP Runtime API function
+Developer note - when updating these, update the hipErrorName and hipErrorString functions in
+
+## Type
+
+Enum. typedef enum __HIP_NODISCARD hipError_t {
+
+## Values
+
+`hipSuccess`, `hipErrorInvalidValue`, `hipErrorOutOfMemory`, `hipErrorMemoryAllocation`, `hipErrorNotInitialized`, `hipErrorInitializationError`, `hipErrorDeinitialized`, `hipErrorProfilerDisabled`, `hipErrorProfilerNotInitialized`, `hipErrorProfilerAlreadyStarted`, `hipErrorProfilerAlreadyStopped`, `hipErrorInvalidConfiguration`, `hipErrorInvalidPitchValue`, `hipErrorInvalidSymbol`, `hipErrorInvalidDevicePointer`
 
 ## References
 

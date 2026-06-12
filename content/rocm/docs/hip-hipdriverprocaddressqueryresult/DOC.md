@@ -1,6 +1,6 @@
 ---
 name: hip-hipdriverprocaddressqueryresult
-description: "hipDriverProcAddressQueryResult HIP Runtime API function"
+description: "Structure for querying driver procedure address."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDriverProcAddressQueryResult
 
-hipDriverProcAddressQueryResult HIP Runtime API function
+Structure for querying driver procedure address.
 
 ## References
 

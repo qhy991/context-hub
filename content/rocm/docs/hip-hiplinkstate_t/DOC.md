@@ -1,6 +1,6 @@
 ---
 name: hip-hiplinkstate_t
-description: "hipLinkState_t HIP Runtime API function"
+description: "Type definition for LinkState t."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipLinkState_t
 
-hipLinkState_t HIP Runtime API function
+Type definition for LinkState t.
 
 ## References
 

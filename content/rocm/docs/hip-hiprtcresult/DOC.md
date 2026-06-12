@@ -1,6 +1,6 @@
 ---
 name: hip-hiprtcresult
-description: "hiprtcResult HIP Runtime API function"
+description: "HIP API: rtcResult."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hiprtcResult
 
-hiprtcResult HIP Runtime API function
+HIP API: rtcResult.
 
 ## References
 

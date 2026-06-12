@@ -1,6 +1,6 @@
 ---
 name: hip-hipwaitexternalsemaphoresasync
-description: "hipWaitExternalSemaphoresAsync HIP Runtime API function"
+description: "HIP API: WaitExternalSemaphoresAsync."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipWaitExternalSemaphoresAsync
 
-hipWaitExternalSemaphoresAsync HIP Runtime API function
+HIP API: WaitExternalSemaphoresAsync.
 
 
 ## See Also

@@ -1,6 +1,6 @@
 ---
 name: hip-hiplimit_t
-description: "hipLimit_t HIP Runtime API function"
+description: "Type definition for Limit t."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipLimit_t
 
-hipLimit_t HIP Runtime API function
+Type definition for Limit t.
 
 ## References
 

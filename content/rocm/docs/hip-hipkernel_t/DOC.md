@@ -1,6 +1,6 @@
 ---
 name: hip-hipkernel_t
-description: "hipKernel_t HIP Runtime API function"
+description: "Handle to a HIP kernel function."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipKernel_t
 
-hipKernel_t HIP Runtime API function
+Handle to a HIP kernel function.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipstream_t
-description: "hipStream_t HIP Runtime API function"
+description: "Opaque handle to a Stream t object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipStream_t
 
-hipStream_t HIP Runtime API function
+Opaque handle to a Stream t object.
+
+## Type
+
+Opaque handle. typedef struct ihipStream_t* hipStream_t;
 
 ## References
 

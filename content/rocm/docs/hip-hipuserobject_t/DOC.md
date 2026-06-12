@@ -1,6 +1,6 @@
 ---
 name: hip-hipuserobject_t
-description: "hipUserObject_t HIP Runtime API function"
+description: "Handle to a user-defined object with reference counting for graph management."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipUserObject_t
 
-hipUserObject_t HIP Runtime API function
+Handle to a user-defined object with reference counting for graph management.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicemallocfinegrained
-description: "hipDeviceMallocFinegrained HIP Runtime API function"
+description: "Device memory allocation flag: fine-grained mode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceMallocFinegrained
 
-hipDeviceMallocFinegrained HIP Runtime API function
+Device memory allocation flag: fine-grained mode.
 
 ## References
 

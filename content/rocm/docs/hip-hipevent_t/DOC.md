@@ -1,6 +1,6 @@
 ---
 name: hip-hipevent_t
-description: "hipEvent_t HIP Runtime API function"
+description: "Opaque handle to a Event t object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,11 @@ metadata:
 
 # hipEvent_t
 
-hipEvent_t HIP Runtime API function
+Opaque handle to a Event t object.
+
+## Type
+
+Opaque handle. typedef struct ihipEvent_t* hipEvent_t;
 
 ## References
 

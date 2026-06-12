@@ -1,6 +1,6 @@
 ---
 name: hip-hipeventdisabletiming
-description: "hipEventDisableTiming HIP Runtime API function"
+description: "Event creation flag: disable event timing records."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipEventDisableTiming
 
-hipEventDisableTiming HIP Runtime API function
+Event creation flag: disable event timing records.
 
 ## References
 

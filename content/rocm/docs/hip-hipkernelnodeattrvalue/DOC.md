@@ -1,6 +1,6 @@
 ---
 name: hip-hipkernelnodeattrvalue
-description: "hipKernelNodeAttrValue HIP Runtime API function"
+description: "HIP API: KernelNodeAttrValue."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipKernelNodeAttrValue
 
-hipKernelNodeAttrValue HIP Runtime API function
+HIP API: KernelNodeAttrValue.
 
 ## References
 

@@ -1,6 +1,6 @@
 ---
 name: hip-hipimportexternalmemory
-description: "hipImportExternalMemory HIP Runtime API function"
+description: "HIP API: ImportExternalMemory."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipImportExternalMemory
 
-hipImportExternalMemory HIP Runtime API function
+HIP API: ImportExternalMemory.
 
 
 ## See Also

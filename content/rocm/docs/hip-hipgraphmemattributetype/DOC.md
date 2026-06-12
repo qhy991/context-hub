@@ -1,6 +1,6 @@
 ---
 name: hip-hipgraphmemattributetype
-description: "hipGraphMemAttributeType HIP Runtime API function"
+description: "Enumeration of graph memory attribute types."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipGraphMemAttributeType
 
-hipGraphMemAttributeType HIP Runtime API function
+Enumeration of graph memory attribute types.
 
 ## References
 

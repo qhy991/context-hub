@@ -1,6 +1,6 @@
 ---
 name: hip-hipdeviceschedulespin
-description: "hipDeviceScheduleSpin HIP Runtime API function"
+description: "Device scheduling policy: spin-loop (busy-wait)."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDeviceScheduleSpin
 
-hipDeviceScheduleSpin HIP Runtime API function
+Device scheduling policy: spin-loop (busy-wait).
 
 ## References
 

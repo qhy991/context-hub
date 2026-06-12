@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamwaitvaluegte
-description: "hipStreamWaitValueGte HIP Runtime API function"
+description: "Stream wait condition: wait if value >= reference."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamWaitValueGte
 
-hipStreamWaitValueGte HIP Runtime API function
+Stream wait condition: wait if value >= reference.
 
 ## References
 

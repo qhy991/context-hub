@@ -1,6 +1,6 @@
 ---
 name: hip-hipstreamdefault
-description: "hipStreamDefault HIP Runtime API function"
+description: "Stream creation flag: default priority stream (priority 0)."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipStreamDefault
 
-hipStreamDefault HIP Runtime API function
+Stream creation flag: default priority stream (priority 0).
 
 ## References
 

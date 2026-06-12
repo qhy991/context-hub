@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostregisterdefault
-description: "hipHostRegisterDefault HIP Runtime API function"
+description: "Host memory registration flag: default mode."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostRegisterDefault
 
-hipHostRegisterDefault HIP Runtime API function
+Host memory registration flag: default mode.
 
 ## References
 

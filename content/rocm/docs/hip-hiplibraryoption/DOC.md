@@ -1,6 +1,6 @@
 ---
 name: hip-hiplibraryoption
-description: "hipLibraryOption HIP Runtime API function"
+description: "HIP API: LibraryOption."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipLibraryOption
 
-hipLibraryOption HIP Runtime API function
+HIP API: LibraryOption.
 
 ## References
 

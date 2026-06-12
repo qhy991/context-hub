@@ -1,6 +1,6 @@
 ---
 name: hip-hipdriverentrypointqueryresult
-description: "hipDriverEntryPointQueryResult HIP Runtime API function"
+description: "Structure for querying driver entry point information."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipDriverEntryPointQueryResult
 
-hipDriverEntryPointQueryResult HIP Runtime API function
+Structure for querying driver entry point information.
 
 ## References
 

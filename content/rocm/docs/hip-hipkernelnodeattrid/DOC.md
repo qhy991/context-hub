@@ -1,6 +1,6 @@
 ---
 name: hip-hipkernelnodeattrid
-description: "hipKernelNodeAttrID HIP Runtime API function"
+description: "HIP API: KernelNodeAttrID."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipKernelNodeAttrID
 
-hipKernelNodeAttrID HIP Runtime API function
+HIP API: KernelNodeAttrID.
 
 ## References
 

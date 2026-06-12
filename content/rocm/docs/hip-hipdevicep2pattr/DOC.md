@@ -1,6 +1,6 @@
 ---
 name: hip-hipdevicep2pattr
-description: "hipDeviceP2PAttr HIP Runtime API function"
+description: "---"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,15 @@ metadata:
 
 # hipDeviceP2PAttr
 
-hipDeviceP2PAttr HIP Runtime API function
+---
+
+## Type
+
+Enum. typedef enum hipDeviceP2PAttr {
+
+## Values
+
+`hipDevP2PAttrPerformanceRank`
 
 ## References
 

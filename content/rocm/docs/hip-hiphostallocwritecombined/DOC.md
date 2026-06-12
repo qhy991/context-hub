@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostallocwritecombined
-description: "hipHostAllocWriteCombined HIP Runtime API function"
+description: "Host memory allocation flag: write-combined memory."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -17,7 +17,7 @@ metadata:
 
 # hipHostAllocWriteCombined
 
-hipHostAllocWriteCombined HIP Runtime API function
+Host memory allocation flag: write-combined memory.
 
 ## References
 
