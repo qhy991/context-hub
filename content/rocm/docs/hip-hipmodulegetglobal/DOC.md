@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hipmodulegetglobal
+description: "hipModuleGetGlobal HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -8,16 +8,16 @@ metadata:
   revision: 1
   updated-on: '2026-06-12'
   source: official
-  tags: rocm,gpu,hip,runtime-api,memory-management
+  tags: rocm,gpu,hip,runtime-api,module-management
   isa_category: runtime
   instruction_type: API
   hw_unit: driver
-  api_module: Memory Management
+  api_module: Module Management
 ---
 
-# hipMalloc
+# hipModuleGetGlobal
 
-hipMalloc HIP Runtime API function
+hipModuleGetGlobal HIP Runtime API function
 
 
 ## See Also
@@ -27,4 +27,4 @@ hipMalloc HIP Runtime API function
 
 ## References
 
-- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html)
+- [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___module.html)

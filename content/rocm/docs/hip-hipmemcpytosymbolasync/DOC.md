@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hipmemcpytosymbolasync
+description: "hipMemcpyToSymbolAsync HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -15,9 +15,9 @@ metadata:
   api_module: Memory Management
 ---
 
-# hipMalloc
+# hipMemcpyToSymbolAsync
 
-hipMalloc HIP Runtime API function
+hipMemcpyToSymbolAsync HIP Runtime API function
 
 
 ## See Also

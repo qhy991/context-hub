@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hipgetprocaddress
+description: "hipGetProcAddress HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -15,9 +15,9 @@ metadata:
   api_module: Memory Management
 ---
 
-# hipMalloc
+# hipGetProcAddress
 
-hipMalloc HIP Runtime API function
+hipGetProcAddress HIP Runtime API function
 
 
 ## See Also

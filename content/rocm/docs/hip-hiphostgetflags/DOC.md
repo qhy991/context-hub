@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hiphostgetflags
+description: "hipHostGetFlags HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -15,9 +15,9 @@ metadata:
   api_module: Memory Management
 ---
 
-# hipMalloc
+# hipHostGetFlags
 
-hipMalloc HIP Runtime API function
+hipHostGetFlags HIP Runtime API function
 
 
 ## See Also

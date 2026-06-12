@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hipmemcpydtod
+description: "hipMemcpyDtoD HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -15,9 +15,9 @@ metadata:
   api_module: Memory Management
 ---
 
-# hipMalloc
+# hipMemcpyDtoD
 
-hipMalloc HIP Runtime API function
+hipMemcpyDtoD HIP Runtime API function
 
 
 ## See Also

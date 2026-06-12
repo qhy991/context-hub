@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hipmemsetd2d32
+description: "hipMemsetD2D32 HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -15,9 +15,9 @@ metadata:
   api_module: Memory Management
 ---
 
-# hipMalloc
+# hipMemsetD2D32
 
-hipMalloc HIP Runtime API function
+hipMemsetD2D32 HIP Runtime API function
 
 
 ## See Also

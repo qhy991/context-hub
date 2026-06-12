@@ -1,6 +1,6 @@
 ---
-name: hip-hipmalloc
-description: "hipMalloc HIP Runtime API function"
+name: hip-hipmalloc3darray
+description: "hipMalloc3DArray HIP Runtime API function"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -15,9 +15,9 @@ metadata:
   api_module: Memory Management
 ---
 
-# hipMalloc
+# hipMalloc3DArray
 
-hipMalloc HIP Runtime API function
+hipMalloc3DArray HIP Runtime API function
 
 
 ## See Also
