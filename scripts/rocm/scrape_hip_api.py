@@ -39,6 +39,16 @@ MODULES = [
     ("group___virtual.html", "Virtual Memory Management"),
     ("group___graphics_interop.html", "Graphics Interoperability"),
     ("group___callback.html", "Callback Activity APIs"),
+    ("group___external.html", "External Resource Interoperability"),
+    ("group___stream_o.html", "Stream Ordered Memory Allocator"),
+    ("group___memory_m.html", "Managed Memory"),
+    ("group___memory_d.html", "Memory Management (Deprecated)"),
+    ("group___driver_types.html", "Driver Types"),
+    ("group___global_defs.html", "Global Enums and Defines"),
+    ("group___linker_types.html", "JIT Linker Data Types"),
+    ("group___context.html", "Context Management (Deprecated)"),
+    ("group___module_cooperative_g.html", "Cooperative Groups Launch"),
+    ("group___texture_d.html", "Texture Management (Deprecated)"),
 ]
 
 RETURN_TYPES = (
@@ -235,6 +245,15 @@ def generate_doc_md(func: dict, today: str) -> str:
     module_slug = func.get("module", "").lower().replace(" ", "-")
     tags = f"rocm,gpu,hip,runtime-api,{module_slug}"
 
+    # Classify the symbol so consumers can filter callable functions from
+    # enums / flags / opaque typedefs.
+    if func.get("signature") or func.get("params"):
+        symbol_kind = "function"
+    elif name.endswith("_t"):
+        symbol_kind = "typedef"
+    else:
+        symbol_kind = "enum"
+
     sig_md = ""
     if func.get("signature"):
         sig_md = f"\n## Signature\n\n```c\n{func['signature']};\n```\n"
@@ -279,6 +298,7 @@ metadata:
   tags: {tags}
   isa_category: runtime
   instruction_type: API
+  symbol_kind: {symbol_kind}
   hw_unit: driver
   api_module: {func.get('module', '')}
 ---

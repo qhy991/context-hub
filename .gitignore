@@ -7,3 +7,5 @@ dist/
 coverage/
 .chub/
 *.tgz
+__pycache__/
+*.pyc

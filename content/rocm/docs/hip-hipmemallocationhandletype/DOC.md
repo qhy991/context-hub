@@ -1,6 +1,6 @@
 ---
 name: hip-hipmemallocationhandletype
-description: "HIP API: MemAllocationHandleType."
+description: "Flags for specifying handle types for memory pool allocations"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,13 +11,14 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,virtual-memory-management
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Virtual Memory Management
 ---
 
 # hipMemAllocationHandleType
 
-HIP API: MemAllocationHandleType.
+Flags for specifying handle types for memory pool allocations
 
 ## References
 

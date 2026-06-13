@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,external-resource-interoperability
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: External Resource Interoperability
 ---
@@ -19,6 +20,23 @@ metadata:
 
 Map an external memory object to a mipmapped array.
 
+## Signature
+
+```c
+hipError_t hipExternalMemoryGetMappedMipmappedArray(hipMipmappedArray_t *mipmap, hipExternalMemory_t extMem, const hipExternalMemoryMipmappedArrayDesc *mipmapDesc);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `mipmap` | mipmapped array to return |
+| [in] | `extMem` | external memory object handle |
+| [in] | `mipmapDesc` | external mipmapped array descriptor |
+
+## Returns
+
+hipSuccess , hipErrorInvalidValue , hipErrorInvalidResourceHandle
 
 ## See Also
 

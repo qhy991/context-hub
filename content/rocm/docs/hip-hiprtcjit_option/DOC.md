@@ -1,6 +1,6 @@
 ---
 name: hip-hiprtcjit_option
-description: "HIP API: rtcJIT option."
+description: "hiprtc JIT option"
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,13 +11,14 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,runtime-compilation
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Runtime Compilation
 ---
 
 # hiprtcJIT_option
 
-HIP API: rtcJIT option.
+hiprtc JIT option
 
 ## References
 

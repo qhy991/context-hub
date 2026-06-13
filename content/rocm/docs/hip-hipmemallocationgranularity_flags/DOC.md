@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,virtual-memory-management
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Virtual Memory Management
 ---

@@ -1,6 +1,6 @@
 ---
 name: hip-hipwaitexternalsemaphoresasync
-description: "HIP API: WaitExternalSemaphoresAsync."
+description: "Waits on a set of external semaphore objects."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,14 +11,33 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,external-resource-interoperability
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: External Resource Interoperability
 ---
 
 # hipWaitExternalSemaphoresAsync
 
-HIP API: WaitExternalSemaphoresAsync.
+Waits on a set of external semaphore objects.
 
+## Signature
+
+```c
+hipError_t hipWaitExternalSemaphoresAsync(const hipExternalSemaphore_t *extSemArray, const hipExternalSemaphoreWaitParams *paramsArray, unsigned int numExtSems, hipStream_t stream);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `extSemArray` | External semaphores to be waited on |
+| [in] | `paramsArray` | Array of semaphore parameters |
+| [in] | `numExtSems` | Number of semaphores to wait on |
+| [in] | `stream` | Stream to enqueue the wait operations in |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDevice , hipErrorInvalidValue
 
 ## See Also
 

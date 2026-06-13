@@ -1,6 +1,6 @@
 ---
 name: hip-hipimportexternalmemory
-description: "HIP API: ImportExternalMemory."
+description: "Imports an external memory object."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,14 +11,31 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,external-resource-interoperability
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: External Resource Interoperability
 ---
 
 # hipImportExternalMemory
 
-HIP API: ImportExternalMemory.
+Imports an external memory object.
 
+## Signature
+
+```c
+hipError_t hipImportExternalMemory(hipExternalMemory_t *extMem_out, const hipExternalMemoryHandleDesc *memHandleDesc);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `extMem_out` | Returned handle to an external memory object |
+| [in] | `memHandleDesc` | Memory import handle descriptor |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDevice , hipErrorInvalidValue
 
 ## See Also
 

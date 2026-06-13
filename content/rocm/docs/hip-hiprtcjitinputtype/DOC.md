@@ -1,6 +1,6 @@
 ---
 name: hip-hiprtcjitinputtype
-description: "HIP API: rtcJITInputType."
+description: "Enumeration of HIPRTC JIT linker input types."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,13 +11,14 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,runtime-compilation
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Runtime Compilation
 ---
 
 # hiprtcJITInputType
 
-HIP API: rtcJITInputType.
+Enumeration of HIPRTC JIT linker input types.
 
 ## References
 

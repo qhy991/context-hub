@@ -8,7 +8,7 @@ metadata:
   revision: 2
   updated-on: '2026-06-12'
   source: official
-  tags: rocm,gpu,v,isa,matrix-core,compute,matrix-core,mfma,low-precision
+  tags: rocm,gpu,v,isa,matrix-core,compute,mfma,low-precision
   isa_category: compute
   instruction_type: VOP3P
   hw_unit: matrix-core

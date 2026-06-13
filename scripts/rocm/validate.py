@@ -20,6 +20,17 @@ REQUIRED_METADATA = (
     "instruction_type",
     "hw_unit",
 )
+# Description phrases that mark a HIP symbol as a non-callable (enum / flag /
+# constant / opaque struct) rather than a function. Used to avoid false
+# "missing signature" warnings on the ~50 enum & flag entries.
+NONFUNC_DESC = re.compile(
+    r"(?i)\b("
+    r"flag|policy|scheduling|enumeration|enum|union type|structure for|"
+    r"attribute type|creation flag|wait condition|allocation flag|"
+    r"registration flag|granularity|input type|query result|opaque"
+    r")\b"
+)
+
 VALID_ARCHITECTURES = {
     "cdna1",
     "cdna2",
@@ -88,9 +99,30 @@ def validate_doc(path: Path) -> tuple[list[str], list[str]]:
 
     body = text.split("---", 2)[-1]
     if path.parent.name.startswith("hip-"):
-        if "## Parameters" not in body and "## Signature" not in body:
-            warnings.append("HIP entry missing signature/parameters")
-        if len(body.strip()) < 250:
+        slug = path.parent.name
+        has_sig = "## Parameters" in body or "## Signature" in body
+        description = fm.get("description", "")
+        # Prefer the explicit symbol_kind metadata; fall back to structural /
+        # prose heuristics for any entry that predates the field.
+        kind = metadata_lines.get("symbol_kind") if metadata_block else None
+        if kind == "enum":
+            kind = "constant"
+        if kind not in ("function", "typedef", "constant"):
+            if has_sig or "## Type" in body or slug.endswith("_t"):
+                kind = "typedef" if not has_sig else "function"
+            elif NONFUNC_DESC.search(description):
+                kind = "constant"
+            else:
+                kind = "function"
+
+        # Generic scraper fallback descriptions = incomplete content. This is a
+        # real data gap regardless of symbol kind, so surface it explicitly.
+        if description.startswith("HIP API:"):
+            warnings.append("generic 'HIP API:' description (scrape incomplete)")
+        elif kind == "function" and not has_sig:
+            warnings.append("HIP function missing signature/parameters")
+
+        if kind == "function" and len(body.strip()) < 250:
             warnings.append("HIP entry body looks sparse")
 
     slug = path.parent.name

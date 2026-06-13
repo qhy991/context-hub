@@ -1,6 +1,6 @@
 # ROCm Content for context-hub
 
-GPU instruction, API, and optimization documentation for AMD ROCm / CDNA architectures.
+GPU instruction, API, and optimization documentation for AMD ROCm — CDNA (MI100–MI350X) and RDNA3.5 APU (gfx1151) architectures.
 
 ## Coverage
 
@@ -20,6 +20,12 @@ GPU instruction, API, and optimization documentation for AMD ROCm / CDNA archite
 | CDNA2 | gfx90a | MI250X | ✓ | ✓ | — |
 | CDNA3 | gfx940/gfx942 | MI300X/A | ✓ (dual CMA) | ✓ | — |
 | CDNA4 | gfx950 | MI350X | ✓ (dual CMA) | ✓ | ✓ |
+| RDNA3.5 (APU) | gfx1151 | Ryzen AI Max+ 395 / Radeon 8060S | WMMA (no MFMA) | — | — |
+
+> **CDNA vs RDNA3.5**: CDNA parts are HBM, wave64, Matrix-Core (MFMA). The
+> RDNA3.5 APU is **unified DDR5, wave32, WMMA (no MFMA)** and behaves very
+> differently — most decode kernels are DDR5-bandwidth-bound. CDNA-tuned kernels
+> do not transfer; see `arch-rdna35-apu` and `opt-hip-vs-cuda-gotchas`.
 
 ## Directory Structure
 
@@ -29,8 +35,10 @@ content/rocm/docs/
 ├── isa-v-mov-dpp         # DPP cross-lane operations
 ├── isa-ds-read*          # LDS read instructions
 ├── hip-hipMalloc         # HIP Runtime API
-├── opt-bank-conflict*    # Optimization guides
-└── arch-cdna4-*          # Architecture features
+├── opt-bank-conflict*    # Optimization guides (CDNA + RDNA)
+├── opt-hip-vs-cuda-*     # Portability gotchas (measured on gfx1151)
+├── arch-cdna4-*          # CDNA architecture features
+└── arch-rdna35-apu       # RDNA3.5 APU (gfx1151) architecture
 ```
 
 ## Ingesting New Content
@@ -80,6 +88,7 @@ metadata:
   isa_category: compute             # compute | memory | flow | synchronization | runtime
   instruction_type: VOP3P           # VOP1 | VOP2 | VOP3 | VOP3P | DS | FLAT | SOP
   hw_unit: matrix-core              # matrix-core | simd-unit | lds | memory-controller | scalar-unit
+  symbol_kind: function             # (HIP API entries) function | typedef | enum
 ```
 
 ## See Also

@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,runtime-compilation
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: Runtime Compilation
 ---

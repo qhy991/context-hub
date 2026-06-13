@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,external-resource-interoperability
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: External Resource Interoperability
 ---
@@ -19,6 +20,23 @@ metadata:
 
 Map an external memory object to a device-accessible buffer pointer.
 
+## Signature
+
+```c
+hipError_t hipExternalMemoryGetMappedBuffer(void ** devPtr , hipExternalMemory_t extMem, const hipExternalMemoryBufferDesc *bufferDesc);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [out] | `devPtr` | Returned device pointer to buffer |
+| [in] | `extMem` | Handle to external memory object |
+| [in] | `bufferDesc` | Buffer descriptor |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDevice , hipErrorInvalidValue
 
 ## See Also
 

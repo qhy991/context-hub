@@ -13,27 +13,27 @@
         {
           "id": "cuda/wmma-kernel-patterns",
           "name": "wmma-kernel-patterns",
-          "score": 43.61714540227329
+          "score": 59.17153194201687
         },
         {
           "id": "cuda/wmma-debugging-checklist",
           "name": "wmma-debugging-checklist",
-          "score": 41.959203565519395
+          "score": 57.38528666779503
         },
         {
           "id": "cuda/tensor-cores",
           "name": "tensor-cores",
-          "score": 12.674713742843819
+          "score": 14.14355488638142
         },
         {
           "id": "cuda/ptx-wgmma-instructions",
           "name": "ptx-wgmma-instructions",
-          "score": 8.150786522578006
+          "score": 8.756623938043278
         },
         {
           "id": "cuda/tensor-core-numerical-validation",
           "name": "tensor-core-numerical-validation",
-          "score": 7.805048644402254
+          "score": 8.363430034171431
         }
       ]
     },
@@ -44,35 +44,35 @@
       "top_ids": [
         "cuda/shared-memory",
         "cuda/memory-hierarchy",
-        "cuda/unified-memory",
         "cuda/memory-bound-kernel-optimization-playbook",
+        "cuda/unified-memory",
         "cuda/memory-fences-and-ordering"
       ],
       "top_items": [
         {
           "id": "cuda/shared-memory",
           "name": "shared-memory",
-          "score": 657.484807905159
+          "score": 641.555522296082
         },
         {
           "id": "cuda/memory-hierarchy",
           "name": "memory-hierarchy",
-          "score": 71.98408450085644
-        },
-        {
-          "id": "cuda/unified-memory",
-          "name": "unified-memory",
-          "score": 59.236138761936736
+          "score": 45.32186520134463
         },
         {
           "id": "cuda/memory-bound-kernel-optimization-playbook",
           "name": "memory-bound-kernel-optimization-playbook",
-          "score": 56.79127964172355
+          "score": 37.72199671734849
+        },
+        {
+          "id": "cuda/unified-memory",
+          "name": "unified-memory",
+          "score": 33.96375073940245
         },
         {
           "id": "cuda/memory-fences-and-ordering",
           "name": "memory-fences-and-ordering",
-          "score": 53.301943695582
+          "score": 31.025161628599072
         }
       ]
     },
@@ -85,33 +85,33 @@
         "cuda/tensor-core-numerical-validation",
         "cuda/cuda-core-vs-tensor-core-path-selection",
         "cuda/tensor-cores",
-        "cuda/cuda-core"
+        "cuda/cute-layout-and-tensor-primer"
       ],
       "top_items": [
         {
           "id": "cuda/tensor-core-pipeline-patterns",
           "name": "tensor-core-pipeline-patterns",
-          "score": 640.7984395849124
+          "score": 663.6962615368975
         },
         {
           "id": "cuda/tensor-core-numerical-validation",
           "name": "tensor-core-numerical-validation",
-          "score": 61.14991223278459
+          "score": 71.35157223027386
         },
         {
           "id": "cuda/cuda-core-vs-tensor-core-path-selection",
           "name": "cuda-core-vs-tensor-core-path-selection",
-          "score": 60.62135318417785
+          "score": 69.79019124375512
         },
         {
           "id": "cuda/tensor-cores",
           "name": "tensor-cores",
-          "score": 46.70057996177767
+          "score": 54.997926525488964
         },
         {
-          "id": "cuda/cuda-core",
-          "name": "cuda-core",
-          "score": 34.07011220539216
+          "id": "cuda/cute-layout-and-tensor-primer",
+          "name": "cute-layout-and-tensor-primer",
+          "score": 41.50642131323751
         }
       ]
     },
@@ -121,36 +121,36 @@
       "passed": true,
       "top_ids": [
         "cuda/cuda-core-optimization-checklist",
-        "cuda/cuda-core",
         "cuda/production-readiness-checklist",
         "cuda/wmma-debugging-checklist",
+        "cuda/cuda-core",
         "cuda/compute-bound-kernel-optimization-playbook"
       ],
       "top_items": [
         {
           "id": "cuda/cuda-core-optimization-checklist",
           "name": "cuda-core-optimization-checklist",
-          "score": 751.9375339114197
-        },
-        {
-          "id": "cuda/cuda-core",
-          "name": "cuda-core",
-          "score": 70.84057076343724
+          "score": 770.1109226701333
         },
         {
           "id": "cuda/production-readiness-checklist",
           "name": "production-readiness-checklist",
-          "score": 62.75340373370601
+          "score": 71.05240148167275
         },
         {
           "id": "cuda/wmma-debugging-checklist",
           "name": "wmma-debugging-checklist",
-          "score": 59.63545206984803
+          "score": 68.73482648871975
+        },
+        {
+          "id": "cuda/cuda-core",
+          "name": "cuda-core",
+          "score": 60.56490968506018
         },
         {
           "id": "cuda/compute-bound-kernel-optimization-playbook",
           "name": "compute-bound-kernel-optimization-playbook",
-          "score": 56.75325281572377
+          "score": 60.210194116974684
         }
       ]
     },
@@ -160,34 +160,34 @@
       "passed": true,
       "top_ids": [
         "cuda/ptx-mbarrier-protocol-patterns",
-        "cuda/ptx",
-        "cuda/ptx-data-movement-instructions"
+        "cuda/async-copy",
+        "cuda/ptx"
       ],
       "top_items": [
         {
           "id": "cuda/ptx-mbarrier-protocol-patterns",
           "name": "ptx-mbarrier-protocol-patterns",
-          "score": 99.09204708236842
+          "score": 100.40698904229627
+        },
+        {
+          "id": "cuda/async-copy",
+          "name": "async-copy",
+          "score": 60.23029449359589
         },
         {
           "id": "cuda/ptx",
           "name": "ptx",
-          "score": 63.73408756781064
+          "score": 43.243408509856934
         },
         {
           "id": "cuda/ptx-data-movement-instructions",
           "name": "ptx-data-movement-instructions",
-          "score": 53.065078148339296
+          "score": 42.90713701493458
         },
         {
           "id": "cuda/ptx-sync-comm-instructions",
           "name": "ptx-sync-comm-instructions",
-          "score": 52.96398634389052
-        },
-        {
-          "id": "cuda/ptx-tma-instructions",
-          "name": "ptx-tma-instructions",
-          "score": 49.76827473487636
+          "score": 37.71451652177258
         }
       ]
     },
@@ -197,34 +197,34 @@
       "passed": true,
       "top_ids": [
         "cuda/wmma-debugging-checklist",
-        "cuda/performance-debugging",
-        "cuda/wmma-kernel-patterns"
+        "cuda/wmma-kernel-patterns",
+        "cuda/production-readiness-checklist"
       ],
       "top_items": [
         {
           "id": "cuda/wmma-debugging-checklist",
           "name": "wmma-debugging-checklist",
-          "score": 740.5267488953604
-        },
-        {
-          "id": "cuda/performance-debugging",
-          "name": "performance-debugging",
-          "score": 43.61799897347794
+          "score": 783.5067118327415
         },
         {
           "id": "cuda/wmma-kernel-patterns",
           "name": "wmma-kernel-patterns",
-          "score": 43.61714540227329
+          "score": 59.17153194201687
         },
         {
           "id": "cuda/production-readiness-checklist",
           "name": "production-readiness-checklist",
-          "score": 43.036883602177625
+          "score": 58.57856679027245
+        },
+        {
+          "id": "cuda/performance-debugging",
+          "name": "performance-debugging",
+          "score": 56.53688449934376
         },
         {
           "id": "cuda/cuda-core-optimization-checklist",
           "name": "cuda-core-optimization-checklist",
-          "score": 39.59373341109431
+          "score": 54.418051006008696
         }
       ]
     },
@@ -243,27 +243,27 @@
         {
           "id": "cuda/warp-primitives",
           "name": "warp-primitives",
-          "score": 150.80478939459522
+          "score": 175.66087913113543
         },
         {
           "id": "cuda/ptx-warp-synchronization-patterns",
           "name": "ptx-warp-synchronization-patterns",
-          "score": 42.69307820298248
+          "score": 49.4210588553001
         },
         {
           "id": "cuda/synchronization",
           "name": "synchronization",
-          "score": 26.19282758027902
+          "score": 27.522037300614734
         },
         {
           "id": "cuda/atomics-and-reductions",
           "name": "atomics-and-reductions",
-          "score": 12.974093484309805
+          "score": 12.602200022528162
         },
         {
           "id": "cuda/wmma-kernel-patterns",
           "name": "wmma-kernel-patterns",
-          "score": 12.04094824018038
+          "score": 11.612223709018018
         }
       ]
     },
@@ -274,35 +274,35 @@
       "top_ids": [
         "cuda/synchronization",
         "cuda/ptx-warp-synchronization-patterns",
-        "cuda/cuda-graphs",
         "cuda/ptx-sync-comm-instructions",
-        "cuda/cuda-core"
+        "cuda/warp-primitives",
+        "cuda/shared-memory"
       ],
       "top_items": [
         {
           "id": "cuda/synchronization",
           "name": "synchronization",
-          "score": 109.96763789392514
+          "score": 115.48560841016186
         },
         {
           "id": "cuda/ptx-warp-synchronization-patterns",
           "name": "ptx-warp-synchronization-patterns",
-          "score": 47.14551457940909
-        },
-        {
-          "id": "cuda/cuda-graphs",
-          "name": "cuda-graphs",
-          "score": 33.21805884552287
+          "score": 51.98629781681121
         },
         {
           "id": "cuda/ptx-sync-comm-instructions",
           "name": "ptx-sync-comm-instructions",
-          "score": 33.201092367183755
+          "score": 27.950784383872662
         },
         {
-          "id": "cuda/cuda-core",
-          "name": "cuda-core",
-          "score": 32.33557499378493
+          "id": "cuda/warp-primitives",
+          "name": "warp-primitives",
+          "score": 26.292499613053486
+        },
+        {
+          "id": "cuda/shared-memory",
+          "name": "shared-memory",
+          "score": 23.233388850337594
         }
       ]
     },
@@ -319,27 +319,27 @@
         {
           "id": "cuda/coalescing",
           "name": "coalescing",
-          "score": 115.17972318690447
+          "score": 111.97109840170162
         },
         {
           "id": "cuda/memory-hierarchy",
           "name": "memory-hierarchy",
-          "score": 74.83896537094957
+          "score": 44.3283052167767
         },
         {
           "id": "cuda/memory-bound-kernel-optimization-playbook",
           "name": "memory-bound-kernel-optimization-playbook",
-          "score": 60.915971003945096
+          "score": 43.137950439665715
         },
         {
           "id": "cuda/unified-memory",
           "name": "unified-memory",
-          "score": 59.236138761936736
+          "score": 33.96375073940245
         },
         {
-          "id": "cuda/shared-memory",
-          "name": "shared-memory",
-          "score": 57.612339389511895
+          "id": "cuda/cuda-core-optimization-checklist",
+          "name": "cuda-core-optimization-checklist",
+          "score": 33.19090186111307
         }
       ]
     },
@@ -357,27 +357,27 @@
         {
           "id": "cuda/launch-bounds-and-registers",
           "name": "launch-bounds-and-registers",
-          "score": 140.30542341076642
+          "score": 156.60215939484982
         },
         {
           "id": "cuda/occupancy",
           "name": "occupancy",
-          "score": 86.08574569491097
+          "score": 87.57828485928256
         },
         {
           "id": "cuda/launch-bound-optimization-playbook",
           "name": "launch-bound-optimization-playbook",
-          "score": 40.07254299673837
+          "score": 50.44790776404767
         },
         {
           "id": "cuda/compute-bound-kernel-optimization-playbook",
           "name": "compute-bound-kernel-optimization-playbook",
-          "score": 37.7438974501102
+          "score": 28.813210110213994
         },
         {
           "id": "cuda/cuda-core-optimization-checklist",
           "name": "cuda-core-optimization-checklist",
-          "score": 28.46629509303759
+          "score": 22.386915408039116
         }
       ]
     },
@@ -396,27 +396,27 @@
         {
           "id": "cuda/unified-memory",
           "name": "unified-memory",
-          "score": 125.58254962497524
+          "score": 105.63278265004814
         },
         {
           "id": "cuda/memory-hierarchy",
           "name": "memory-hierarchy",
-          "score": 62.368554193218
+          "score": 35.44374162594679
         },
         {
           "id": "cuda/shared-memory",
           "name": "shared-memory",
-          "score": 57.612339389511895
+          "score": 33.031790467701015
         },
         {
           "id": "cuda/memory-fences-and-ordering",
           "name": "memory-fences-and-ordering",
-          "score": 53.301943695582
+          "score": 31.025161628599072
         },
         {
           "id": "cuda/pinned-memory-and-transfers",
           "name": "pinned-memory-and-transfers",
-          "score": 52.80653268638846
+          "score": 30.86455473445483
         }
       ]
     },
@@ -428,34 +428,34 @@
         "cuda/cuda-graphs",
         "cuda/launch-bound-optimization-playbook",
         "cuda/streams-and-events",
-        "cuda/cuda-core",
-        "cuda/cublas-cudnn-integration-patterns"
+        "cuda/cublas-cudnn-integration-patterns",
+        "cuda/cuda-core"
       ],
       "top_items": [
         {
           "id": "cuda/cuda-graphs",
           "name": "cuda-graphs",
-          "score": 124.38204740075595
+          "score": 116.44678858321656
         },
         {
           "id": "cuda/launch-bound-optimization-playbook",
           "name": "launch-bound-optimization-playbook",
-          "score": 41.93322479720487
+          "score": 32.25268523404839
         },
         {
           "id": "cuda/streams-and-events",
           "name": "streams-and-events",
-          "score": 34.91091385571819
-        },
-        {
-          "id": "cuda/cuda-core",
-          "name": "cuda-core",
-          "score": 32.33557499378493
+          "score": 23.722547917704162
         },
         {
           "id": "cuda/cublas-cudnn-integration-patterns",
           "name": "cublas-cudnn-integration-patterns",
-          "score": 30.954401006440616
+          "score": 21.231303678951644
+        },
+        {
+          "id": "cuda/cuda-core",
+          "name": "cuda-core",
+          "score": 20.79333954750622
         }
       ]
     },
@@ -466,34 +466,34 @@
       "top_ids": [
         "cuda/numerics-and-precision",
         "cuda/tensor-core-numerical-validation",
-        "cuda/cuda-graphs",
-        "cuda/cuda-core"
+        "cuda/compute-throughput",
+        "cuda/cuda-graphs"
       ],
       "top_items": [
         {
           "id": "cuda/numerics-and-precision",
           "name": "numerics-and-precision",
-          "score": 177.0308253013444
+          "score": 158.01774879674088
         },
         {
           "id": "cuda/tensor-core-numerical-validation",
           "name": "tensor-core-numerical-validation",
-          "score": 51.97943487991361
+          "score": 44.46602512108691
+        },
+        {
+          "id": "cuda/compute-throughput",
+          "name": "compute-throughput",
+          "score": 22.530795018401157
         },
         {
           "id": "cuda/cuda-graphs",
           "name": "cuda-graphs",
-          "score": 33.21805884552287
+          "score": 21.307038102347075
         },
         {
           "id": "cuda/cuda-core",
           "name": "cuda-core",
-          "score": 32.33557499378493
-        },
-        {
-          "id": "cuda/cuda-core-vs-tensor-core-path-selection",
-          "name": "cuda-core-vs-tensor-core-path-selection",
-          "score": 31.350730159755678
+          "score": 20.79333954750622
         }
       ]
     },
@@ -505,34 +505,34 @@
         "cuda/kernel-bottleneck-diagnosis-workflow",
         "cuda/nvtx-and-profiling-workflow",
         "cuda/fused-kernel-design-patterns",
-        "cuda/kernel-api-design-guidelines",
-        "cuda/wmma-kernel-patterns"
+        "cuda/wmma-kernel-patterns",
+        "cuda/kernel-api-design-guidelines"
       ],
       "top_items": [
         {
           "id": "cuda/kernel-bottleneck-diagnosis-workflow",
           "name": "kernel-bottleneck-diagnosis-workflow",
-          "score": 770.585046598412
+          "score": 823.3641125690568
         },
         {
           "id": "cuda/nvtx-and-profiling-workflow",
           "name": "nvtx-and-profiling-workflow",
-          "score": 32.23575901211767
+          "score": 45.48885102923367
         },
         {
           "id": "cuda/fused-kernel-design-patterns",
           "name": "fused-kernel-design-patterns",
-          "score": 26.4992951571028
-        },
-        {
-          "id": "cuda/kernel-api-design-guidelines",
-          "name": "kernel-api-design-guidelines",
-          "score": 24.28432268394546
+          "score": 33.5804034044461
         },
         {
           "id": "cuda/wmma-kernel-patterns",
           "name": "wmma-kernel-patterns",
-          "score": 24.246978382914747
+          "score": 31.372097216092108
+        },
+        {
+          "id": "cuda/kernel-api-design-guidelines",
+          "name": "kernel-api-design-guidelines",
+          "score": 31.227256372137287
         }
       ]
     },
@@ -551,27 +551,27 @@
         {
           "id": "cuda/production-readiness-checklist",
           "name": "production-readiness-checklist",
-          "score": 763.855058540744
+          "score": 805.5577590670375
         },
         {
           "id": "cuda/cuda-core-optimization-checklist",
           "name": "cuda-core-optimization-checklist",
-          "score": 66.71264663506466
+          "score": 72.28103028447596
         },
         {
           "id": "cuda/wmma-debugging-checklist",
           "name": "wmma-debugging-checklist",
-          "score": 55.240305689543874
+          "score": 65.15882046389292
         },
         {
           "id": "cuda/cuda-graphs",
           "name": "cuda-graphs",
-          "score": 33.21805884552287
+          "score": 21.307038102347075
         },
         {
           "id": "cuda/cuda-core",
           "name": "cuda-core",
-          "score": 32.33557499378493
+          "score": 20.79333954750622
         }
       ]
     },
@@ -588,27 +588,27 @@
         {
           "id": "cuda/ptx-wgmma-instructions",
           "name": "ptx-wgmma-instructions",
-          "score": 81.40918180665194
+          "score": 73.74127096486671
         },
         {
           "id": "cuda/ptx-mbarrier-protocol-patterns",
           "name": "ptx-mbarrier-protocol-patterns",
-          "score": 50.39363273422481
+          "score": 33.845965987780275
         },
         {
           "id": "cuda/ptx",
           "name": "ptx",
-          "score": 48.234964787326334
+          "score": 27.85091528465523
         },
         {
           "id": "cuda/ptx-integer-instructions",
           "name": "ptx-integer-instructions",
-          "score": 43.47704292979509
+          "score": 25.9331632037333
         },
         {
           "id": "cuda/ptx-tma-instructions",
           "name": "ptx-tma-instructions",
-          "score": 42.05795217677962
+          "score": 25.173360621552035
         }
       ]
     },
@@ -625,27 +625,27 @@
         {
           "id": "cuda/ptx-atomic-and-reduction-patterns",
           "name": "ptx-atomic-and-reduction-patterns",
-          "score": 99.5493879622509
+          "score": 90.44221708704023
         },
         {
           "id": "cuda/ptx",
           "name": "ptx",
-          "score": 48.234964787326334
+          "score": 27.85091528465523
         },
         {
           "id": "cuda/ptx-integer-instructions",
           "name": "ptx-integer-instructions",
-          "score": 43.47704292979509
+          "score": 25.9331632037333
         },
         {
           "id": "cuda/ptx-tma-instructions",
           "name": "ptx-tma-instructions",
-          "score": 42.05795217677962
+          "score": 25.173360621552035
         },
         {
           "id": "cuda/ptx-special-registers",
           "name": "ptx-special-registers",
-          "score": 41.54763657890468
+          "score": 24.892144220455645
         }
       ]
     },
@@ -662,27 +662,27 @@
         {
           "id": "cuda/ptx-integer-bit-manipulation-patterns",
           "name": "ptx-integer-bit-manipulation-patterns",
-          "score": 203.76661290339422
+          "score": 150.55996392172335
         },
         {
           "id": "cuda/ptx-integer-instructions",
           "name": "ptx-integer-instructions",
-          "score": 105.4968343941433
+          "score": 52.755323401721576
         },
         {
           "id": "cuda/ptx",
           "name": "ptx",
-          "score": 48.234964787326334
+          "score": 27.85091528465523
         },
         {
           "id": "cuda/ptx-tma-instructions",
           "name": "ptx-tma-instructions",
-          "score": 42.05795217677962
+          "score": 25.173360621552035
         },
         {
           "id": "cuda/ptx-special-registers",
           "name": "ptx-special-registers",
-          "score": 41.54763657890468
+          "score": 24.892144220455645
         }
       ]
     },
@@ -701,66 +701,66 @@
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 106.4300456192966
+          "score": 125.20534967635605
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 75.96656405137797
+          "score": 102.48258542289356
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 65.93255891081415
+          "score": 90.7586728005466
         },
         {
           "id": "apple/metal-image-and-2d-kernel-patterns",
           "name": "metal-image-and-2d-kernel-patterns",
-          "score": 65.58969661795014
+          "score": 79.20451547304023
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 54.475122634881814
+          "score": 73.7195343462976
         }
       ]
     },
     {
       "id": "metal-compute-launch",
       "query": "metal compute pipeline dispatchthreads threadsperthreadgroup",
-      "passed": true,
+      "passed": false,
       "top_ids": [
-        "apple/metal-compute-launch-patterns",
         "apple/metal-library-and-pipeline-compilation",
+        "apple/metal-compute-launch-patterns",
         "apple/metal-double-buffered-pipeline-patterns",
         "apple/metal-multistage-tensor-pipeline-patterns",
-        "apple/metal-performance-tuning"
+        "apple/metal-simdgroup-async-copy-pipeline"
       ],
       "top_items": [
         {
-          "id": "apple/metal-compute-launch-patterns",
-          "name": "metal-compute-launch-patterns",
-          "score": 81.20799849169319
-        },
-        {
           "id": "apple/metal-library-and-pipeline-compilation",
           "name": "metal-library-and-pipeline-compilation",
-          "score": 67.40609263535065
+          "score": 89.67891455173954
+        },
+        {
+          "id": "apple/metal-compute-launch-patterns",
+          "name": "metal-compute-launch-patterns",
+          "score": 84.4238243188466
         },
         {
           "id": "apple/metal-double-buffered-pipeline-patterns",
           "name": "metal-double-buffered-pipeline-patterns",
-          "score": 64.63681625621987
+          "score": 83.31955629381099
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 62.65374604665615
+          "score": 81.38630622337678
         },
         {
-          "id": "apple/metal-performance-tuning",
-          "name": "metal-performance-tuning",
-          "score": 58.68451844518415
+          "id": "apple/metal-simdgroup-async-copy-pipeline",
+          "name": "metal-simdgroup-async-copy-pipeline",
+          "score": 78.51052264300633
         }
       ]
     },
@@ -771,35 +771,35 @@
       "top_ids": [
         "apple/metal-kernel-debugging-checklist",
         "apple/metal-resource-binding-checklist",
-        "apple/metal-kernel-basics",
         "apple/metal-validation-and-profiling-workflow",
+        "apple/metal-kernel-basics",
         "apple/metal-numerical-drift-debugging-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 126.74782895167914
+          "score": 161.9239383613815
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 110.21135302749931
-        },
-        {
-          "id": "apple/metal-kernel-basics",
-          "name": "metal-kernel-basics",
-          "score": 60.64701989263922
+          "score": 142.66188717162706
         },
         {
           "id": "apple/metal-validation-and-profiling-workflow",
           "name": "metal-validation-and-profiling-workflow",
-          "score": 60.419950929159796
+          "score": 86.26889522360462
+        },
+        {
+          "id": "apple/metal-kernel-basics",
+          "name": "metal-kernel-basics",
+          "score": 81.21197607574877
         },
         {
           "id": "apple/metal-numerical-drift-debugging-checklist",
           "name": "metal-numerical-drift-debugging-checklist",
-          "score": 58.368586933075974
+          "score": 80.87176410170112
         }
       ]
     },
@@ -818,27 +818,27 @@
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 166.45136159680763
+          "score": 172.40542666057428
         },
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 123.42774808519891
+          "score": 123.26372962343424
         },
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 102.71776579884074
+          "score": 98.07111840153678
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 69.7832516255418
+          "score": 68.97584519464878
         },
         {
           "id": "apple/metal-image-and-2d-kernel-patterns",
           "name": "metal-image-and-2d-kernel-patterns",
-          "score": 50.4802844899155
+          "score": 57.763963478704184
         }
       ]
     },
@@ -848,36 +848,36 @@
       "passed": true,
       "top_ids": [
         "apple/metal-simdgroup-patterns",
+        "apple/metal-simdgroup-matrix-amx-playbook",
+        "apple/metal-simdgroup-async-copy-pipeline",
         "apple/metal-kernel-basics",
-        "apple/metal-memory-and-threadgroup",
-        "apple/metal-reduction-patterns",
-        "apple/metal-validation-and-profiling-workflow"
+        "apple/metal-memory-and-threadgroup"
       ],
       "top_items": [
         {
           "id": "apple/metal-simdgroup-patterns",
           "name": "metal-simdgroup-patterns",
-          "score": 113.35485504328487
+          "score": 139.19867721414602
+        },
+        {
+          "id": "apple/metal-simdgroup-matrix-amx-playbook",
+          "name": "metal-simdgroup-matrix-amx-playbook",
+          "score": 92.6581340320616
+        },
+        {
+          "id": "apple/metal-simdgroup-async-copy-pipeline",
+          "name": "metal-simdgroup-async-copy-pipeline",
+          "score": 92.34394665320178
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 42.407947067917846
+          "score": 55.47111749416469
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 37.69803028218896
-        },
-        {
-          "id": "apple/metal-reduction-patterns",
-          "name": "metal-reduction-patterns",
-          "score": 34.75251511203153
-        },
-        {
-          "id": "apple/metal-validation-and-profiling-workflow",
-          "name": "metal-validation-and-profiling-workflow",
-          "score": 31.512843247131073
+          "score": 49.87666961548207
         }
       ]
     },
@@ -886,35 +886,35 @@
       "query": "metal performance tuning dispatchthreads command buffer pipeline reuse",
       "passed": true,
       "top_ids": [
-        "apple/metal-command-buffer-reuse-and-batching",
         "apple/metal-performance-tuning",
-        "apple/metal-persistent-objects-and-submission-overhead"
+        "apple/metal-command-buffer-reuse-and-batching",
+        "apple/metal-prefetch-and-reuse-heuristics"
       ],
       "top_items": [
         {
-          "id": "apple/metal-command-buffer-reuse-and-batching",
-          "name": "metal-command-buffer-reuse-and-batching",
-          "score": 139.77734751758967
-        },
-        {
           "id": "apple/metal-performance-tuning",
           "name": "metal-performance-tuning",
-          "score": 138.58925265403658
+          "score": 171.11686431525388
         },
         {
-          "id": "apple/metal-persistent-objects-and-submission-overhead",
-          "name": "metal-persistent-objects-and-submission-overhead",
-          "score": 74.5000704874895
+          "id": "apple/metal-command-buffer-reuse-and-batching",
+          "name": "metal-command-buffer-reuse-and-batching",
+          "score": 169.7608261731624
         },
         {
           "id": "apple/metal-prefetch-and-reuse-heuristics",
           "name": "metal-prefetch-and-reuse-heuristics",
-          "score": 69.2617883114066
+          "score": 96.32404683534085
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 68.70864987858005
+          "score": 89.43997114349862
+        },
+        {
+          "id": "apple/metal-library-and-pipeline-compilation",
+          "name": "metal-library-and-pipeline-compilation",
+          "score": 87.41114156221525
         }
       ]
     },
@@ -929,7 +929,7 @@
         {
           "id": "apple/pytorch-mps-vs-custom-metal",
           "name": "pytorch-mps-vs-custom-metal",
-          "score": 790.3555392604801
+          "score": 855.8880322977654
         }
       ]
     },
@@ -940,35 +940,35 @@
       "top_ids": [
         "apple/metal-host-wrapper-patterns",
         "apple/metal-host-device-synchronization-checklist",
-        "apple/metal-pytorch-custom-op-host-patterns",
         "apple/metal-multistage-tensor-pipeline-patterns",
+        "apple/metal-library-and-pipeline-compilation",
         "apple/metal-command-buffer-reuse-and-batching"
       ],
       "top_items": [
         {
           "id": "apple/metal-host-wrapper-patterns",
           "name": "metal-host-wrapper-patterns",
-          "score": 132.7524568879407
+          "score": 157.04933148711854
         },
         {
           "id": "apple/metal-host-device-synchronization-checklist",
           "name": "metal-host-device-synchronization-checklist",
-          "score": 87.00808259041237
-        },
-        {
-          "id": "apple/metal-pytorch-custom-op-host-patterns",
-          "name": "metal-pytorch-custom-op-host-patterns",
-          "score": 71.01670881286532
+          "score": 96.82114179941215
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 66.13947891294225
+          "score": 90.51527347758893
+        },
+        {
+          "id": "apple/metal-library-and-pipeline-compilation",
+          "name": "metal-library-and-pipeline-compilation",
+          "score": 87.41114156221525
         },
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 63.30606693686744
+          "score": 86.92814297368997
         }
       ]
     },
@@ -987,27 +987,27 @@
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 128.21645678208895
+          "score": 169.5641439336235
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 75.96656405137797
+          "score": 102.48258542289356
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 44.74356414166591
+          "score": 59.13567445958627
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 41.78311004032571
+          "score": 55.513272919144086
         },
         {
           "id": "apple/metal-convolution-tiling-playbook",
           "name": "metal-convolution-tiling-playbook",
-          "score": 39.64145803058623
+          "score": 52.773275246540386
         }
       ]
     },
@@ -1026,27 +1026,27 @@
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 143.4289522065164
+          "score": 168.82357580686175
         },
         {
           "id": "apple/metal-argument-buffers-and-residency",
           "name": "metal-argument-buffers-and-residency",
-          "score": 81.36249271181883
+          "score": 94.46819111655691
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 70.0484385243684
+          "score": 74.13209026970041
         },
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 63.58700873679091
+          "score": 66.79919365971347
         },
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 60.70840833316848
+          "score": 64.8964648845704
         }
       ]
     },
@@ -1058,34 +1058,34 @@
         "apple/metal-tiled-matmul-patterns",
         "apple/metal-memory-and-threadgroup",
         "apple/metal-threadgroup-sizing-playbook",
-        "apple/metal-memory-pressure-checklist",
-        "apple/metal-prefetch-and-reuse-heuristics"
+        "apple/metal-kernel-basics",
+        "apple/metal-memory-pressure-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-tiled-matmul-patterns",
           "name": "metal-tiled-matmul-patterns",
-          "score": 163.6543176262664
+          "score": 196.73468909043902
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 114.11877190134864
+          "score": 123.31570571963486
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 65.93255891081415
+          "score": 90.7586728005466
+        },
+        {
+          "id": "apple/metal-kernel-basics",
+          "name": "metal-kernel-basics",
+          "score": 59.13567445958627
         },
         {
           "id": "apple/metal-memory-pressure-checklist",
           "name": "metal-memory-pressure-checklist",
-          "score": 59.94297701986353
-        },
-        {
-          "id": "apple/metal-prefetch-and-reuse-heuristics",
-          "name": "metal-prefetch-and-reuse-heuristics",
-          "score": 48.79749186715945
+          "score": 56.68710400043574
         }
       ]
     },
@@ -1098,33 +1098,33 @@
         "apple/metal-memory-and-threadgroup",
         "apple/metal-segmented-reduction-patterns",
         "apple/metal-threadgroup-sizing-playbook",
-        "apple/metal-simdgroup-patterns"
+        "apple/metal-kernel-basics"
       ],
       "top_items": [
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 111.92728244075192
+          "score": 137.27188025433747
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 88.5962118737391
+          "score": 114.41065184360814
         },
         {
           "id": "apple/metal-segmented-reduction-patterns",
           "name": "metal-segmented-reduction-patterns",
-          "score": 78.16171806593684
+          "score": 101.6910310554921
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 65.93255891081415
+          "score": 90.7586728005466
         },
         {
-          "id": "apple/metal-simdgroup-patterns",
-          "name": "metal-simdgroup-patterns",
-          "score": 45.025485787684175
+          "id": "apple/metal-kernel-basics",
+          "name": "metal-kernel-basics",
+          "score": 59.13567445958627
         }
       ]
     },
@@ -1136,34 +1136,34 @@
         "apple/metal-image-and-2d-kernel-patterns",
         "apple/metal-texture-vs-buffer-path-selection",
         "apple/metal-kernel-basics",
-        "apple/metal-edge-tile-and-bounds-check-playbook",
-        "apple/metal-resource-binding-checklist"
+        "apple/metal-kernel-debugging-checklist",
+        "apple/metal-kernel-fusion-tradeoff-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-image-and-2d-kernel-patterns",
           "name": "metal-image-and-2d-kernel-patterns",
-          "score": 169.86614142384167
+          "score": 174.15502922373904
         },
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 101.18397124049206
+          "score": 112.9536828901596
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 94.97890809241845
+          "score": 112.58950021978225
         },
         {
-          "id": "apple/metal-edge-tile-and-bounds-check-playbook",
-          "name": "metal-edge-tile-and-bounds-check-playbook",
-          "score": 59.009726275496575
+          "id": "apple/metal-kernel-debugging-checklist",
+          "name": "metal-kernel-debugging-checklist",
+          "score": 65.60232457702512
         },
         {
-          "id": "apple/metal-resource-binding-checklist",
-          "name": "metal-resource-binding-checklist",
-          "score": 52.53746932417654
+          "id": "apple/metal-kernel-fusion-tradeoff-checklist",
+          "name": "metal-kernel-fusion-tradeoff-checklist",
+          "score": 65.39516754282505
         }
       ]
     },
@@ -1175,34 +1175,34 @@
         "apple/metal-command-buffer-reuse-and-batching",
         "apple/metal-persistent-objects-and-submission-overhead",
         "apple/metal-buffer-layout-and-alignment",
-        "apple/metal-texture-vs-buffer-path-selection",
-        "apple/metal-gpu-driven-work-generation-patterns"
+        "apple/metal-gather-scatter-and-indirect-access-patterns",
+        "apple/metal-texture-vs-buffer-path-selection"
       ],
       "top_items": [
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 264.1869058051941
+          "score": 300.1047090753062
         },
         {
           "id": "apple/metal-persistent-objects-and-submission-overhead",
           "name": "metal-persistent-objects-and-submission-overhead",
-          "score": 139.10586514378645
+          "score": 169.64015795318952
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 105.51978885520943
+          "score": 102.06120053130611
+        },
+        {
+          "id": "apple/metal-gather-scatter-and-indirect-access-patterns",
+          "name": "metal-gather-scatter-and-indirect-access-patterns",
+          "score": 88.4749107955655
         },
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 86.85473513749503
-        },
-        {
-          "id": "apple/metal-gpu-driven-work-generation-patterns",
-          "name": "metal-gpu-driven-work-generation-patterns",
-          "score": 75.04030126091419
+          "score": 86.12249642497548
         }
       ]
     },
@@ -1213,35 +1213,35 @@
       "top_ids": [
         "apple/metal-library-and-pipeline-compilation",
         "apple/metal-double-buffered-pipeline-patterns",
+        "apple/metal-simdgroup-async-copy-pipeline",
         "apple/metal-multistage-tensor-pipeline-patterns",
-        "apple/metal-compute-launch-patterns",
-        "apple/metal-host-wrapper-patterns"
+        "apple/metal-compute-launch-patterns"
       ],
       "top_items": [
         {
           "id": "apple/metal-library-and-pipeline-compilation",
           "name": "metal-library-and-pipeline-compilation",
-          "score": 143.01523554813485
+          "score": 169.4154130255675
         },
         {
           "id": "apple/metal-double-buffered-pipeline-patterns",
           "name": "metal-double-buffered-pipeline-patterns",
-          "score": 55.69176722258639
+          "score": 78.95583897445701
+        },
+        {
+          "id": "apple/metal-simdgroup-async-copy-pipeline",
+          "name": "metal-simdgroup-async-copy-pipeline",
+          "score": 78.51052264300633
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 54.32008190548861
+          "score": 77.32843112605767
         },
         {
           "id": "apple/metal-compute-launch-patterns",
           "name": "metal-compute-launch-patterns",
-          "score": 43.97926973348613
-        },
-        {
-          "id": "apple/metal-host-wrapper-patterns",
-          "name": "metal-host-wrapper-patterns",
-          "score": 41.061402187483125
+          "score": 57.572795727181536
         }
       ]
     },
@@ -1254,33 +1254,33 @@
         "apple/metal-resource-binding-checklist",
         "apple/metal-buffer-layout-and-alignment",
         "apple/metal-image-and-2d-kernel-patterns",
-        "apple/metal-memory-and-threadgroup"
+        "apple/metal-command-buffer-reuse-and-batching"
       ],
       "top_items": [
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 183.40123218511377
+          "score": 206.87070938174293
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 82.98829603911443
+          "score": 90.44604122266574
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 75.40613088250826
+          "score": 78.83252249790823
         },
         {
           "id": "apple/metal-image-and-2d-kernel-patterns",
           "name": "metal-image-and-2d-kernel-patterns",
-          "score": 67.69608112600764
+          "score": 74.52200986126519
         },
         {
-          "id": "apple/metal-memory-and-threadgroup",
-          "name": "metal-memory-and-threadgroup",
-          "score": 67.1056435483948
+          "id": "apple/metal-command-buffer-reuse-and-batching",
+          "name": "metal-command-buffer-reuse-and-batching",
+          "score": 66.79919365971347
         }
       ]
     },
@@ -1299,27 +1299,27 @@
         {
           "id": "apple/metal-edge-tile-and-bounds-check-playbook",
           "name": "metal-edge-tile-and-bounds-check-playbook",
-          "score": 242.22676875164458
+          "score": 318.5263066215883
         },
         {
           "id": "apple/metal-transpose-and-layout-reorder-patterns",
           "name": "metal-transpose-and-layout-reorder-patterns",
-          "score": 54.86959411549956
+          "score": 69.3341409052657
         },
         {
           "id": "apple/metal-ragged-tensors-and-masked-kernels",
           "name": "metal-ragged-tensors-and-masked-kernels",
-          "score": 51.15890023987147
+          "score": 64.5949159590499
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 40.376813084387415
+          "score": 53.781111286417065
         },
         {
           "id": "apple/metal-tiled-matmul-patterns",
           "name": "metal-tiled-matmul-patterns",
-          "score": 37.42948073600262
+          "score": 51.013898373465324
         }
       ]
     },
@@ -1338,27 +1338,27 @@
         {
           "id": "apple/metal-validation-and-profiling-workflow",
           "name": "metal-validation-and-profiling-workflow",
-          "score": 174.4107461569549
+          "score": 228.96040963897337
         },
         {
           "id": "apple/metal-performance-tuning",
           "name": "metal-performance-tuning",
-          "score": 52.0949683296992
+          "score": 66.09997086376211
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 45.74568829840129
+          "score": 60.13300897693058
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 34.912452202453196
+          "score": 48.27763851638873
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 33.29242661478774
+          "score": 46.51982500301247
         }
       ]
     },
@@ -1377,27 +1377,27 @@
         {
           "id": "apple/metal-argument-buffers-and-residency",
           "name": "metal-argument-buffers-and-residency",
-          "score": 178.4525473483073
+          "score": 233.2072621133497
         },
         {
           "id": "apple/metal-gather-scatter-and-indirect-access-patterns",
           "name": "metal-gather-scatter-and-indirect-access-patterns",
-          "score": 75.97243491230272
+          "score": 99.53035106632096
         },
         {
           "id": "apple/metal-gpu-driven-work-generation-patterns",
           "name": "metal-gpu-driven-work-generation-patterns",
-          "score": 66.3899838497021
+          "score": 80.64269849015449
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 55.33343614673806
+          "score": 68.68119903676052
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 37.68469841245517
+          "score": 50.378449833823055
         }
       ]
     },
@@ -1410,33 +1410,33 @@
         "apple/metal-multistage-tensor-pipeline-patterns",
         "apple/metal-library-and-pipeline-compilation",
         "apple/metal-double-buffered-pipeline-patterns",
-        "apple/metal-performance-tuning"
+        "apple/metal-simdgroup-async-copy-pipeline"
       ],
       "top_items": [
         {
           "id": "apple/metal-heaps-fences-and-events",
           "name": "metal-heaps-fences-and-events",
-          "score": 168.7816019804878
+          "score": 224.58733285592334
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 110.2710922059951
+          "score": 149.14763200518678
         },
         {
           "id": "apple/metal-library-and-pipeline-compilation",
           "name": "metal-library-and-pipeline-compilation",
-          "score": 62.52504358444493
+          "score": 87.41114156221525
         },
         {
           "id": "apple/metal-double-buffered-pipeline-patterns",
           "name": "metal-double-buffered-pipeline-patterns",
-          "score": 58.790096121034786
+          "score": 82.92136066833585
         },
         {
-          "id": "apple/metal-performance-tuning",
-          "name": "metal-performance-tuning",
-          "score": 40.033514413789916
+          "id": "apple/metal-simdgroup-async-copy-pipeline",
+          "name": "metal-simdgroup-async-copy-pipeline",
+          "score": 78.51052264300633
         }
       ]
     },
@@ -1455,27 +1455,27 @@
         {
           "id": "apple/metal-convolution-and-stencil-patterns",
           "name": "metal-convolution-and-stencil-patterns",
-          "score": 175.3338993233565
+          "score": 211.04305543653297
         },
         {
           "id": "apple/metal-convolution-tiling-playbook",
           "name": "metal-convolution-tiling-playbook",
-          "score": 116.38397646191258
+          "score": 138.4480957262299
         },
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 73.18644075778882
+          "score": 80.81093296692633
         },
         {
           "id": "apple/metal-image-and-2d-kernel-patterns",
           "name": "metal-image-and-2d-kernel-patterns",
-          "score": 72.57713017691336
+          "score": 76.78978285078948
         },
         {
           "id": "apple/metal-compute-launch-patterns",
           "name": "metal-compute-launch-patterns",
-          "score": 55.36946487822595
+          "score": 56.26663790082008
         }
       ]
     },
@@ -1494,27 +1494,27 @@
         {
           "id": "apple/metal-prefix-scan-patterns",
           "name": "metal-prefix-scan-patterns",
-          "score": 235.96894388239755
+          "score": 298.51775908429283
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 75.96656405137797
+          "score": 102.48258542289356
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 65.93255891081415
+          "score": 90.7586728005466
         },
         {
           "id": "apple/metal-segmented-reduction-patterns",
           "name": "metal-segmented-reduction-patterns",
-          "score": 55.48851747296195
+          "score": 69.14949128459612
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 44.74356414166591
+          "score": 59.13567445958627
         }
       ]
     },
@@ -1526,34 +1526,34 @@
         "apple/metal-transpose-and-layout-reorder-patterns",
         "apple/metal-transpose-free-layout-choice-playbook",
         "apple/metal-memory-and-threadgroup",
-        "apple/metal-buffer-layout-and-alignment",
-        "apple/metal-threadgroup-sizing-playbook"
+        "apple/metal-threadgroup-sizing-playbook",
+        "apple/metal-buffer-layout-and-alignment"
       ],
       "top_items": [
         {
           "id": "apple/metal-transpose-and-layout-reorder-patterns",
           "name": "metal-transpose-and-layout-reorder-patterns",
-          "score": 177.6252728378576
+          "score": 226.77859055025064
         },
         {
           "id": "apple/metal-transpose-free-layout-choice-playbook",
           "name": "metal-transpose-free-layout-choice-playbook",
-          "score": 114.30339472753842
+          "score": 144.8301090319353
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 75.96656405137797
-        },
-        {
-          "id": "apple/metal-buffer-layout-and-alignment",
-          "name": "metal-buffer-layout-and-alignment",
-          "score": 66.38165771657762
+          "score": 102.48258542289356
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 65.93255891081415
+          "score": 90.7586728005466
+        },
+        {
+          "id": "apple/metal-buffer-layout-and-alignment",
+          "name": "metal-buffer-layout-and-alignment",
+          "score": 90.56962298686747
         }
       ]
     },
@@ -1572,27 +1572,27 @@
         {
           "id": "apple/metal-histogram-and-binning-patterns",
           "name": "metal-histogram-and-binning-patterns",
-          "score": 155.40066724934215
+          "score": 196.6901423863845
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 79.8437752658241
+          "score": 107.06641547278699
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 65.93255891081415
+          "score": 90.7586728005466
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 44.74356414166591
+          "score": 59.13567445958627
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 41.78311004032571
+          "score": 55.513272919144086
         }
       ]
     },
@@ -1605,33 +1605,33 @@
         "apple/metal-argument-buffers-and-residency",
         "apple/metal-scatter-conflict-resolution-patterns",
         "apple/metal-gpu-driven-work-generation-patterns",
-        "apple/metal-resource-binding-checklist"
+        "apple/metal-strided-views-and-subtensor-access-patterns"
       ],
       "top_items": [
         {
           "id": "apple/metal-gather-scatter-and-indirect-access-patterns",
           "name": "metal-gather-scatter-and-indirect-access-patterns",
-          "score": 194.92228704485223
+          "score": 234.36910878576973
         },
         {
           "id": "apple/metal-argument-buffers-and-residency",
           "name": "metal-argument-buffers-and-residency",
-          "score": 121.1849558048
+          "score": 158.65564843098576
         },
         {
           "id": "apple/metal-scatter-conflict-resolution-patterns",
           "name": "metal-scatter-conflict-resolution-patterns",
-          "score": 84.13158489347497
+          "score": 109.25981601187247
         },
         {
           "id": "apple/metal-gpu-driven-work-generation-patterns",
           "name": "metal-gpu-driven-work-generation-patterns",
-          "score": 61.566863377073304
+          "score": 74.95646656032841
         },
         {
-          "id": "apple/metal-resource-binding-checklist",
-          "name": "metal-resource-binding-checklist",
-          "score": 48.45453331309322
+          "id": "apple/metal-strided-views-and-subtensor-access-patterns",
+          "name": "metal-strided-views-and-subtensor-access-patterns",
+          "score": 61.26165989489111
         }
       ]
     },
@@ -1642,35 +1642,35 @@
       "top_ids": [
         "apple/metal-convolution-tiling-playbook",
         "apple/metal-convolution-and-stencil-patterns",
-        "apple/metal-threadgroup-sizing-playbook",
         "apple/metal-memory-and-threadgroup",
+        "apple/metal-threadgroup-sizing-playbook",
         "apple/metal-tiled-matmul-patterns"
       ],
       "top_items": [
         {
           "id": "apple/metal-convolution-tiling-playbook",
           "name": "metal-convolution-tiling-playbook",
-          "score": 171.88096146075546
+          "score": 214.26825939530875
         },
         {
           "id": "apple/metal-convolution-and-stencil-patterns",
           "name": "metal-convolution-and-stencil-patterns",
-          "score": 82.04077409804944
-        },
-        {
-          "id": "apple/metal-threadgroup-sizing-playbook",
-          "name": "metal-threadgroup-sizing-playbook",
-          "score": 77.03069881974126
+          "score": 107.53744372797341
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 75.96656405137797
+          "score": 102.48258542289356
+        },
+        {
+          "id": "apple/metal-threadgroup-sizing-playbook",
+          "name": "metal-threadgroup-sizing-playbook",
+          "score": 102.30146341713056
         },
         {
           "id": "apple/metal-tiled-matmul-patterns",
           "name": "metal-tiled-matmul-patterns",
-          "score": 48.03254055094126
+          "score": 61.29817296465763
         }
       ]
     },
@@ -1682,34 +1682,34 @@
         "apple/metal-persistent-objects-and-submission-overhead",
         "apple/metal-command-buffer-reuse-and-batching",
         "apple/metal-prefetch-and-reuse-heuristics",
-        "apple/metal-multistage-tensor-pipeline-patterns",
-        "apple/metal-library-and-pipeline-compilation"
+        "apple/metal-library-and-pipeline-compilation",
+        "apple/metal-multistage-tensor-pipeline-patterns"
       ],
       "top_items": [
         {
           "id": "apple/metal-persistent-objects-and-submission-overhead",
           "name": "metal-persistent-objects-and-submission-overhead",
-          "score": 218.43281057582067
+          "score": 283.09002971199175
         },
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 181.6451750233534
+          "score": 215.9270676025954
         },
         {
           "id": "apple/metal-prefetch-and-reuse-heuristics",
           "name": "metal-prefetch-and-reuse-heuristics",
-          "score": 69.2617883114066
-        },
-        {
-          "id": "apple/metal-multistage-tensor-pipeline-patterns",
-          "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 68.70864987858005
+          "score": 96.32404683534085
         },
         {
           "id": "apple/metal-library-and-pipeline-compilation",
           "name": "metal-library-and-pipeline-compilation",
-          "score": 67.87858234963244
+          "score": 93.73635588762602
+        },
+        {
+          "id": "apple/metal-multistage-tensor-pipeline-patterns",
+          "name": "metal-multistage-tensor-pipeline-patterns",
+          "score": 89.43997114349862
         }
       ]
     },
@@ -1728,27 +1728,27 @@
         {
           "id": "apple/metal-gpu-driven-work-generation-patterns",
           "name": "metal-gpu-driven-work-generation-patterns",
-          "score": 204.25861611725966
+          "score": 231.85741740331167
         },
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 127.90806975745879
+          "score": 145.8876238310304
         },
         {
           "id": "apple/metal-gather-scatter-and-indirect-access-patterns",
           "name": "metal-gather-scatter-and-indirect-access-patterns",
-          "score": 99.80158872946285
+          "score": 134.4787032346463
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 66.38165771657762
+          "score": 70.57848274504019
         },
         {
           "id": "apple/metal-texture-vs-buffer-path-selection",
           "name": "metal-texture-vs-buffer-path-selection",
-          "score": 55.09550804658624
+          "score": 60.03296924155477
         }
       ]
     },
@@ -1758,36 +1758,36 @@
       "passed": true,
       "top_ids": [
         "apple/metal-multistage-tensor-pipeline-patterns",
-        "apple/metal-library-and-pipeline-compilation",
         "apple/metal-argument-buffers-and-residency",
-        "apple/metal-tensor-packing-and-unpacking-patterns",
-        "apple/metal-double-buffered-pipeline-patterns"
+        "apple/metal-library-and-pipeline-compilation",
+        "apple/metal-double-buffered-pipeline-patterns",
+        "apple/metal-simdgroup-async-copy-pipeline"
       ],
       "top_items": [
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 152.2795976282822
-        },
-        {
-          "id": "apple/metal-library-and-pipeline-compilation",
-          "name": "metal-library-and-pipeline-compilation",
-          "score": 62.52504358444493
+          "score": 198.89058606510721
         },
         {
           "id": "apple/metal-argument-buffers-and-residency",
           "name": "metal-argument-buffers-and-residency",
-          "score": 62.036536914105525
+          "score": 87.7290604461213
         },
         {
-          "id": "apple/metal-tensor-packing-and-unpacking-patterns",
-          "name": "metal-tensor-packing-and-unpacking-patterns",
-          "score": 55.998142853971345
+          "id": "apple/metal-library-and-pipeline-compilation",
+          "name": "metal-library-and-pipeline-compilation",
+          "score": 87.41114156221525
         },
         {
           "id": "apple/metal-double-buffered-pipeline-patterns",
           "name": "metal-double-buffered-pipeline-patterns",
-          "score": 55.69176722258639
+          "score": 78.95583897445701
+        },
+        {
+          "id": "apple/metal-simdgroup-async-copy-pipeline",
+          "name": "metal-simdgroup-async-copy-pipeline",
+          "score": 78.51052264300633
         }
       ]
     },
@@ -1806,27 +1806,27 @@
         {
           "id": "apple/metal-numerical-drift-debugging-checklist",
           "name": "metal-numerical-drift-debugging-checklist",
-          "score": 165.9583497146746
+          "score": 196.7593396941449
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 64.60023602910067
+          "score": 88.55399531925684
         },
         {
           "id": "apple/metal-silent-nan-inf-debugging-checklist",
           "name": "metal-silent-nan-inf-debugging-checklist",
-          "score": 55.58927323671709
+          "score": 77.14201368788079
         },
         {
           "id": "apple/metal-softmax-and-logsumexp-stability-patterns",
           "name": "metal-softmax-and-logsumexp-stability-patterns",
-          "score": 54.89007295097145
+          "score": 58.635538752814824
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 44.80032659455576
+          "score": 57.959925644682855
         }
       ]
     },
@@ -1839,33 +1839,33 @@
         "apple/metal-reduction-patterns",
         "apple/metal-simdgroup-patterns",
         "apple/metal-gather-scatter-and-indirect-access-patterns",
-        "apple/metal-softmax-and-logsumexp-stability-patterns"
+        "apple/metal-kernel-basics"
       ],
       "top_items": [
         {
           "id": "apple/metal-segmented-reduction-patterns",
           "name": "metal-segmented-reduction-patterns",
-          "score": 583.9550520495274
+          "score": 623.6005625597925
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 75.17852744676036
+          "score": 99.17765906075066
         },
         {
           "id": "apple/metal-simdgroup-patterns",
           "name": "metal-simdgroup-patterns",
-          "score": 37.3588272947278
+          "score": 49.851478806617465
         },
         {
           "id": "apple/metal-gather-scatter-and-indirect-access-patterns",
           "name": "metal-gather-scatter-and-indirect-access-patterns",
-          "score": 36.92825443466229
+          "score": 48.446365886856505
         },
         {
-          "id": "apple/metal-softmax-and-logsumexp-stability-patterns",
-          "name": "metal-softmax-and-logsumexp-stability-patterns",
-          "score": 33.9613402852602
+          "id": "apple/metal-kernel-basics",
+          "name": "metal-kernel-basics",
+          "score": 46.51982500301247
         }
       ]
     },
@@ -1884,27 +1884,27 @@
         {
           "id": "apple/metal-ragged-tensors-and-masked-kernels",
           "name": "metal-ragged-tensors-and-masked-kernels",
-          "score": 185.42135356247962
+          "score": 219.73455987954827
         },
         {
           "id": "apple/metal-edge-tile-and-bounds-check-playbook",
           "name": "metal-edge-tile-and-bounds-check-playbook",
-          "score": 99.79725202558359
+          "score": 135.54291390139227
         },
         {
           "id": "apple/metal-broadcast-kernel-patterns",
           "name": "metal-broadcast-kernel-patterns",
-          "score": 70.18290277216843
+          "score": 87.98225496814533
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 60.64701989263922
+          "score": 81.21197607574877
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 56.205395844574234
+          "score": 75.74611635939871
         }
       ]
     },
@@ -1914,36 +1914,36 @@
       "passed": true,
       "top_ids": [
         "apple/metal-streaming-and-online-kernel-patterns",
+        "apple/metal-kernel-basics",
         "apple/metal-buffer-layout-and-alignment",
         "apple/metal-command-buffer-reuse-and-batching",
-        "apple/metal-kernel-basics",
-        "apple/metal-texture-vs-buffer-path-selection"
+        "apple/metal-kernel-debugging-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-streaming-and-online-kernel-patterns",
           "name": "metal-streaming-and-online-kernel-patterns",
-          "score": 166.74575345933403
-        },
-        {
-          "id": "apple/metal-buffer-layout-and-alignment",
-          "name": "metal-buffer-layout-and-alignment",
-          "score": 69.45314872256657
-        },
-        {
-          "id": "apple/metal-command-buffer-reuse-and-batching",
-          "name": "metal-command-buffer-reuse-and-batching",
-          "score": 63.58700873679091
+          "score": 211.23120428333002
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 60.64701989263922
+          "score": 81.21197607574877
         },
         {
-          "id": "apple/metal-texture-vs-buffer-path-selection",
-          "name": "metal-texture-vs-buffer-path-selection",
-          "score": 59.79717243599304
+          "id": "apple/metal-buffer-layout-and-alignment",
+          "name": "metal-buffer-layout-and-alignment",
+          "score": 74.03292293388319
+        },
+        {
+          "id": "apple/metal-command-buffer-reuse-and-batching",
+          "name": "metal-command-buffer-reuse-and-batching",
+          "score": 66.79919365971347
+        },
+        {
+          "id": "apple/metal-kernel-debugging-checklist",
+          "name": "metal-kernel-debugging-checklist",
+          "score": 65.60232457702512
         }
       ]
     },
@@ -1954,35 +1954,35 @@
       "top_ids": [
         "apple/metal-memory-pressure-checklist",
         "apple/metal-heaps-fences-and-events",
-        "apple/metal-memory-and-threadgroup",
         "apple/metal-kernel-debugging-checklist",
-        "apple/metal-resource-binding-checklist"
+        "apple/metal-resource-binding-checklist",
+        "apple/metal-kernel-fusion-tradeoff-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-memory-pressure-checklist",
           "name": "metal-memory-pressure-checklist",
-          "score": 177.019950326042
+          "score": 201.46476734457497
         },
         {
           "id": "apple/metal-heaps-fences-and-events",
           "name": "metal-heaps-fences-and-events",
-          "score": 67.93944814341806
-        },
-        {
-          "id": "apple/metal-memory-and-threadgroup",
-          "name": "metal-memory-and-threadgroup",
-          "score": 67.1056435483948
+          "score": 94.7597498712465
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 58.353436539648804
+          "score": 84.28319132550457
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 57.09735715441359
+          "score": 82.78351984814753
+        },
+        {
+          "id": "apple/metal-kernel-fusion-tradeoff-checklist",
+          "name": "metal-kernel-fusion-tradeoff-checklist",
+          "score": 77.17571113268929
         }
       ]
     },
@@ -1994,34 +1994,34 @@
         "apple/metal-double-buffered-pipeline-patterns",
         "apple/metal-producer-consumer-staging-playbook",
         "apple/metal-multistage-tensor-pipeline-patterns",
-        "apple/metal-library-and-pipeline-compilation",
+        "apple/metal-simdgroup-async-copy-pipeline",
         "apple/metal-argument-buffers-and-residency"
       ],
       "top_items": [
         {
           "id": "apple/metal-double-buffered-pipeline-patterns",
           "name": "metal-double-buffered-pipeline-patterns",
-          "score": 191.46930042951595
+          "score": 226.63707090665736
         },
         {
           "id": "apple/metal-producer-consumer-staging-playbook",
           "name": "metal-producer-consumer-staging-playbook",
-          "score": 110.1379674994217
+          "score": 150.9594096367629
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 67.10378411998875
+          "score": 91.65056654698543
         },
         {
-          "id": "apple/metal-library-and-pipeline-compilation",
-          "name": "metal-library-and-pipeline-compilation",
-          "score": 62.52504358444493
+          "id": "apple/metal-simdgroup-async-copy-pipeline",
+          "name": "metal-simdgroup-async-copy-pipeline",
+          "score": 89.41976562759731
         },
         {
           "id": "apple/metal-argument-buffers-and-residency",
           "name": "metal-argument-buffers-and-residency",
-          "score": 62.036536914105525
+          "score": 87.7290604461213
         }
       ]
     },
@@ -2040,27 +2040,27 @@
         {
           "id": "apple/metal-producer-consumer-staging-playbook",
           "name": "metal-producer-consumer-staging-playbook",
-          "score": 185.5695519160555
+          "score": 240.10132010163906
         },
         {
           "id": "apple/metal-double-buffered-pipeline-patterns",
           "name": "metal-double-buffered-pipeline-patterns",
-          "score": 74.0156541652276
+          "score": 90.07638807542077
         },
         {
           "id": "apple/metal-host-device-synchronization-checklist",
           "name": "metal-host-device-synchronization-checklist",
-          "score": 64.27858563021897
+          "score": 84.01306001290888
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 54.788253017723825
+          "score": 69.66752578670344
         },
         {
           "id": "apple/metal-multistage-tensor-pipeline-patterns",
           "name": "metal-multistage-tensor-pipeline-patterns",
-          "score": 47.04653752759393
+          "score": 58.60851640650514
         }
       ]
     },
@@ -2079,27 +2079,27 @@
         {
           "id": "apple/metal-scatter-conflict-resolution-patterns",
           "name": "metal-scatter-conflict-resolution-patterns",
-          "score": 185.19508402979073
+          "score": 237.68532601533516
         },
         {
           "id": "apple/metal-gather-scatter-and-indirect-access-patterns",
           "name": "metal-gather-scatter-and-indirect-access-patterns",
-          "score": 63.467072041997625
+          "score": 86.58986332664873
         },
         {
           "id": "apple/metal-histogram-and-binning-patterns",
           "name": "metal-histogram-and-binning-patterns",
-          "score": 37.720360318710746
+          "score": 51.12199733432994
         },
         {
           "id": "apple/metal-validation-and-profiling-workflow",
           "name": "metal-validation-and-profiling-workflow",
-          "score": 37.05637887256782
+          "score": 50.82415651769818
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 34.89058388143134
+          "score": 48.373300420813294
         }
       ]
     },
@@ -2112,33 +2112,33 @@
         "apple/metal-kernel-basics",
         "apple/metal-kernel-debugging-checklist",
         "apple/metal-broadcast-kernel-patterns",
-        "apple/metal-producer-consumer-staging-playbook"
+        "apple/metal-mlx-custom-kernel-integration"
       ],
       "top_items": [
         {
           "id": "apple/metal-kernel-fusion-tradeoff-checklist",
           "name": "metal-kernel-fusion-tradeoff-checklist",
-          "score": 186.86371755264193
+          "score": 235.49752161483167
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 60.64701989263922
+          "score": 81.21197607574877
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 46.808464141925434
+          "score": 65.60232457702512
         },
         {
           "id": "apple/metal-broadcast-kernel-patterns",
           "name": "metal-broadcast-kernel-patterns",
-          "score": 46.09385744779122
+          "score": 64.78019079861261
         },
         {
-          "id": "apple/metal-producer-consumer-staging-playbook",
-          "name": "metal-producer-consumer-staging-playbook",
-          "score": 42.753400012758156
+          "id": "apple/metal-mlx-custom-kernel-integration",
+          "name": "metal-mlx-custom-kernel-integration",
+          "score": 62.836342036929366
         }
       ]
     },
@@ -2151,33 +2151,33 @@
         "apple/metal-transpose-free-layout-choice-playbook",
         "apple/metal-transpose-and-layout-reorder-patterns",
         "apple/metal-buffer-layout-and-alignment",
-        "apple/metal-producer-consumer-staging-playbook"
+        "apple/metal-w4a16-quantization-unpacking"
       ],
       "top_items": [
         {
           "id": "apple/metal-tensor-packing-and-unpacking-patterns",
           "name": "metal-tensor-packing-and-unpacking-patterns",
-          "score": 177.8135478780065
+          "score": 225.17670593928324
         },
         {
           "id": "apple/metal-transpose-free-layout-choice-playbook",
           "name": "metal-transpose-free-layout-choice-playbook",
-          "score": 72.01651516569339
+          "score": 94.57185993929465
         },
         {
           "id": "apple/metal-transpose-and-layout-reorder-patterns",
           "name": "metal-transpose-and-layout-reorder-patterns",
-          "score": 68.838954982908
+          "score": 92.96158389138456
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 66.38165771657762
+          "score": 90.56962298686747
         },
         {
-          "id": "apple/metal-producer-consumer-staging-playbook",
-          "name": "metal-producer-consumer-staging-playbook",
-          "score": 61.40919955630339
+          "id": "apple/metal-w4a16-quantization-unpacking",
+          "name": "metal-w4a16-quantization-unpacking",
+          "score": 87.64484020458913
         }
       ]
     },
@@ -2190,33 +2190,33 @@
         "apple/metal-kernel-basics",
         "apple/metal-validation-and-profiling-workflow",
         "apple/metal-reduction-patterns",
-        "apple/metal-numerical-drift-debugging-checklist"
+        "apple/metal-performance-tuning"
       ],
       "top_items": [
         {
           "id": "apple/metal-strided-views-and-subtensor-access-patterns",
           "name": "metal-strided-views-and-subtensor-access-patterns",
-          "score": 201.22460104223939
+          "score": 251.43129936600616
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 33.29242661478774
+          "score": 46.51982500301247
         },
         {
           "id": "apple/metal-validation-and-profiling-workflow",
           "name": "metal-validation-and-profiling-workflow",
-          "score": 31.512843247131073
+          "score": 44.23326393477619
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 29.53289152329146
+          "score": 41.99769885625521
         },
         {
-          "id": "apple/metal-numerical-drift-debugging-checklist",
-          "name": "metal-numerical-drift-debugging-checklist",
-          "score": 29.449220853380268
+          "id": "apple/metal-performance-tuning",
+          "name": "metal-performance-tuning",
+          "score": 41.83908531974106
         }
       ]
     },
@@ -2228,34 +2228,34 @@
         "apple/metal-broadcast-kernel-patterns",
         "apple/metal-buffer-layout-and-alignment",
         "apple/metal-kernel-basics",
-        "apple/metal-kernel-fusion-tradeoff-checklist",
-        "apple/metal-kernel-debugging-checklist"
+        "apple/metal-kernel-debugging-checklist",
+        "apple/metal-kernel-fusion-tradeoff-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-broadcast-kernel-patterns",
           "name": "metal-broadcast-kernel-patterns",
-          "score": 146.28247047446843
+          "score": 172.92486610342397
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 75.38536431450298
+          "score": 97.18971921898358
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 60.64701989263922
-        },
-        {
-          "id": "apple/metal-kernel-fusion-tradeoff-checklist",
-          "name": "metal-kernel-fusion-tradeoff-checklist",
-          "score": 47.58018896338181
+          "score": 81.21197607574877
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 46.808464141925434
+          "score": 65.60232457702512
+        },
+        {
+          "id": "apple/metal-kernel-fusion-tradeoff-checklist",
+          "name": "metal-kernel-fusion-tradeoff-checklist",
+          "score": 65.39516754282505
         }
       ]
     },
@@ -2274,27 +2274,27 @@
         {
           "id": "apple/metal-host-device-synchronization-checklist",
           "name": "metal-host-device-synchronization-checklist",
-          "score": 180.54403556794583
+          "score": 192.9251311466126
         },
         {
           "id": "apple/metal-host-wrapper-patterns",
           "name": "metal-host-wrapper-patterns",
-          "score": 111.34495763583598
+          "score": 133.7871364647799
         },
         {
           "id": "apple/metal-pytorch-custom-op-host-patterns",
           "name": "metal-pytorch-custom-op-host-patterns",
-          "score": 71.01670881286532
+          "score": 78.55343592808842
         },
         {
           "id": "apple/metal-resource-binding-checklist",
           "name": "metal-resource-binding-checklist",
-          "score": 54.788253017723825
+          "score": 69.66752578670344
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 46.6496098844782
+          "score": 57.05669862868936
         }
       ]
     },
@@ -2305,35 +2305,35 @@
       "top_ids": [
         "apple/metal-softmax-and-logsumexp-stability-patterns",
         "apple/metal-reduction-patterns",
-        "apple/metal-numerical-drift-debugging-checklist",
         "apple/metal-kernel-basics",
-        "apple/metal-validation-and-profiling-workflow"
+        "apple/metal-validation-and-profiling-workflow",
+        "apple/metal-performance-tuning"
       ],
       "top_items": [
         {
           "id": "apple/metal-softmax-and-logsumexp-stability-patterns",
           "name": "metal-softmax-and-logsumexp-stability-patterns",
-          "score": 220.2557695796513
+          "score": 264.15372005174686
         },
         {
           "id": "apple/metal-reduction-patterns",
           "name": "metal-reduction-patterns",
-          "score": 45.44838119089637
-        },
-        {
-          "id": "apple/metal-numerical-drift-debugging-checklist",
-          "name": "metal-numerical-drift-debugging-checklist",
-          "score": 38.27141495322089
+          "score": 53.565490332332416
         },
         {
           "id": "apple/metal-kernel-basics",
           "name": "metal-kernel-basics",
-          "score": 33.29242661478774
+          "score": 46.51982500301247
         },
         {
           "id": "apple/metal-validation-and-profiling-workflow",
           "name": "metal-validation-and-profiling-workflow",
-          "score": 31.512843247131073
+          "score": 44.23326393477619
+        },
+        {
+          "id": "apple/metal-performance-tuning",
+          "name": "metal-performance-tuning",
+          "score": 41.83908531974106
         }
       ]
     },
@@ -2352,27 +2352,27 @@
         {
           "id": "apple/metal-silent-nan-inf-debugging-checklist",
           "name": "metal-silent-nan-inf-debugging-checklist",
-          "score": 225.44914220830498
+          "score": 276.172482060858
         },
         {
           "id": "apple/metal-numerical-drift-debugging-checklist",
           "name": "metal-numerical-drift-debugging-checklist",
-          "score": 67.19078103291659
+          "score": 88.69055071932394
         },
         {
           "id": "apple/metal-kernel-debugging-checklist",
           "name": "metal-kernel-debugging-checklist",
-          "score": 64.60023602910067
+          "score": 88.55399531925684
         },
         {
           "id": "apple/metal-kernel-fusion-tradeoff-checklist",
           "name": "metal-kernel-fusion-tradeoff-checklist",
-          "score": 43.2622700841287
+          "score": 54.051868507581375
         },
         {
           "id": "apple/metal-producer-consumer-staging-playbook",
           "name": "metal-producer-consumer-staging-playbook",
-          "score": 39.65507111430976
+          "score": 49.806270106000156
         }
       ]
     },
@@ -2384,34 +2384,34 @@
         "apple/metal-prefetch-and-reuse-heuristics",
         "apple/metal-memory-and-threadgroup",
         "apple/metal-threadgroup-sizing-playbook",
-        "apple/metal-memory-pressure-checklist",
-        "apple/metal-command-buffer-reuse-and-batching"
+        "apple/metal-command-buffer-reuse-and-batching",
+        "apple/metal-memory-pressure-checklist"
       ],
       "top_items": [
         {
           "id": "apple/metal-prefetch-and-reuse-heuristics",
           "name": "metal-prefetch-and-reuse-heuristics",
-          "score": 207.27893996788106
+          "score": 255.9177237463297
         },
         {
           "id": "apple/metal-memory-and-threadgroup",
           "name": "metal-memory-and-threadgroup",
-          "score": 114.11877190134864
+          "score": 123.31570571963486
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 71.29025126895404
-        },
-        {
-          "id": "apple/metal-memory-pressure-checklist",
-          "name": "metal-memory-pressure-checklist",
-          "score": 64.68561904857324
+          "score": 97.13427436510469
         },
         {
           "id": "apple/metal-command-buffer-reuse-and-batching",
           "name": "metal-command-buffer-reuse-and-batching",
-          "score": 61.796775193413495
+          "score": 87.08802737553927
+        },
+        {
+          "id": "apple/metal-memory-pressure-checklist",
+          "name": "metal-memory-pressure-checklist",
+          "score": 62.36509311008673
         }
       ]
     },
@@ -2430,27 +2430,27 @@
         {
           "id": "apple/metal-transpose-free-layout-choice-playbook",
           "name": "metal-transpose-free-layout-choice-playbook",
-          "score": 776.4597362998956
+          "score": 839.5955378886005
         },
         {
           "id": "apple/metal-transpose-and-layout-reorder-patterns",
           "name": "metal-transpose-and-layout-reorder-patterns",
-          "score": 153.3103504378608
+          "score": 200.10712591932622
         },
         {
           "id": "apple/metal-tensor-packing-and-unpacking-patterns",
           "name": "metal-tensor-packing-and-unpacking-patterns",
-          "score": 72.29749762985034
+          "score": 95.84340247200915
         },
         {
           "id": "apple/metal-buffer-layout-and-alignment",
           "name": "metal-buffer-layout-and-alignment",
-          "score": 66.38165771657762
+          "score": 90.56962298686747
         },
         {
           "id": "apple/metal-threadgroup-sizing-playbook",
           "name": "metal-threadgroup-sizing-playbook",
-          "score": 59.596596128581076
+          "score": 84.37886874210585
         }
       ]
     }

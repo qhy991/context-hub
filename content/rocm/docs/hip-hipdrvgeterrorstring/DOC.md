@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,error-handling
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: Error Handling
 ---

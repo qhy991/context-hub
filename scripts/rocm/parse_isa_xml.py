@@ -343,6 +343,9 @@ def extract_instruction_docs(xml_path: str, out_dir: str, filter_re: str = None)
             tags += ",fp8"
         if "atomic" in name.lower():
             tags += ",atomic"
+        # Dedup tags while preserving first-seen order (hw_unit can already
+        # equal an "extra" tag, e.g. matrix-core for MFMA instructions)
+        tags = ",".join(dict.fromkeys(t for t in tags.split(",") if t))
 
         # Build operands table
         operands_md = ""

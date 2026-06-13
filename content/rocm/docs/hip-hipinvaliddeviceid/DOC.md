@@ -1,6 +1,6 @@
 ---
 name: hip-hipinvaliddeviceid
-description: "HIP API: InvalidDeviceId."
+description: "Sentinel value representing an invalid HIP device ordinal."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,13 +11,14 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,execution-control
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Execution Control
 ---
 
 # hipInvalidDeviceId
 
-HIP API: InvalidDeviceId.
+Sentinel value representing an invalid HIP device ordinal.
 
 ## References
 

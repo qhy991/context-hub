@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,device-management
   isa_category: runtime
   instruction_type: API
+  symbol_kind: typedef
   hw_unit: driver
   api_module: Device Management
 ---

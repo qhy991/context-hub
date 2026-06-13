@@ -1,6 +1,6 @@
 ---
 name: hip-hiplibraryoption
-description: "HIP API: LibraryOption."
+description: "Enumeration of options for loading a HIP module/library."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,13 +11,14 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,module-management
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Module Management
 ---
 
 # hipLibraryOption
 
-HIP API: LibraryOption.
+Enumeration of options for loading a HIP module/library.
 
 ## References
 

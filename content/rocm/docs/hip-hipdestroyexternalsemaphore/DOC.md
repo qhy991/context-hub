@@ -11,6 +11,7 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,external-resource-interoperability
   isa_category: runtime
   instruction_type: API
+  symbol_kind: function
   hw_unit: driver
   api_module: External Resource Interoperability
 ---
@@ -19,6 +20,21 @@ metadata:
 
 Destroy an external semaphore object and release resources.
 
+## Signature
+
+```c
+hipError_t hipDestroyExternalSemaphore(hipExternalSemaphore_t extSem);
+```
+
+## Parameters
+
+| Direction | Parameter | Description |
+|-----------|-----------|-------------|
+| [in] | `extSem` | handle to an external memory object |
+
+## Returns
+
+hipSuccess , hipErrorInvalidDevice , hipErrorInvalidValue
 
 ## See Also
 

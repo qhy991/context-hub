@@ -1,6 +1,6 @@
 ---
 name: hip-hiphostallocuncached
-description: "HIP API: HostAllocUncached."
+description: "Host memory allocation flag: uncached memory."
 metadata:
   languages: hip
   architectures: cdna1,cdna2,cdna3,cdna4
@@ -11,13 +11,14 @@ metadata:
   tags: rocm,gpu,hip,runtime-api,memory-management
   isa_category: runtime
   instruction_type: API
+  symbol_kind: enum
   hw_unit: driver
   api_module: Memory Management
 ---
 
 # hipHostAllocUncached
 
-HIP API: HostAllocUncached.
+Host memory allocation flag: uncached memory.
 
 ## References
 
