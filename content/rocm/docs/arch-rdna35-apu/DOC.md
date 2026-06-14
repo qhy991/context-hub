@@ -34,7 +34,7 @@ DDR5/LPDDR5X memory pool with the CPU, which dominates kernel behavior.
 | Native wavefront | **wave32** (wave64 also supported) | wave64 only |
 | Matrix engine | WMMA (wave matrix), **no CDNA MFMA** | dedicated Matrix Cores (`v_mfma_*`) |
 | Memory | **unified DDR5/LPDDR5X, shared with CPU** | dedicated HBM2e/HBM3 |
-| Compute units (exp config) | 20 CU (as recorded in exp-amd-395 sessions) | 104–304 CU |
+| Compute units | **40 RDNA3.5 CU** (full Radeon 8060S; the "20 CU" in some exp-amd-395 session profiles is an unverified assumption, not a probe — see [[arch-amd-395-soc]]) | 104–304 CU |
 | Hardware counters / NCU | **unavailable** on this Windows APU stack | rocprof / rocprofv3 |
 
 ## Why This Architecture Is Bandwidth-Bound
@@ -79,6 +79,16 @@ quantized matmul, **not** attention:
 
 Optimizing a 0.6% kernel cannot move end-to-end latency; start from the op
 breakdown. See [[opt-rdna-apu-flash-attention]] for the full case study.
+
+## See Also
+
+- [[arch-amd-395-soc]] — full Ryzen AI Max+ 395 SoC spec (CPU/GPU/NPU/memory)
+- [[arch-amd-gpu-families]] — RDNA vs CDNA family map (where gfx1151 sits)
+- [[arch-rdna35-wmma]] — the WMMA matrix engine on gfx1151
+- [[arch-rdna35-unified-memory]] — the unified LPDDR5X memory model
+- [[opt-rdna-apu-moe-matmul]] — the ~70%-of-decode matmul bottleneck (the real P0)
+- [[opt-rdna-apu-flash-attention]] — bandwidth-bound flash-attention case study
+- [[opt-hip-vs-cuda-gotchas]] — wave32 / HIP-vs-CUDA portability footguns
 
 ## References
 
