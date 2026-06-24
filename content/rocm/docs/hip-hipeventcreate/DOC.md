@@ -41,3 +41,18 @@ hipSuccess , hipErrorNotInitialized , hipErrorInvalidValue , hipErrorLaunchFailu
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___event.html#ga5df2309c9f29ca4c8e669db658d411b4)
+
+## Semantics
+Creates a HIP event object. An event is used for timing or synchronization. It allocates an HSA signal (or analogous structure) that can track a specific point in a stream's execution.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+int main() {
+    hipEvent_t event;
+    hipEventCreate(&event);
+    hipEventDestroy(event);
+    return 0;
+}
+```

@@ -47,3 +47,15 @@ hipSuccess , hipErrorDeinitialized , hipErrorNotInitialized , hipErrorInvalidCon
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gae61f4e35ff1b9643c6328bc45d091c3f)
+
+## Semantics
+Specifically performs a Device-to-Host memory copy. Data is moved from GPU VRAM to CPU system memory over PCIe or xGMI.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void fetch_results(float* h_dest, const float* d_src, size_t bytes) {
+    hipMemcpyDtoH(h_dest, d_src, bytes);
+}
+```

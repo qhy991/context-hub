@@ -48,3 +48,16 @@ hipSuccess , hipErrorInvalidValue
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream_m.html#ga2520d4e1e57697edff2a85a3c03d652b)
+
+## Semantics
+Enqueues a command in the stream to write a 32-bit value to a specified memory location. Often used in tandem with `hipStreamWaitValue32` for low-latency device-side stream synchronization.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+#include <hip/hip_ext.h>
+
+void signal_completion(hipStream_t stream, uint32_t* d_flag, uint32_t signal_val) {
+    hipStreamWriteValue32(stream, d_flag, signal_val, 0);
+}
+```

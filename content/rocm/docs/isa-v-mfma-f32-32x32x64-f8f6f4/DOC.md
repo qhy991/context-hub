@@ -40,3 +40,14 @@ Opcode: `46`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Matrix-Fused Multiply-Add using FP8 for large 32x32 matrix tiles with an inner dimension of 64. Drastically increases computational density on CDNA3/4 architectures.
+
+## Example
+```cpp
+// Conceptual usage for FP8 32x32x64
+__device__ void mfma_32x32x64_fp8(float& d_out, uint32_t a[2], uint32_t b[2], float c) {
+    d_out = __builtin_amdgcn_mfma_f32_32x32x64_f8f6f4(a, b, c, 0, 0, 0);
+}
+```

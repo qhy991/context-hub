@@ -50,3 +50,15 @@ hipSuccess , hipErrorInvalidValue , hipErrorNotInitialized , hipErrorInvalidHand
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___event.html#ga1f72d98ba5d6f7dc3da54e0c41fe38b1)
+
+## Semantics
+Blocks the host CPU thread until the specified event has been recorded (i.e., until the command queue passes the event marker).
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void wait_for_event(hipEvent_t event) {
+    hipEventSynchronize(event);
+}
+```

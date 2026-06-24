@@ -43,3 +43,16 @@ Opcode: `59`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector Fused Multiply-Add (in-place accumulation). Computes `vd = vd + (vs1 * vs2)` with a single rounding step. Uses fewer registers than v_fma_f32 as the destination is also the addend.
+
+## Example
+```cpp
+__device__ void v_fmac(float& acc, float a, float b) {
+    asm volatile(
+        "v_fmac_f32 %0, %1, %2" 
+        : "+v"(acc) : "v"(a), "v"(b)
+    );
+}
+```

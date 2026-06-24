@@ -40,3 +40,13 @@ Opcode: `85`
 
 - [AMD CDNA 2 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Matrix-Fused Multiply-Add for 16x16x16 INT8 tiles, accumulating into 32-bit integers. Essential for quantized integer inference architectures and low-precision AI tasks.
+
+## Example
+```cpp
+__device__ void mfma_16x16x16_int8(int32_t& d_out, int8_16_t a, int8_16_t b, int32_t c) {
+    d_out = __builtin_amdgcn_mfma_i32_16x16x16i8(a, b, c, 0, 0, 0);
+}
+```

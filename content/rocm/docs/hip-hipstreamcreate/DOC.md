@@ -45,3 +45,21 @@ hipSuccess , hipErrorInvalidValue
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html#gaff5b62d6e9502d80879f7176f4d03102)
+
+## Semantics
+Creates an asynchronous execution stream. A stream corresponds to a hardware or software command queue in the ROCr runtime. Commands placed in the same stream execute strictly in order.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+int main() {
+    hipStream_t stream;
+    hipStreamCreate(&stream);
+    
+    // ... launch kernels on stream ...
+    
+    hipStreamDestroy(stream);
+    return 0;
+}
+```

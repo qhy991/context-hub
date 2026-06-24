@@ -46,3 +46,14 @@ Opcode: `66`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector compare equal. Compares two 32-bit floating-point registers. It outputs a boolean mask to the VCC (Vector Condition Code) register, representing the per-lane comparison results.
+
+## Example
+```cpp
+__device__ bool v_cmp_eq(float a, float b) {
+    // High-level abstraction
+    return a == b;
+}
+```

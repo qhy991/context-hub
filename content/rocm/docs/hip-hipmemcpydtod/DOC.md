@@ -47,3 +47,15 @@ hipSuccess , hipErrorDeinitialized , hipErrorNotInitialized , hipErrorInvalidCon
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga814f245b8918f173c1f2f8c1480f7f93)
+
+## Semantics
+Specifically performs a Device-to-Device memory copy. It skips the heuristic pointer-location checks of `hipMemcpy`, directly enqueuing an SDMA (System DMA) or compute-shader based local VRAM copy command.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void clone_buffer(float* d_dest, const float* d_src, size_t bytes) {
+    hipMemcpyDtoD(d_dest, d_src, bytes);
+}
+```

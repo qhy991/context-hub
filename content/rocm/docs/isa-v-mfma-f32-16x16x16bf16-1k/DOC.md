@@ -40,3 +40,13 @@ Opcode: `103`
 
 - [AMD CDNA 2 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Matrix-Fused Multiply-Add for 16x16x16 bfloat16 tiles, accumulating into fp32. Supports deep neural network training by providing higher dynamic range natively.
+
+## Example
+```cpp
+__device__ void mfma_16x16x16_bf16(float32_t& d_out, bfloat16_16_t a, bfloat16_16_t b, float32_t c) {
+    d_out = __builtin_amdgcn_mfma_f32_16x16x16bf16_1k(a, b, c, 0, 0, 0);
+}
+```

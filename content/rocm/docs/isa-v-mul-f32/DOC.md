@@ -45,3 +45,15 @@ Opcode: `5`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector floating-point multiplication. Multiplies two 32-bit floating-point registers. Optimized for high throughput in the shader ALUs.
+
+## Example
+```cpp
+__device__ float v_mul(float a, float b) {
+    float res;
+    asm volatile("v_mul_f32 %0, %1, %2" : "=v"(res) : "v"(a), "v"(b));
+    return res;
+}
+```

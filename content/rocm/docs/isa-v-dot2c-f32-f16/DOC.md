@@ -43,3 +43,14 @@ Opcode: `55`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Computes a complex dot product of two half-precision pairs or uses a specific clamped accumulation, depending on hardware generation. Further optimizes specialized activation/accumulation paths.
+
+## Example
+```cpp
+__device__ float v_dot2c_f16(float2 a, float2 b, float acc) {
+    // Hardware-specific complex dot product intrinsic
+    return __builtin_amdgcn_fdot2(a, b, acc, true);
+}
+```

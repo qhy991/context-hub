@@ -47,3 +47,15 @@ hipSuccess , hipErrorDeinitialized , hipErrorNotInitialized , hipErrorInvalidCon
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gad9b6077f129d2694cda5e8c24b4bed0f)
+
+## Semantics
+Specifically performs a Host-to-Device memory copy. Data is moved from CPU system memory to GPU VRAM.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void upload_weights(float* d_dest, const float* h_src, size_t bytes) {
+    hipMemcpyHtoD(d_dest, h_src, bytes);
+}
+```

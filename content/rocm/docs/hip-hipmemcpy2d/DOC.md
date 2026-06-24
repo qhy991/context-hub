@@ -52,3 +52,15 @@ hipSuccess , hipErrorInvalidValue , hipErrorInvalidPitchValue , hipErrorInvalidD
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga8af4597ff0cd17247d8a857c4d8bfa8a)
+
+## Semantics
+Copies a 2D matrix with specific pitch (stride). It performs a structured copy of elements, reading `width` bytes from each row and advancing by `spitch` on the source and `dpitch` on the destination. It is translated to specialized 2D SDMA copy commands.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void copy_2d_matrix(float* d_dest, size_t dpitch, float* h_src, size_t spitch, size_t width, size_t height) {
+    hipMemcpy2D(d_dest, dpitch, h_src, spitch, width, height, hipMemcpyHostToDevice);
+}
+```

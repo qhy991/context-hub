@@ -46,3 +46,21 @@ hipSuccess , hipErrorInvalidValue
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___clang.html#ga4421a399434f41a1679a84fec3685829)
+
+## Semantics
+Enqueues a kernel for execution on the GPU. Configures the hardware packet (e.g., AQL packet in HSA) containing the grid/block dimensions, shared memory size, and arguments, dispatching it to the command processor (CP).
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+__global__ void my_kernel(float* a) {
+    int idx = threadIdx.x + blockIdx.x * blockDim.x;
+    a[idx] *= 2.0f;
+}
+
+void run_kernel(float* d_a) {
+    void* args[] = { &d_a };
+    hipLaunchKernel((const void*)my_kernel, dim3(10), dim3(256), args, 0, nullptr);
+}
+```

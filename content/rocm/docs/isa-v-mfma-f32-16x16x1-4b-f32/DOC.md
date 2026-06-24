@@ -40,3 +40,14 @@ Opcode: `65`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Matrix-Fused Multiply-Add for 16x16x1 blocks utilizing 4-bit precision inputs and accumulating into 32-bit floats. Accelerates extreme low-precision inference networks where parameters are highly quantized.
+
+## Example
+```cpp
+__device__ void mfma_16x16x1_4b_f32(float& d_out, int a, int b, float c) {
+    // Intrinsic representing 4-bit MFMA operation
+    d_out = __builtin_amdgcn_mfma_f32_16x16x1_4b_f32(a, b, c, 0, 0, 0);
+}
+```

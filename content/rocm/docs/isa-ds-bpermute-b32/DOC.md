@@ -39,3 +39,18 @@ Opcode: `63`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Performs a byte-wise cross-lane permute within a wavefront. Allows a lane to read a 32-bit value from any other lane in the same wave based on a byte offset, heavily used in butterfly reductions.
+
+## Example
+```cpp
+__device__ int bpermute(int index, int val) {
+    int result;
+    asm volatile(
+        "ds_bpermute_b32 %0, %1, %2" 
+        : "=v"(result) : "v"(index << 2), "v"(val)
+    );
+    return result;
+}
+```

@@ -54,3 +54,18 @@ hipSuccess , hipErrorInvalidValue , hipErrorNotReady , hipErrorInvalidHandle , h
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___event.html#gad4128b815cb475c8e13c7e66ff6250b7)
+
+## Semantics
+Calculates the execution time (in milliseconds) elapsed between two recorded events. Resolves the difference between the GPU hardware timestamps captured when the start and stop events were signaled.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+#include <iostream>
+
+void measure_time(hipEvent_t start, hipEvent_t stop) {
+    float ms = 0.0f;
+    hipEventElapsedTime(&ms, start, stop);
+    std::cout << "Kernel took " << ms << " ms" << std::endl;
+}
+```

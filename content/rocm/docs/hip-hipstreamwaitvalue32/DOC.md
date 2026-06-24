@@ -53,3 +53,16 @@ hipSuccess , hipErrorInvalidValue
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream_m.html#gafade0b118c7ed28e1dae21cd4df0a9d6)
+
+## Semantics
+Instructs the stream to wait on a specific 32-bit value in memory before continuing. This is a highly efficient way to synchronize streams without host intervention, leveraging hardware-level memory polling.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+#include <hip/hip_ext.h>
+
+void wait_on_flag(hipStream_t stream, uint32_t* d_flag, uint32_t wait_val) {
+    hipStreamWaitValue32(stream, d_flag, wait_val, hipStreamWaitValueEq);
+}
+```

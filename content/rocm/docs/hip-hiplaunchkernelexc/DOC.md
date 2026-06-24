@@ -47,3 +47,14 @@ hipSuccess if the kernel is launched successfully, otherwise an appropriate erro
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___execution.html#ga20d5257a68cc6c80c06745f001b0c218)
+
+## Semantics
+Similar to `hipLaunchKernel`, but often allows for additional runtime configuration and extended features. Used internally to serialize and dispatch the kernel with specific execution parameters.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+// Typically accessed via the triple-chevron launch syntax in HIP
+// my_kernel<<<dim3(10), dim3(256), 0, stream>>>(d_a);
+```

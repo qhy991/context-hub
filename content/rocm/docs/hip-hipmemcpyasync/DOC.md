@@ -50,3 +50,17 @@ hipSuccess , hipErrorInvalidValue , hipErrorUnknown
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gad55fa9f5980b711bc93c52820149ba18)
+
+## Semantics
+Asynchronously copies data using a specific stream. It pushes a memory transfer command into the stream's command queue. For Host-to-Device or Device-to-Host transfers to be truly asynchronous, the host memory must be page-locked (pinned) using `hipHostMalloc` or `hipHostRegister`.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void async_transfer(float* d_dest, float* h_src, size_t bytes, hipStream_t stream) {
+    // Assuming h_src is pinned memory
+    hipMemcpyAsync(d_dest, h_src, bytes, hipMemcpyHostToDevice, stream);
+    // Note: Do not access h_src or d_dest until stream is synchronized
+}
+```

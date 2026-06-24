@@ -40,3 +40,14 @@ Opcode: `35`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Computes the dot product of two half-precision (f16) pairs and accumulates into a 32-bit float. Ideal for dual-issue ML operations on packed f16 vectors.
+
+## Example
+```cpp
+__device__ float v_dot2_f16(float2 a, float2 b, float acc) {
+    // Abstraction of v_dot2_f32_f16
+    return __builtin_amdgcn_fdot2(a, b, acc, false);
+}
+```

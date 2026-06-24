@@ -39,3 +39,18 @@ Opcode: `255`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Reads 128 bits (4 dwords) from Local Data Share (LDS). Extremely useful for vectorized memory loads from shared memory in matrix multiplication and AI kernels to maximize bandwidth.
+
+## Example
+```cpp
+__device__ float4 read_lds_128(uint32_t lds_offset) {
+    float4 val;
+    asm volatile(
+        "ds_read_b128 %0, %1 offset:0" 
+        : "=v"(val) : "v"(lds_offset)
+    );
+    return val;
+}
+```

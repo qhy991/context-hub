@@ -45,3 +45,13 @@ Opcode: `11`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector maximum operation. Compares two 32-bit floating point registers lane-by-lane and writes the maximum into the destination register. Often mapped to `fmaxf` in C++.
+
+## Example
+```cpp
+__device__ float v_max(float a, float b) {
+    return fmaxf(a, b);
+}
+```

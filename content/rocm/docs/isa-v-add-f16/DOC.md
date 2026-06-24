@@ -45,3 +45,13 @@ Opcode: `31`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector floating-point addition for 16-bit half-precision numbers. Often executed at 2x rate compared to FP32 if packed math (PK) is utilized, or acts directly on low 16-bits of the register.
+
+## Example
+```cpp
+__device__ _Float16 v_add_f16(_Float16 a, _Float16 b) {
+    return a + b;
+}
+```

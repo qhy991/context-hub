@@ -47,3 +47,15 @@ hipSuccess hipErrorInvalidHandle
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html#ga3076a3499ed2c7821311006100bb95ec)
+
+## Semantics
+Destroys an asynchronous execution stream, freeing the associated ROCr command queue resources. It blocks until all previously enqueued work in the stream completes.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void cleanup_stream(hipStream_t stream) {
+    hipStreamDestroy(stream);
+}
+```

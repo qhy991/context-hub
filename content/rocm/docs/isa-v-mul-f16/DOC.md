@@ -45,3 +45,13 @@ Opcode: `34`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector floating-point multiplication for 16-bit half-precision numbers. Provides high throughput for FP16 math directly within the standard ALU pipeline.
+
+## Example
+```cpp
+__device__ _Float16 v_mul_f16(_Float16 a, _Float16 b) {
+    return a * b;
+}
+```

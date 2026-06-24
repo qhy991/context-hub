@@ -39,3 +39,16 @@ Opcode: `13`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Writes a 32-bit (dword) value to Local Data Share (LDS). Often used to stage global memory data into shared memory for cooperative thread block processing.
+
+## Example
+```cpp
+__device__ void write_lds(uint32_t lds_offset, float val) {
+    asm volatile(
+        "ds_write_b32 %0, %1 offset:0" 
+        : : "v"(lds_offset), "v"(val)
+    );
+}
+```

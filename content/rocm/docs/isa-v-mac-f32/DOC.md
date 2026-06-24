@@ -43,3 +43,16 @@ Opcode: `22`
 
 - [AMD CDNA 2 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector Multiply-Add. Conceptually similar to fmac but does not guarantee fused rounding (may round the multiplication before addition depending on legacy hardware behavior, though often synonymous in modern ISAs).
+
+## Example
+```cpp
+__device__ void v_mac(float& acc, float a, float b) {
+    asm volatile(
+        "v_mac_f32 %0, %1, %2" 
+        : "+v"(acc) : "v"(a), "v"(b)
+    );
+}
+```

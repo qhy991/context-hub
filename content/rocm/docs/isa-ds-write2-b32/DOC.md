@@ -40,3 +40,16 @@ Opcode: `14`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Writes two 32-bit values to LDS using a single base address and two independent immediate offsets. Helps reduce instruction count when scattering data into shared memory.
+
+## Example
+```cpp
+__device__ void write2_lds(uint32_t lds_offset, float v1, float v2) {
+    asm volatile(
+        "ds_write2_b32 %0, %1, %2 offset0:0 offset1:1" 
+        : : "v"(lds_offset), "v"(__float_as_uint(v1)), "v"(__float_as_uint(v2))
+    );
+}
+```

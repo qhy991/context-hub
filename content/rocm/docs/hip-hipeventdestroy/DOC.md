@@ -49,3 +49,15 @@ hipSuccess , hipErrorNotInitialized , hipErrorInvalidValue , hipErrorLaunchFailu
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___event.html#ga83260357dce0c39e8c6a3c74ec97484c)
+
+## Semantics
+Destroys a HIP event object, releasing the underlying signaling resources back to the runtime.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void cleanup_event(hipEvent_t event) {
+    hipEventDestroy(event);
+}
+```

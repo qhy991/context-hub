@@ -47,3 +47,15 @@ hipSuccess , hipErrorInvalidHandle
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___stream.html#gabbfb9f573a6ebe8c478605ecb5504a74)
+
+## Semantics
+Blocks the host CPU thread until all commands enqueued in the specified stream have completed execution on the device. Underneath, it polls the completion signal or uses HSA sleep wait functions.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void wait_for_stream(hipStream_t stream) {
+    hipStreamSynchronize(stream);
+}
+```

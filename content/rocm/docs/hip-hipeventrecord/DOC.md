@@ -53,3 +53,15 @@ hipSuccess , hipErrorInvalidValue , hipErrorNotInitialized , hipErrorInvalidHand
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___event.html#gace88ebd8c7ec42a6c2cebda2e8b0cb38)
+
+## Semantics
+Records an event in a stream. The event will be triggered (signaled) when all preceding commands in the stream have finished executing. Useful for stream synchronization or latency measurement.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void mark_stream(hipStream_t stream, hipEvent_t event) {
+    hipEventRecord(event, stream);
+}
+```

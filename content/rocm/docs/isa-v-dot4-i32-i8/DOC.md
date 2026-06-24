@@ -40,3 +40,13 @@ Opcode: `40`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Computes the dot product of four 8-bit integers (packed in a 32-bit register) and accumulates the result into a 32-bit integer register. Essential for INT8 AI inference.
+
+## Example
+```cpp
+__device__ int v_dot4_i8(int a, int b, int acc) {
+    return __builtin_amdgcn_sdot4(a, b, acc, false);
+}
+```

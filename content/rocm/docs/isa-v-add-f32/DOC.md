@@ -45,3 +45,15 @@ Opcode: `1`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Vector floating-point addition. Adds two 32-bit floating-point registers. Supports input modifiers like negation and absolute value directly encoded in the instruction.
+
+## Example
+```cpp
+__device__ float v_add(float a, float b) {
+    float res;
+    asm volatile("v_add_f32 %0, %1, %2" : "=v"(res) : "v"(a), "v"(b));
+    return res;
+}
+```

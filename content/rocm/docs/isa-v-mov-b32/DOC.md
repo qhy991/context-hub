@@ -42,3 +42,15 @@ Opcode: `1`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Moves a 32-bit value between vector registers, or loads an immediate/scalar value into a vector register. Extremely common for register shuffling and initialization.
+
+## Example
+```cpp
+__device__ float v_mov(float a) {
+    float res;
+    asm volatile("v_mov_b32 %0, %1" : "=v"(res) : "v"(a));
+    return res;
+}
+```

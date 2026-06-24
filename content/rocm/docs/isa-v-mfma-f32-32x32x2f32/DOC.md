@@ -40,3 +40,13 @@ Opcode: `68`
 
 - [AMD CDNA 2 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Matrix-Fused Multiply-Add for 32x32x2 single-precision tiles, accumulating into fp32. Reduces memory bandwidth pressure for operations bounded by throughput at fp32 precision.
+
+## Example
+```cpp
+__device__ void mfma_32x32x2_fp32(float32_t& d_out, float2_t a, float2_t b, float32_t c) {
+    d_out = __builtin_amdgcn_mfma_f32_32x32x2f32(a, b, c, 0, 0, 0);
+}
+```

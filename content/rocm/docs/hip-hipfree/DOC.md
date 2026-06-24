@@ -45,3 +45,17 @@ hipSuccess
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#ga740d08da65cae1441ba32f8fedb863d1)
+
+## Semantics
+Frees memory previously allocated on the device via `hipMalloc`. It communicates with the ROCr memory manager to unmap and return the physical pages to the GPU memory pool. Freeing null pointers is a no-op.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+
+void cleanup(float* d_ptr) {
+    if (d_ptr != nullptr) {
+        hipFree(d_ptr);
+    }
+}
+```

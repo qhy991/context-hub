@@ -39,3 +39,16 @@ Opcode: `0`
 
 - [AMD CDNA 4 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Atomically adds an unsigned 32-bit integer to a value in LDS. Ensures serialization of operations across threads in a workgroup attempting to update the same LDS location.
+
+## Example
+```cpp
+__device__ void atomic_add_lds(uint32_t lds_offset, uint32_t inc) {
+    asm volatile(
+        "ds_add_u32 %0, %1 offset:0" 
+        : : "v"(lds_offset), "v"(inc)
+    );
+}
+```

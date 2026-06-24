@@ -53,3 +53,29 @@ hipSuccess , hipErrorInvalidValue , hipErrorUnknown
 - [HIP Runtime API Reference](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/index.html)
 - [HIP Programming Guide](https://rocm.docs.amd.com/projects/HIP/)
 - [HIP API Documentation](https://rocm.docs.amd.com/projects/HIP/en/latest/doxygen/html/group___memory.html#gac1a055d288302edd641c6d7416858e1e)
+
+## Semantics
+Copies data between host and device or device and device. It automatically infers the direction based on the pointers if unified virtual addressing is active, but performance is optimized when the correct `hipMemcpyKind` is specified. Under the hood, it may use synchronous SDMA engine transfers or host-side mapping.
+
+## Example
+```cpp
+#include <hip/hip_runtime.h>
+#include <vector>
+
+int main() {
+    size_t N = 256;
+    size_t bytes = N * sizeof(float);
+    std::vector<float> h_A(N, 1.0f);
+    float* d_A;
+    
+    hipMalloc(&d_A, bytes);
+    // Host to Device
+    hipMemcpy(d_A, h_A.data(), bytes, hipMemcpyHostToDevice);
+    
+    // Device to Host
+    hipMemcpy(h_A.data(), d_A, bytes, hipMemcpyDeviceToHost);
+    
+    hipFree(d_A);
+    return 0;
+}
+```

@@ -40,3 +40,14 @@ Opcode: `77`
 
 - [AMD CDNA 2 ISA Reference Guide](https://www.amd.com/content/dam/amd/en/documents/instinct-tech-docs/instruction-set-architectures/)
 - [AMD Machine-Readable ISA](https://gpuopen.com/machine-readable-isa/)
+
+## Semantics
+Matrix-Fused Multiply-Add for 16x16x16 half-precision (fp16) tiles, accumulating into 32-bit floats. Central to CDNA matrix cores, executing a massive block of MAC operations efficiently.
+
+## Example
+```cpp
+__device__ void mfma_16x16x16_fp16(float32_t& d_out, half16_t a, half16_t b, float32_t c) {
+    // Pseudocode abstraction of __builtin_amdgcn_mfma_f32_16x16x16f16
+    d_out = __builtin_amdgcn_mfma_f32_16x16x16f16(a, b, c, 0, 0, 0);
+}
+```
