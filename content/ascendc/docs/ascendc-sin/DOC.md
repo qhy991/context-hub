@@ -25,6 +25,14 @@ void Sin(LocalTensor<T>& dst, LocalTensor<T>& src, int32_t count)
 
 Performs element-wise sine computation on the source tensor and stores the result in the destination tensor. The input values should typically be in radians.
 
+## Semantics
+
+```cpp
+for (int i = 0; i < count; i++) {
+    dst[i] = sin(src[i]);
+}
+```
+
 ## Hardware Unit
 
 Vector Unit

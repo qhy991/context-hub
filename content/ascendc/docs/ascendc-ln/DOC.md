@@ -25,6 +25,14 @@ void Ln(LocalTensor<T>& dst, LocalTensor<T>& src, int32_t count)
 
 Performs element-wise natural logarithm (`ln(x)`) computation on the source tensor and stores the result in the destination tensor. This operation is performed on the Vector unit.
 
+## Semantics
+
+```cpp
+for (int i = 0; i < count; i++) {
+    dst[i] = log(src[i]); // natural logarithm
+}
+```
+
 ## Hardware Unit
 
 Vector Unit

@@ -25,6 +25,14 @@ LocalTensor<T> TQue<pos, 1>::DeQue()
 
 Used in Ascend C pipeline programming. Dequeues a `LocalTensor` from the queue for processing. This is a blocking operation if the queue is empty.
 
+## Semantics
+
+```cpp
+LocalTensor<T> tensor = queue.DeQue<T>();
+// Pop a tensor from the front of the queue and return its handle. 
+// Blocks if the queue is empty.
+```
+
 ## Example
 
 ```cpp

@@ -25,6 +25,13 @@ void TQue<pos, 1>::FreeTensor(LocalTensor<T>& tensor)
 
 Returns a previously dequeued `LocalTensor` back to the memory pool of the queue once processing is complete, enabling memory reuse.
 
+## Semantics
+
+```cpp
+queue.FreeTensor(tensor);
+// Returns the tensor handle to the free pool of the queue.
+```
+
 ## Example
 
 ```cpp

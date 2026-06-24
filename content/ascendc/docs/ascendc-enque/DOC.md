@@ -25,6 +25,14 @@ void TQue<pos, 1>::EnQue(LocalTensor<T>& tensor)
 
 Used in Ascend C pipeline programming. Enqueues a `LocalTensor` containing valid data into the asynchronous queue so that the next pipeline stage (or hardware unit) can access it.
 
+## Semantics
+
+```cpp
+queue.EnQue(tensor);
+// Push the tensor handle to the back of the queue. 
+// Blocks if the queue is full.
+```
+
 ## Example
 
 ```cpp

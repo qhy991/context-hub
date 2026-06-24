@@ -14,6 +14,17 @@ metadata:
 
 For matrices that exceed the capacity of the L1 or Unified Buffer (UB), the `Matmul` class provides advanced iteration and tiling controls. This allows developers to manually load blocks, compute them, and handle edge cases (tail blocks).
 
+## Semantics
+
+```cpp
+// Advanced Matmul execution flow:
+matmul_obj.SetTensorA(A);
+matmul_obj.SetTensorB(B);
+matmul_obj.SetBias(bias);
+matmul_obj.IterateAll(C);
+// Computes C = A * B + bias iteratively block-by-block.
+```
+
 ## Hardware Unit
 
 Cube Unit

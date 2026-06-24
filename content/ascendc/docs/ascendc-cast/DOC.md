@@ -25,6 +25,14 @@ void Cast(LocalTensor<dstT>& dst, LocalTensor<srcT>& src, RoundMode roundMode, i
 
 Performs an element-wise cast of data types from `srcT` to `dstT`. Commonly used for precision switching (e.g., float32 to float16, int32 to float32).
 
+## Semantics
+
+```cpp
+for (int i = 0; i < count; i++) {
+    dst[i] = static_cast<dstT>(src[i]); // Apply roundMode if needed
+}
+```
+
 ## Hardware Unit
 
 Vector Unit

@@ -25,6 +25,14 @@ void Cos(LocalTensor<T>& dst, LocalTensor<T>& src, int32_t count)
 
 Performs element-wise cosine computation on the source tensor and stores the result in the destination tensor. The input values should typically be in radians.
 
+## Semantics
+
+```cpp
+for (int i = 0; i < count; i++) {
+    dst[i] = cos(src[i]);
+}
+```
+
 ## Hardware Unit
 
 Vector Unit
