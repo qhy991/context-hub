@@ -33,3 +33,33 @@ LocalTensor<half> tensor = inQueue.AllocTensor<half>();
 // ... write data ...
 inQueue.EnQue(tensor);
 ```
+
+## Parameters
+
+| Parameter | Type | Description |
+|-----------|------|-------------|
+| T | Template | The data type of the tensor (e.g. `half`, `float`) |
+
+## Semantics
+
+`AllocTensor` claims a portion of the memory from a TQue (Queue). It must always be matched with a corresponding `FreeTensor` when the compute block is finished to prevent deadlocks in the MTE (Memory Transfer Engine) pipelines.
+
+## Example
+```cpp
+#include "kernel_operator.h"
+using namespace AscendC;
+
+__aicore__ inline void ProcessQueue() {
+    TPipe pipe;
+    TQue<QuePosition::VECIN, 1> inQueueX;
+    pipe.InitBuffer(inQueueX, 1, 256 * sizeof(half));
+
+    // Allocate the tensor from the queue
+    LocalTensor<half> xLocal = inQueueX.AllocTensor<half>();
+    
+    // ... use xLocal ...
+
+    // Free the tensor back to the queue
+    inQueueX.FreeTensor(xLocal);
+}
+```

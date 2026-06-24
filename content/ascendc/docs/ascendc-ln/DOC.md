@@ -45,3 +45,40 @@ Vector Unit
 ## Target Architecture
 
 Ascend NPU (Atlas series)
+
+## Example
+```cpp
+#include "kernel_operator.h"
+using namespace AscendC;
+
+class KernelLayerNorm {
+public:
+    __aicore__ inline KernelLayerNorm() {}
+    __aicore__ inline void Init(GM_ADDR x, GM_ADDR y, uint32_t totalLength) {
+        this->totalLength = totalLength;
+        xGm.SetGlobalBuffer((__gm__ half*)x, totalLength);
+        yGm.SetGlobalBuffer((__gm__ half*)y, totalLength);
+        pipe.InitBuffer(inQueueX, 1, totalLength * sizeof(half));
+        pipe.InitBuffer(outQueueY, 1, totalLength * sizeof(half));
+    }
+    __aicore__ inline void Process() {
+        LocalTensor<half> xLocal = inQueueX.AllocTensor<half>();
+        LocalTensor<half> yLocal = outQueueY.AllocTensor<half>();
+        DataCopy(xLocal, xGm, totalLength);
+        
+        // Simplified LayerNorm behavior
+        LayerNorm(yLocal, xLocal, totalLength);
+        
+        DataCopy(yGm, yLocal, totalLength);
+        inQueueX.FreeTensor(xLocal);
+        outQueueY.FreeTensor(yLocal);
+    }
+private:
+    TPipe pipe;
+    TQue<QuePosition::VECIN, 1> inQueueX;
+    TQue<QuePosition::VECOUT, 1> outQueueY;
+    GlobalTensor<half> xGm;
+    GlobalTensor<half> yGm;
+    uint32_t totalLength;
+};
+```

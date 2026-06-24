@@ -33,3 +33,32 @@ Vector Unit
 
 - float16 (half)
 - float32 (float)
+
+## Example
+```cpp
+#include "kernel_operator.h"
+using namespace AscendC;
+
+extern "C" __global__ __aicore__ void kernel_cos(GM_ADDR x, GM_ADDR y, uint32_t totalLength) {
+    TPipe pipe;
+    TQue<QuePosition::VECIN, 1> inQueueX;
+    TQue<QuePosition::VECOUT, 1> outQueueY;
+    pipe.InitBuffer(inQueueX, 1, totalLength * sizeof(half));
+    pipe.InitBuffer(outQueueY, 1, totalLength * sizeof(half));
+
+    GlobalTensor<half> xGm;
+    GlobalTensor<half> yGm;
+    xGm.SetGlobalBuffer((__gm__ half*)x, totalLength);
+    yGm.SetGlobalBuffer((__gm__ half*)y, totalLength);
+
+    LocalTensor<half> xLocal = inQueueX.AllocTensor<half>();
+    LocalTensor<half> yLocal = outQueueY.AllocTensor<half>();
+    
+    DataCopy(xLocal, xGm, totalLength);
+    Cos(yLocal, xLocal, totalLength);
+    DataCopy(yGm, yLocal, totalLength);
+
+    inQueueX.FreeTensor(xLocal);
+    outQueueY.FreeTensor(yLocal);
+}
+```

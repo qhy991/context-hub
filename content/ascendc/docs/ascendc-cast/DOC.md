@@ -41,3 +41,32 @@ Vector Unit
 ## Supported Data Types
 
 - Conversions between float16, float32, int32_t, int16_t, int8_t, uint8_t
+
+## Example
+```cpp
+#include "kernel_operator.h"
+using namespace AscendC;
+
+extern "C" __global__ __aicore__ void kernel_cast(GM_ADDR x, GM_ADDR y, uint32_t totalLength) {
+    TPipe pipe;
+    TQue<QuePosition::VECIN, 1> inQueueX;
+    TQue<QuePosition::VECOUT, 1> outQueueY;
+    pipe.InitBuffer(inQueueX, 1, totalLength * sizeof(half));
+    pipe.InitBuffer(outQueueY, 1, totalLength * sizeof(float)); // Casting from half to float
+
+    GlobalTensor<half> xGm;
+    GlobalTensor<float> yGm;
+    xGm.SetGlobalBuffer((__gm__ half*)x, totalLength);
+    yGm.SetGlobalBuffer((__gm__ float*)y, totalLength);
+
+    LocalTensor<half> xLocal = inQueueX.AllocTensor<half>();
+    LocalTensor<float> yLocal = outQueueY.AllocTensor<float>();
+    
+    DataCopy(xLocal, xGm, totalLength);
+    Cast(yLocal, xLocal, RoundMode::CAST_NONE, totalLength);
+    DataCopy(yGm, yLocal, totalLength);
+
+    inQueueX.FreeTensor(xLocal);
+    outQueueY.FreeTensor(yLocal);
+}
+```
